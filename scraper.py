@@ -14,6 +14,7 @@ URLS_FILE = 'urls.txt'
 KEYWORDS_FILE = 'keywords.json'
 OUTPUT_DIR = 'output_configs'
 README_FILE = 'README.md'
+REJECTED_LOG_FILE = 'rejected_configs_report.md' # نام فایل گزارش رد شده‌ها
 REQUEST_TIMEOUT = 15
 CONCURRENT_REQUESTS = 10
 
@@ -27,40 +28,43 @@ PROTOCOL_CATEGORIES = [
     "Tuic", "Hysteria2", "WireGuard"
 ]
 
-# <<<--- تابع اعتبارسنجی ساده شده --->>>
+# <<<--- تابع اعتبارسنجی به‌روز شده با بازگرداندن دلیل --->>>
 def is_config_valid(config_string, min_len=20, max_len=2500, max_overall_percent_char_ratio=0.5, max_specific_percent25_count=10):
     """
     Checks if a config string looks potentially valid.
-    Focuses on length and extreme cases of URL encoding.
+    Returns (True, None) if valid, or (False, "reason_string") if invalid.
     """
     l = len(config_string)
-    # 1. Check overall length
     if not (min_len <= l <= max_len):
-        logging.warning(f"FILTER: REJECT (Length {l}): {config_string[:60]}...")
-        return False
+        return False, f"طول نامعتبر ({l}). مورد انتظار: {min_len}-{max_len}"
 
-    # 2. Check for excessive overall '%' characters if the string is long enough
     if l > 50 and (config_string.count('%') / l) > max_overall_percent_char_ratio:
-        logging.warning(f"FILTER: REJECT (High % Ratio): {config_string[:60]}...")
-        return False
+        return False, f"تعداد زیاد کاراکتر % نسبت به طول کل ({config_string.count('%')}/{l})"
 
-    # 3. Check for the specific problematic '%25' pattern if it's very frequent
     if config_string.count('%25') > max_specific_percent25_count:
-        logging.warning(f"FILTER: REJECT (High %25 Count): {config_string[:60]}...")
-        return False
+        return False, f"تعداد زیاد تکرار '%25' ({config_string.count('%25')})"
 
-    # 4. Must start with a known protocol (this is a basic sanity check)
-    protocol_ok = False
+    proto_prefix = None
     for p in PROTOCOL_CATEGORIES:
         if config_string.lower().startswith(p.lower() + "://"):
-            protocol_ok = True
+            proto_prefix = p.lower()
             break
-    if not protocol_ok:
-        logging.warning(f"FILTER: REJECT (No Valid Prefix): {config_string[:60]}...")
-        return False
+    if not proto_prefix:
+        return False, "پیشوند پروتکل معتبر یافت نشد"
 
-    logging.debug(f"FILTER: ACCEPT: {config_string[:60]}...")
-    return True
+    # --- بررسی‌های ساختاری دیگر (می‌توانید این بخش را ساده‌تر یا پیچیده‌تر کنید) ---
+    # مثال: برای VLESS/VMESS/TROJAN دنبال UUID بگردیم
+    if proto_prefix in ["vless", "vmess", "trojan"]:
+        uuid_part_match = re.search(r'([a-fA-F0-9]{8}-?[a-fA-F0-9]{4}-?[a-fA-F0-9]{4}-?[a-fA-F0-9]{4}-?[a-fA-F0-9]{12})', config_string)
+        if not uuid_part_match:
+            return False, f"UUID معتبر برای {proto_prefix} یافت نشد"
+        # اگر UUID پیدا شد، بررسی کنیم که آیا قبل از @ آمده است
+        if '@' in config_string and config_string.find(uuid_part_match.group(1)) > config_string.find('@'):
+            return False, f"UUID برای {proto_prefix} بعد از @ یافت شد که نامعتبر است"
+
+
+    # اگر به اینجا رسید، یعنی معتبر است (یا حداقل از فیلترهای فعلی گذشته)
+    return True, None
 # <<<--- پایان تابع اعتبارسنجی --->>>
 
 async def fetch_url(session, url):
@@ -107,6 +111,42 @@ def save_to_file(directory, category_name, items_set):
         logging.error(f"Failed to write file {file_path}: {e}")
         return False, 0
 
+def save_rejected_log(rejected_items):
+    """Saves rejected configs to a Markdown file."""
+    if not rejected_items:
+        logging.info(f"No configs rejected in this run. If {REJECTED_LOG_FILE} exists, it won't be modified unless it contains previous rejections.")
+        # Optionally create an empty file or a file saying "no rejections"
+        # For now, just create it if there are items.
+        if not os.path.exists(REJECTED_LOG_FILE) and not rejected_items:
+             with open(REJECTED_LOG_FILE, 'w', encoding='utf-8') as f:
+                f.write(f"# ⚠️ گزارش کانفیگ‌های رد شده (آخرین به‌روزرسانی: {datetime.now(pytz.timezone('Asia/Tehran')).strftime('%Y-%m-%d %H:%M:%S %Z')})\n\n")
+                f.write("هیچ کانفیگی در این اجرا رد نشده است.\n")
+        return
+
+    tz = pytz.timezone('Asia/Tehran')
+    now = datetime.now(tz)
+    timestamp = now.strftime("%Y-%m-%d %H:%M:%S %Z")
+
+    md_content = f"# ⚠️ گزارش کانفیگ‌های رد شده (آخرین به‌روزرسانی: {timestamp})\n\n"
+    md_content += "در این گزارش، کانفیگ‌هایی که توسط اسکریپت معتبر تشخیص داده نشده‌اند به همراه دلیل رد شدن و URL منبع لیست شده‌اند.\n\n"
+
+    for item in rejected_items:
+        config = item["config"]
+        reason = item["reason"]
+        source_url = item["url"]
+        md_content += f"## کانفیگ:\n```text\n{config}\n```\n" # Use text for better rendering of long strings
+        md_content += f"**دلیل رد شدن:** {reason}\n\n"
+        md_content += f"**منبع URL:** `{source_url}`\n\n"
+        md_content += "---\n\n"
+
+    try:
+        with open(REJECTED_LOG_FILE, 'w', encoding='utf-8') as f:
+            f.write(md_content)
+        logging.info(f"Generated {REJECTED_LOG_FILE} with {len(rejected_items)} entries.")
+    except Exception as e:
+        logging.error(f"Failed to write {REJECTED_LOG_FILE}: {e}")
+
+
 def generate_simple_readme(protocol_counts, country_counts):
     tz = pytz.timezone('Asia/Tehran')
     now = datetime.now(tz)
@@ -114,7 +154,7 @@ def generate_simple_readme(protocol_counts, country_counts):
 
     md_content = f"# 📊 نتایج استخراج (آخرین به‌روزرسانی: {timestamp})\n\n"
     md_content += "این فایل به صورت خودکار ایجاد شده است.\n\n"
-    md_content += "**توضیح:** فایل‌های کشورها فقط شامل کانفیگ‌هایی هستند که نام/پرچم کشور (با رعایت مرز کلمه برای مخفف‌ها) در **اسم خود کانفیگ (بعد از #)** پیدا شده باشد. کانفیگ‌های مشکوک (بسیار طولانی یا با کدگذاری شدید) فیلتر شده‌اند.\n\n" # <--- توضیح به‌روز شد
+    md_content += f"**توضیح:** فایل‌های کشورها فقط شامل کانفیگ‌هایی هستند که نام/پرچم کشور (با رعایت مرز کلمه برای مخفف‌ها) در **اسم خود کانفیگ (بعد از #)** پیدا شده باشد. کانفیگ‌های مشکوک (فیک) فیلتر شده‌اند. گزارش کامل کانفیگ‌های رد شده را می‌توانید در [`{REJECTED_LOG_FILE}`](./{REJECTED_LOG_FILE}) مشاهده کنید.\n\n" # <--- لینک اضافه شد
 
     md_content += "## 📁 فایل‌های پروتکل‌ها\n\n"
     if protocol_counts:
@@ -170,9 +210,10 @@ async def main():
 
     final_configs_by_country = {cat: set() for cat in country_category_names}
     final_all_protocols = {cat: set() for cat in PROTOCOL_CATEGORIES}
+    rejected_configs_log = [] # <--- لیست برای نگهداری رد شده‌ها
 
     logging.info("Processing pages & filtering configs...")
-    for url, text in fetched_pages:
+    for url, text in fetched_pages: # <--- 'url' از اینجا می‌آید
         if not text:
             continue
 
@@ -184,7 +225,9 @@ async def main():
                 all_page_configs.update(page_matches[cat])
 
         for config in all_page_configs:
-            if not is_config_valid(config):
+            is_valid, reason = is_config_valid(config) # <--- دریافت دلیل
+            if not is_valid:
+                rejected_configs_log.append({"config": config, "reason": reason, "url": url}) # <--- اضافه کردن URL منبع
                 continue
 
             for cat in PROTOCOL_CATEGORIES:
@@ -230,6 +273,7 @@ async def main():
         if saved: country_counts[category] = count
 
     generate_simple_readme(protocol_counts, country_counts)
+    save_rejected_log(rejected_configs_log) # <--- ذخیره گزارش رد شده‌ها
 
     logging.info("--- Script Finished ---")
 
