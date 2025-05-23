@@ -18,20 +18,45 @@ REQUEST_TIMEOUT = 15  # seconds
 CONCURRENT_REQUESTS = 10  # Max concurrent requests
 
 # --- Logging Setup ---
-# Set level to INFO (or DEBUG for more details if needed)
 logging.basicConfig(level=logging.INFO,
                     format='%(asctime)s - %(levelname)s - %(message)s')
 
-# --- Protocol Categories (Ensure these match your keywords.json keys EXACTLY) ---
+# --- Protocol Categories ---
 PROTOCOL_CATEGORIES = [
     "Vmess", "Vless", "Trojan", "ShadowSocks", "ShadowSocksR",
     "Tuic", "Hysteria2", "WireGuard"
 ]
 
+# <<<--- تابع جدید برای فیلتر کردن کانفیگ‌های فیک --->>>
+def is_config_valid(config_string, min_len=20, max_len=2000, max_percent_25=5):
+    """
+    Checks if a config string looks potentially valid based on length
+    and excessive URL encoding.
+    """
+    l = len(config_string)
+    # 1. Check length
+    if not (min_len <= l <= max_len):
+        logging.debug(f"Skipping due to length ({l}): {config_string[:30]}...")
+        return False
+
+    # 2. Check for excessive %25 (multiple URL encodings)
+    if config_string.count('%25') > max_percent_25:
+        logging.debug(f"Skipping due to %25 count: {config_string[:60]}...")
+        return False
+
+    # 3. Check for basic protocol start (redundant but safe)
+    if not any(config_string.lower().startswith(p.lower()+"://") for p in PROTOCOL_CATEGORIES):
+         logging.debug(f"Skipping due to invalid start: {config_string[:30]}...")
+         return False
+
+    # If all checks pass, it's likely valid
+    return True
+# <<<--- پایان تابع جدید --->>>
+
+
 async def fetch_url(session, url):
     """Asynchronously fetches the content of a single URL."""
     try:
-        # Add headers to mimic a browser, which can sometimes help
         headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
         }
@@ -84,7 +109,7 @@ def generate_simple_readme(protocol_counts, country_counts):
 
     md_content = f"# 📊 نتایج استخراج (آخرین به‌روزرسانی: {timestamp})\n\n"
     md_content += "این فایل به صورت خودکار ایجاد شده است.\n\n"
-    md_content += "**توضیح:** فایل‌های کشورها فقط شامل کانفیگ‌هایی هستند که نام/پرچم کشور (با رعایت مرز کلمه برای مخفف‌ها) در **اسم خود کانفیگ (بعد از #)** پیدا شده باشد.\n\n"
+    md_content += "**توضیح:** فایل‌های کشورها فقط شامل کانفیگ‌هایی هستند که نام/پرچم کشور (با رعایت مرز کلمه برای مخفف‌ها) در **اسم خود کانفیگ (بعد از #)** پیدا شده باشد. کانفیگ‌های مشکوک (فیک) فیلتر شده‌اند.\n\n" # <--- توضیح فیلتر اضافه شد
 
     md_content += "## 📁 فایل‌های پروتکل‌ها\n\n"
     if protocol_counts:
@@ -113,10 +138,11 @@ def generate_simple_readme(protocol_counts, country_counts):
     except Exception as e:
         logging.error(f"Failed to write {README_FILE}: {e}")
 
+
 async def main():
     """Main function to coordinate the scraping process."""
     if not os.path.exists(URLS_FILE) or not os.path.exists(KEYWORDS_FILE):
-        logging.critical("Input files (urls.txt or keywords.json) not found.")
+        logging.critical("Input files not found.")
         return
 
     with open(URLS_FILE, 'r') as f:
@@ -139,11 +165,11 @@ async def main():
     async with aiohttp.ClientSession() as session:
         fetched_pages = await asyncio.gather(*[fetch_with_sem(session, url) for url in urls])
 
-    # --- Process & Aggregate (Check #Name Logic with Word Boundaries) ---
+    # --- Process & Aggregate ---
     final_configs_by_country = {cat: set() for cat in country_category_names}
     final_all_protocols = {cat: set() for cat in PROTOCOL_CATEGORIES}
 
-    logging.info("Processing pages for config name association...")
+    logging.info("Processing pages & filtering configs...")
     for url, text in fetched_pages:
         if not text:
             continue
@@ -154,39 +180,48 @@ async def main():
         for cat in PROTOCOL_CATEGORIES:
             if cat in page_matches:
                 all_page_configs.update(page_matches[cat])
-                final_all_protocols[cat].update(page_matches[cat])
 
-        # Associate based on #Name part
+        # <<<--- تغییر مهم: فیلتر کردن و سپس پردازش --->>>
         for config in all_page_configs:
-            if '#' not in config:
-                continue
+            # 1. ابتدا کانفیگ را اعتبارسنجی کن
+            if not is_config_valid(config):
+                logging.info(f"Skipping FAKE/INVALID config: {config[:60]}...")
+                continue # <-- اگر معتبر نیست، سراغ بعدی برو
 
-            try:
-                name_part = config.split('#', 1)[1] # Keep original case for regex checks
-            except IndexError:
-                continue
+            # 2. اگر معتبر بود، به لیست پروتکل مربوطه اضافه کن
+            for cat in PROTOCOL_CATEGORIES:
+                if config.lower().startswith(cat.lower() + "://"):
+                     final_all_protocols[cat].add(config)
+                     break
 
-            for country, keywords in country_categories.items():
-                for keyword in keywords:
-                    match_found = False
-                    is_abbr = (len(keyword) == 2 or len(keyword) == 3) and re.match(r'^[A-Z]+$', keyword)
+            # 3. اگر معتبر بود و نام داشت، سعی کن به کشور مرتبط کنی
+            if '#' in config:
+                try:
+                    name_part = config.split('#', 1)[1]
+                except IndexError:
+                    continue
 
-                    if is_abbr:
-                        pattern = r'\b' + re.escape(keyword) + r'\b'
-                        if re.search(pattern, name_part, re.IGNORECASE):
-                            match_found = True
-                    else:
-                        if keyword.lower() in name_part.lower():
-                            match_found = True
+                for country, keywords in country_categories.items():
+                    for keyword in keywords:
+                        match_found = False
+                        is_abbr = (len(keyword) == 2 or len(keyword) == 3) and re.match(r'^[A-Z]+$', keyword)
 
-                    if match_found:
-                        # <<<--- کد اشکال‌زدایی: شروع --->>>
-                        # اگر کانفیگی به بنگلادش اضافه شد، دلیلش را چاپ کن
-                        if country == "Bangladesh":
-                           logging.warning(f"DEBUG: Adding '{config}' to 'Bangladesh' because keyword '{keyword}' matched name '{name_part}'.")
-                        # <<<--- کد اشکال‌زدایی: پایان --->>>
-                        final_configs_by_country[country].add(config)
-                        break # Found country, move to next country
+                        if is_abbr:
+                            pattern = r'\b' + re.escape(keyword) + r'\b'
+                            if re.search(pattern, name_part, re.IGNORECASE):
+                                match_found = True
+                        else:
+                            if keyword.lower() in name_part.lower():
+                                match_found = True
+
+                        if match_found:
+                            # Debugging for Bangladesh (or any other)
+                            # if country == "Bangladesh":
+                            #    logging.warning(f"DEBUG: Adding '{config}' to 'Bangladesh' because keyword '{keyword}' matched name '{name_part}'.")
+                            final_configs_by_country[country].add(config)
+                            break # Found country, move to next country
+        # <<<--- پایان تغییر --->>>
+
 
     # --- Save Output Files ---
     if os.path.exists(OUTPUT_DIR):
