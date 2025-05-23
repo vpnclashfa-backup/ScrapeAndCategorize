@@ -14,8 +14,8 @@ URLS_FILE = 'urls.txt'
 KEYWORDS_FILE = 'keywords.json'
 OUTPUT_DIR = 'output_configs'
 README_FILE = 'README.md'
-REQUEST_TIMEOUT = 15  # seconds
-CONCURRENT_REQUESTS = 10  # Max concurrent requests
+REQUEST_TIMEOUT = 15
+CONCURRENT_REQUESTS = 10
 
 # --- Logging Setup ---
 logging.basicConfig(level=logging.INFO,
@@ -27,72 +27,43 @@ PROTOCOL_CATEGORIES = [
     "Tuic", "Hysteria2", "WireGuard"
 ]
 
-# <<<--- تابع اعتبارسنجی ساختاری به‌روز شده --->>>
-def is_config_valid(config_string, min_len=30, max_len=2000, max_percent_25=5):
+# <<<--- تابع اعتبارسنجی ساده شده --->>>
+def is_config_valid(config_string, min_len=20, max_len=2500, max_overall_percent_char_ratio=0.5, max_specific_percent25_count=10):
     """
-    Checks if a config string has basic structural validity.
+    Checks if a config string looks potentially valid.
+    Focuses on length and extreme cases of URL encoding.
     """
     l = len(config_string)
-    # 1. Check length
+    # 1. Check overall length
     if not (min_len <= l <= max_len):
-        logging.debug(f"Skipping (Length {l}): {config_string[:30]}...")
+        logging.warning(f"FILTER: REJECT (Length {l}): {config_string[:60]}...")
         return False
 
-    # 2. Check for excessive %25
-    if config_string.count('%25') > max_percent_25:
-        logging.debug(f"Skipping (%25 Count): {config_string[:60]}...")
+    # 2. Check for excessive overall '%' characters if the string is long enough
+    if l > 50 and (config_string.count('%') / l) > max_overall_percent_char_ratio:
+        logging.warning(f"FILTER: REJECT (High % Ratio): {config_string[:60]}...")
         return False
 
-    # 3. Must start with a known protocol
-    proto_prefix = None
+    # 3. Check for the specific problematic '%25' pattern if it's very frequent
+    if config_string.count('%25') > max_specific_percent25_count:
+        logging.warning(f"FILTER: REJECT (High %25 Count): {config_string[:60]}...")
+        return False
+
+    # 4. Must start with a known protocol (this is a basic sanity check)
+    protocol_ok = False
     for p in PROTOCOL_CATEGORIES:
         if config_string.lower().startswith(p.lower() + "://"):
-            proto_prefix = p.lower()
+            protocol_ok = True
             break
-    if not proto_prefix:
-        logging.debug(f"Skipping (No Prefix): {config_string[:30]}...")
+    if not protocol_ok:
+        logging.warning(f"FILTER: REJECT (No Valid Prefix): {config_string[:60]}...")
         return False
 
-    # 4. Must contain '@' (for most common structures)
-    if '@' not in config_string:
-        # Allow ssr and some ss without @, but be stricter otherwise
-        if proto_prefix not in ['ssr', 'ss']:
-            logging.debug(f"Skipping (No @): {config_string[:60]}...")
-            return False
-
-    # 5. Must contain a port number (almost always after @ or host)
-    if not re.search(r':\d+', config_string):
-        logging.debug(f"Skipping (No Port): {config_string[:60]}...")
-        return False
-
-    # 6. Check for a reasonable host (IP or domain)
-    try:
-        # Try to extract the part that should be the host
-        host_part = re.split(r'[@:]', config_string.split('://', 1)[1])[1]
-        host_part = host_part.split('?', 1)[0].split('#', 1)[0]
-        if not host_part: # Host cannot be empty
-            logging.debug(f"Skipping (Empty Host): {config_string[:60]}...")
-            return False
-        # Check if it looks like an IP or contains a dot (domain)
-        if not (re.match(r'^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$', host_part) or '.' in host_part):
-            logging.debug(f"Skipping (Invalid Host '{host_part}'): {config_string[:60]}...")
-            return False
-    except IndexError:
-        logging.debug(f"Skipping (Host Parse Error): {config_string[:60]}...")
-        return False # Couldn't parse likely host part
-
-    # 7. Check for UUID in Vless/Vmess/Trojan
-    if proto_prefix in ["vless", "vmess", "trojan"]:
-        if not re.search(r'[a-fA-F0-9]{8}-?[a-fA-F0-9]{4}-?[a-fA-F0-9]{4}-?[a-fA-F0-9]{4}-?[a-fA-F0-9]{12}', config_string):
-            logging.debug(f"Skipping (No UUID): {config_string[:60]}...")
-            return False
-
+    logging.debug(f"FILTER: ACCEPT: {config_string[:60]}...")
     return True
 # <<<--- پایان تابع اعتبارسنجی --->>>
 
-
 async def fetch_url(session, url):
-    """Asynchronously fetches the content of a single URL."""
     try:
         headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
@@ -109,7 +80,6 @@ async def fetch_url(session, url):
         return url, None
 
 def find_matches(text, categories):
-    """Finds all matches using keywords.json patterns."""
     matches = {category: set() for category in categories}
     for category, patterns in categories.items():
         for pattern_str in patterns:
@@ -123,7 +93,6 @@ def find_matches(text, categories):
     return {k: v for k, v in matches.items() if v}
 
 def save_to_file(directory, category_name, items_set):
-    """Helper function to save a set to a file and return count."""
     if not items_set:
         return False, 0
     file_path = os.path.join(directory, f"{category_name}.txt")
@@ -139,14 +108,13 @@ def save_to_file(directory, category_name, items_set):
         return False, 0
 
 def generate_simple_readme(protocol_counts, country_counts):
-    """Generates a simpler README.md content."""
     tz = pytz.timezone('Asia/Tehran')
     now = datetime.now(tz)
     timestamp = now.strftime("%Y-%m-%d %H:%M:%S %Z")
 
     md_content = f"# 📊 نتایج استخراج (آخرین به‌روزرسانی: {timestamp})\n\n"
     md_content += "این فایل به صورت خودکار ایجاد شده است.\n\n"
-    md_content += "**توضیح:** فایل‌های کشورها فقط شامل کانفیگ‌هایی هستند که نام/پرچم کشور (با رعایت مرز کلمه برای مخفف‌ها) در **اسم خود کانفیگ (بعد از #)** پیدا شده باشد. کانفیگ‌های فیک و نامعتبر از نظر ساختاری فیلتر شده‌اند.\n\n"
+    md_content += "**توضیح:** فایل‌های کشورها فقط شامل کانفیگ‌هایی هستند که نام/پرچم کشور (با رعایت مرز کلمه برای مخفف‌ها) در **اسم خود کانفیگ (بعد از #)** پیدا شده باشد. کانفیگ‌های مشکوک (بسیار طولانی یا با کدگذاری شدید) فیلتر شده‌اند.\n\n" # <--- توضیح به‌روز شد
 
     md_content += "## 📁 فایل‌های پروتکل‌ها\n\n"
     if protocol_counts:
@@ -177,7 +145,6 @@ def generate_simple_readme(protocol_counts, country_counts):
 
 
 async def main():
-    """Main function to coordinate the scraping process."""
     if not os.path.exists(URLS_FILE) or not os.path.exists(KEYWORDS_FILE):
         logging.critical("Input files not found.")
         return
@@ -193,7 +160,6 @@ async def main():
     logging.info(f"Loaded {len(urls)} URLs and "
                  f"{len(categories)} categories.")
 
-    # --- Fetch URLs ---
     tasks = []
     sem = asyncio.Semaphore(CONCURRENT_REQUESTS)
     async def fetch_with_sem(session, url):
@@ -202,7 +168,6 @@ async def main():
     async with aiohttp.ClientSession() as session:
         fetched_pages = await asyncio.gather(*[fetch_with_sem(session, url) for url in urls])
 
-    # --- Process & Aggregate ---
     final_configs_by_country = {cat: set() for cat in country_category_names}
     final_all_protocols = {cat: set() for cat in PROTOCOL_CATEGORIES}
 
@@ -218,20 +183,14 @@ async def main():
             if cat in page_matches:
                 all_page_configs.update(page_matches[cat])
 
-        # Filter and process valid configs
         for config in all_page_configs:
-            # 1. Validate config structure
             if not is_config_valid(config):
-                # logging.info(f"Skipping INVALID config: {config[:60]}...") # Keep logging level INFO
-                continue # Skip if not valid
+                continue
 
-            # 2. Add to its protocol list
             for cat in PROTOCOL_CATEGORIES:
                 if config.lower().startswith(cat.lower() + "://"):
                      final_all_protocols[cat].add(config)
                      break
-
-            # 3. Associate with country if name matches
             if '#' in config:
                 try:
                     name_part = config.split('#', 1)[1]
@@ -254,8 +213,6 @@ async def main():
                         if match_found:
                             final_configs_by_country[country].add(config)
                             break
-
-    # --- Save Output Files ---
     if os.path.exists(OUTPUT_DIR):
         shutil.rmtree(OUTPUT_DIR)
     os.makedirs(OUTPUT_DIR, exist_ok=True)
@@ -272,11 +229,9 @@ async def main():
         saved, count = save_to_file(OUTPUT_DIR, category, items)
         if saved: country_counts[category] = count
 
-    # --- Generate README.md ---
     generate_simple_readme(protocol_counts, country_counts)
 
     logging.info("--- Script Finished ---")
 
-# --- Run the main function ---
 if __name__ == "__main__":
     asyncio.run(main())
