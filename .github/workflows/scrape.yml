@@ -25,10 +25,9 @@ jobs:
       - name: ⚙️ Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt # <-- pytz هم نصب می‌شود
+          pip install -r requirements.txt
 
       - name: 🕸️ Run scraping script
-        # اسکریپت را اجرا می‌کند تا پوشه و README ایجاد شود
         run: python scraper.py
 
       - name: 🔧 Configure Git
@@ -38,15 +37,13 @@ jobs:
 
       - name: ⬆️ Commit and Push Changes
         run: |
-          # پوشه خروجی و فایل README.md را اضافه می‌کند
-          git add output_configs/ README.md # <--- تغییر: README.md اضافه شد
+          # <<<--- تغییر: اضافه کردن فایل گزارش رد شده‌ها --->>>
+          git add output_configs/ README.md rejected_configs_report.md
 
-          # بررسی می‌کند که آیا تغییری برای کامیت وجود دارد یا نه
           if git diff --staged --quiet; then
             echo "No changes detected. Skipping commit."
           else
             echo "Changes detected. Committing and pushing..."
-            # پیام کامیت را کمی تغییر می‌دهیم
-            git commit -m "docs: Update README and config files 🤖 [skip ci]"
+            git commit -m "docs: Update README, configs, and rejection report 🤖 [skip ci]"
             git push
           fi
