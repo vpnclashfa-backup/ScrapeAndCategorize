@@ -3,10 +3,8 @@ name: Daily Scrape and Update Repo
 on:
   workflow_dispatch:
   schedule:
-    # هر روز ساعت 1 بامداد UTC اجرا می‌شود (حدود 4:30 صبح ایران)
     - cron: '0 1 * * *'
 
-# <<<--- تغییر مهم: اضافه کردن دسترسی برای نوشتن --->>>
 permissions:
   contents: write
 
@@ -16,7 +14,6 @@ jobs:
 
     steps:
       - name: 📥 Check out repository
-        # کد شما را دانلود می‌کند
         uses: actions/checkout@v4
 
       - name: 🐍 Set up Python
@@ -28,35 +25,28 @@ jobs:
       - name: ⚙️ Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          pip install -r requirements.txt # <-- pytz هم نصب می‌شود
 
       - name: 🕸️ Run scraping script
-        # اسکریپت را اجرا می‌کند تا پوشه output_configs ایجاد شود
+        # اسکریپت را اجرا می‌کند تا پوشه و README ایجاد شود
         run: python scraper.py
 
-      # <<<--- مراحل جدید برای Commit و Push --->>>
       - name: 🔧 Configure Git
-        # گیت را با اطلاعات یک بات پیکربندی می‌کند
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
 
       - name: ⬆️ Commit and Push Changes
-        # تغییرات را اضافه، کامیت و پوش می‌کند
         run: |
-          # پوشه خروجی را به گیت اضافه می‌کند (فایل‌های جدید/تغییریافته/حذف‌شده)
-          git add output_configs/
+          # پوشه خروجی و فایل README.md را اضافه می‌کند
+          git add output_configs/ README.md # <--- تغییر: README.md اضافه شد
 
           # بررسی می‌کند که آیا تغییری برای کامیت وجود دارد یا نه
           if git diff --staged --quiet; then
-            echo "No changes detected in config files. Skipping commit."
+            echo "No changes detected. Skipping commit."
           else
             echo "Changes detected. Committing and pushing..."
-            # تغییرات را با یک پیام استاندارد کامیت می‌کند
-            # [skip ci] به برخی سیستم‌ها می‌گوید که این کامیت نباید باعث اجرای مجدد CI شود
-            git commit -m "chore: Update config files [skip ci]"
-
-            # تغییرات را به شاخه اصلی (یا شاخه‌ای که اکشن روی آن اجرا شده) پوش می‌کند
+            # پیام کامیت را کمی تغییر می‌دهیم
+            git commit -m "docs: Update README and config files 🤖 [skip ci]"
             git push
           fi
-      # <<<--- پایان مراحل جدید --->>>
