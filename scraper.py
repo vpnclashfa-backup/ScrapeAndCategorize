@@ -14,27 +14,28 @@ URLS_FILE = 'urls.txt'
 KEYWORDS_FILE = 'keywords.json'
 OUTPUT_DIR = 'output_configs'
 README_FILE = 'README.md'
-REQUEST_TIMEOUT = 15
-CONCURRENT_REQUESTS = 10
+REQUEST_TIMEOUT = 15  # seconds
+CONCURRENT_REQUESTS = 10  # Max concurrent requests
 
 # --- Logging Setup ---
 logging.basicConfig(level=logging.INFO,
                     format='%(asctime)s - %(levelname)s - %(message)s')
 
-# --- Protocol Categories ---
+# --- Protocol Categories (Ensure these match your keywords.json keys EXACTLY) ---
 PROTOCOL_CATEGORIES = [
     "Vmess", "Vless", "Trojan", "ShadowSocks", "ShadowSocksR",
     "Tuic", "Hysteria2", "WireGuard"
 ]
 
 async def fetch_url(session, url):
-    """Fetches a single URL."""
+    """Asynchronously fetches the content of a single URL."""
     try:
         async with session.get(url, timeout=REQUEST_TIMEOUT) as response:
             response.raise_for_status()
             html = await response.text()
             soup = BeautifulSoup(html, 'html.parser')
-            text = soup.get_text(separator=' ', strip=True) # Use space separator
+            # Extract text using space as separator for better results
+            text = soup.get_text(separator=' ', strip=True)
             logging.info(f"Successfully fetched: {url}")
             return url, text
     except Exception as e:
@@ -54,10 +55,11 @@ def find_matches(text, categories):
                     matches[category].update(found)
             except re.error as e:
                 logging.error(f"Regex error for '{pattern_str}': {e}")
+    # Return only categories that have matches
     return {k: v for k, v in matches.items() if v}
 
 def save_to_file(directory, category_name, items_set):
-    """Helper function to save a set to a file."""
+    """Helper function to save a set to a file and return count."""
     if not items_set:
         return False, 0
     file_path = os.path.join(directory, f"{category_name}.txt")
@@ -110,9 +112,10 @@ def generate_simple_readme(protocol_counts, country_counts):
         logging.error(f"Failed to write {README_FILE}: {e}")
 
 async def main():
-    """Main function."""
+    """Main function to coordinate the scraping process."""
+    # --- Read Input Files ---
     if not os.path.exists(URLS_FILE) or not os.path.exists(KEYWORDS_FILE):
-        logging.critical("Input files not found.")
+        logging.critical("Input files (urls.txt or keywords.json) not found.")
         return
 
     with open(URLS_FILE, 'r') as f:
@@ -135,7 +138,7 @@ async def main():
     async with aiohttp.ClientSession() as session:
         fetched_pages = await asyncio.gather(*[fetch_with_sem(session, url) for url in urls])
 
-    # --- Process & Aggregate (New Logic: Check #Name) ---
+    # --- Process & Aggregate (Check #Name Logic) ---
     final_configs_by_country = {cat: set() for cat in country_category_names}
     final_all_protocols = {cat: set() for cat in PROTOCOL_CATEGORIES}
 
@@ -144,11 +147,9 @@ async def main():
         if not text:
             continue
 
-        # Find all matches once per page
         page_matches = find_matches(text, categories)
 
         all_page_configs = set()
-        # Collect all protocol configs & add to global list
         for cat in PROTOCOL_CATEGORIES:
             if cat in page_matches:
                 all_page_configs.update(page_matches[cat])
@@ -157,25 +158,18 @@ async def main():
         # Associate based on #Name part
         for config in all_page_configs:
             if '#' not in config:
-                continue # Skip if no name/remark
+                continue
 
             try:
-                name_part = config.split('#', 1)[1].lower() # Get name and lowercase
+                name_part = config.split('#', 1)[1].lower()
             except IndexError:
-                continue # Should not happen if '#' is in config, but good to be safe
+                continue
 
-            # Check if any country keyword exists in the name_part
             for country, keywords in country_categories.items():
                 for keyword in keywords:
                     if keyword.lower() in name_part:
                         final_configs_by_country[country].add(config)
-                        # Optional: If you want a config to belong to only ONE country,
-                        # you could add a 'break' here to stop checking other keywords
-                        # for this country, and another 'break' outside this loop
-                        # to stop checking other countries for this config.
-                        # For now, we allow a config to belong to multiple countries
-                        # if multiple flags/names are in its name.
-                        break # Found a match for this country, check next country
+                        break # Found country, move to next country
 
     # --- Save Output Files ---
     if os.path.exists(OUTPUT_DIR):
@@ -186,12 +180,10 @@ async def main():
     protocol_counts = {}
     country_counts = {}
 
-    # Save protocol files
     for category, items in final_all_protocols.items():
         saved, count = save_to_file(OUTPUT_DIR, category, items)
         if saved: protocol_counts[category] = count
 
-    # Save country files (with associated configs)
     for category, items in final_configs_by_country.items():
         saved, count = save_to_file(OUTPUT_DIR, category, items)
         if saved: country_counts[category] = count
@@ -201,5 +193,6 @@ async def main():
 
     logging.info("--- Script Finished ---")
 
+# --- Run the main function ---
 if __name__ == "__main__":
     asyncio.run(main())
