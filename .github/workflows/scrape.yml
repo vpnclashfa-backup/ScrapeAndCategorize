@@ -1,45 +1,62 @@
-name: Daily Scrape and Process
+name: Daily Scrape and Update Repo
 
 on:
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-
-  # Runs the workflow daily at 00:00 UTC
   schedule:
-    - cron: '0 0 * * *'
+    # هر روز ساعت 1 بامداد UTC اجرا می‌شود (حدود 4:30 صبح ایران)
+    - cron: '0 1 * * *'
+
+# <<<--- تغییر مهم: اضافه کردن دسترسی برای نوشتن --->>>
+permissions:
+  contents: write
 
 jobs:
-  scrape:
-    runs-on: ubuntu-latest # Use the latest Ubuntu runner
+  scrape-and-commit:
+    runs-on: ubuntu-latest
 
     steps:
       - name: 📥 Check out repository
-        # Checks out your repository under $GITHUB_WORKSPACE, 
-        # so your job can access it.
+        # کد شما را دانلود می‌کند
         uses: actions/checkout@v4
 
       - name: 🐍 Set up Python
-        # Sets up a Python environment for use in actions.
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11' # Specify the Python version you want to use
-          cache: 'pip' # Caches pip dependencies
+          python-version: '3.11'
+          cache: 'pip'
 
       - name: ⚙️ Install dependencies
-        # Installs the Python libraries listed in requirements.txt.
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
       - name: 🕸️ Run scraping script
-        # Executes the Python script to fetch data and generate results.
+        # اسکریپت را اجرا می‌کند تا پوشه output_configs ایجاد شود
         run: python scraper.py
 
-      - name: 💾 Upload results artifact
-        # Uploads the generated results.json file as a build artifact.
-        # This allows you to download the results from the workflow run page.
-        uses: actions/upload-artifact@v4
-        with:
-          name: scraping-results # Name of the artifact
-          path: results.json # Path to the file to upload
-          retention-days: 7 # Keep artifacts for 7 days (adjust as needed)
+      # <<<--- مراحل جدید برای Commit و Push --->>>
+      - name: 🔧 Configure Git
+        # گیت را با اطلاعات یک بات پیکربندی می‌کند
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
+      - name: ⬆️ Commit and Push Changes
+        # تغییرات را اضافه، کامیت و پوش می‌کند
+        run: |
+          # پوشه خروجی را به گیت اضافه می‌کند (فایل‌های جدید/تغییریافته/حذف‌شده)
+          git add output_configs/
+
+          # بررسی می‌کند که آیا تغییری برای کامیت وجود دارد یا نه
+          if git diff --staged --quiet; then
+            echo "No changes detected in config files. Skipping commit."
+          else
+            echo "Changes detected. Committing and pushing..."
+            # تغییرات را با یک پیام استاندارد کامیت می‌کند
+            # [skip ci] به برخی سیستم‌ها می‌گوید که این کامیت نباید باعث اجرای مجدد CI شود
+            git commit -m "chore: Update config files [skip ci]"
+
+            # تغییرات را به شاخه اصلی (یا شاخه‌ای که اکشن روی آن اجرا شده) پوش می‌کند
+            git push
+          fi
+      # <<<--- پایان مراحل جدید --->>>
