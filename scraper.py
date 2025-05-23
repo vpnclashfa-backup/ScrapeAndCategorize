@@ -7,25 +7,19 @@ from bs4 import BeautifulSoup
 import os
 import shutil
 from datetime import datetime
-import pytz  # <--- کتابخانه جدید برای زمان
+import pytz
 
 # --- Configuration ---
 URLS_FILE = 'urls.txt'
 KEYWORDS_FILE = 'keywords.json'
 OUTPUT_DIR = 'output_configs'
-README_FILE = 'README.md'  # <--- نام فایل ریدمی
+README_FILE = 'README.md'
 REQUEST_TIMEOUT = 15
 CONCURRENT_REQUESTS = 10
 
 # --- Logging Setup ---
 logging.basicConfig(level=logging.INFO,
                     format='%(asctime)s - %(levelname)s - %(message)s')
-
-# --- Protocol Categories ---
-PROTOCOL_CATEGORIES = [
-    "Vmess", "Vless", "Trojan", "ShadowSocks", "ShadowSocksR",
-    "Tuic", "Hysteria2", "WireGuard"
-]
 
 async def fetch_url(session, url):
     """Fetches a single URL."""
@@ -43,31 +37,29 @@ async def fetch_url(session, url):
 
 def find_matches(text, categories):
     """Finds matches in text."""
-    matches = {category: set() for category in categories} # Use set for uniqueness
+    matches = {category: set() for category in categories}
     for category, patterns in categories.items():
         for pattern in patterns:
             try:
                 found = re.findall(pattern, text, re.IGNORECASE | re.MULTILINE)
                 if found:
-                    matches[category].update(found) # Add to set
+                    matches[category].update(found)
             except re.error as e:
                 logging.error(f"Regex error for '{pattern}': {e}")
-    # Return only categories with matches
     return {k: v for k, v in matches.items() if v}
 
-
-def generate_readme(results_per_url, protocol_categories):
+def generate_readme(results_per_url, categories_with_files):
     """Generates the README.md content."""
     tz = pytz.timezone('Asia/Tehran')
     now = datetime.now(tz)
     timestamp = now.strftime("%Y-%m-%d %H:%M:%S %Z")
 
-    md_content = f"# 📊 نتایج استخراج کانفیگ (آخرین به‌روزرسانی: {timestamp})\n\n"
+    md_content = f"# 📊 نتایج استخراج (آخرین به‌روزرسانی: {timestamp})\n\n"
     md_content += "این فایل به صورت خودکار توسط GitHub Actions ایجاد شده است.\n\n"
-    md_content += "## 🔗 لینک‌های سریع به فایل‌های کانفیگ\n\n"
+    md_content += "## 🔗 لینک‌های سریع به تمام فایل‌ها\n\n"
 
-    # Add links only for protocols that *might* have files
-    for category in protocol_categories:
+    # <<<--- تغییر: لینک به تمام فایل‌های ایجاد شده (کشور و پروتکل) --->>>
+    for category in sorted(categories_with_files):
         md_content += f"* [{category}](./{OUTPUT_DIR}/{category}.txt)\n"
     md_content += "\n---\n"
 
@@ -88,7 +80,8 @@ def generate_readme(results_per_url, protocol_categories):
                 md_content += "|---|---|---|\n"
                 for category, items in sorted(categories_found.items()):
                     count = len(items)
-                    link = f"[`{category}.txt`](./{OUTPUT_DIR}/{category}.txt)" if category in protocol_categories else "-"
+                    # <<<--- تغییر: لینک به تمام دسته‌ها --->>>
+                    link = f"[`{category}.txt`](./{OUTPUT_DIR}/{category}.txt)"
                     md_content += f"| {category} | {count} | {link} |\n"
             md_content += "\n"
 
@@ -98,7 +91,6 @@ def generate_readme(results_per_url, protocol_categories):
         logging.info(f"Successfully generated {README_FILE}")
     except Exception as e:
         logging.error(f"Failed to write {README_FILE}: {e}")
-
 
 async def main():
     """Main function."""
@@ -117,8 +109,8 @@ async def main():
     # --- Fetch URLs ---
     tasks = []
     sem = asyncio.Semaphore(CONCURRENT_REQUESTS)
-    results_per_url = {}  # <--- برای نگهداری نتایج هر URL
-    all_found_items = {category: set() for category in categories} # <--- برای agreggration
+    results_per_url = {}
+    all_found_items = {category: set() for category in categories}
 
     async def fetch_with_sem(session, url):
         async with sem:
@@ -132,33 +124,38 @@ async def main():
     for url, text in fetched_pages:
         if text:
             url_matches = find_matches(text, categories)
-            results_per_url[url] = url_matches # ذخیره نتایج این URL
+            results_per_url[url] = url_matches
             for category, items in url_matches.items():
-                all_found_items[category].update(items) # اضافه به نتایج کلی
+                all_found_items[category].update(items)
         else:
-            results_per_url[url] = {"error": True} # علامت‌گذاری خطا
+            results_per_url[url] = {"error": True}
 
-    # --- Save Protocol Files ---
+    # --- Save Output Files ---
     if os.path.exists(OUTPUT_DIR):
         shutil.rmtree(OUTPUT_DIR)
     os.makedirs(OUTPUT_DIR, exist_ok=True)
-    logging.info(f"Saving protocol files to directory: {OUTPUT_DIR}")
+    logging.info(f"Saving all found items to directory: {OUTPUT_DIR}")
 
-    total_saved_configs = 0
-    for category in PROTOCOL_CATEGORIES:
-        items = all_found_items.get(category)
-        if items:
+    total_saved_items = 0
+    categories_with_files = []
+    # <<<--- تغییر: ایجاد فایل برای *تمام* دسته‌ها (کشور و پروتکل) --->>>
+    for category, items in all_found_items.items():
+        if items: # فقط اگر چیزی پیدا شده باشد فایل ایجاد کن
+            categories_with_files.append(category)
             file_path = os.path.join(OUTPUT_DIR, f"{category}.txt")
-            with open(file_path, 'w', encoding='utf-8') as f:
-                for item in sorted(list(items)):
-                    f.write(f"{item}\n")
-            logging.info(f"Saved {len(items)} items to {file_path}")
-            total_saved_configs += len(items)
+            try:
+                with open(file_path, 'w', encoding='utf-8') as f:
+                    for item in sorted(list(items)):
+                        f.write(f"{item}\n")
+                logging.info(f"Saved {len(items)} items to {file_path}")
+                total_saved_items += len(items)
+            except Exception as e:
+                logging.error(f"Failed to write file {file_path}: {e}")
 
-    logging.info(f"Saved {total_saved_configs} configs.")
+    logging.info(f"Saved a total of {total_saved_items} items across all files.")
 
     # --- Generate README.md ---
-    generate_readme(results_per_url, PROTOCOL_CATEGORIES) # <--- فراخوانی تابع جدید
+    generate_readme(results_per_url, categories_with_files) # <--- پاس دادن لیست فایل‌های ایجاد شده
 
     logging.info("--- Script Finished ---")
 
