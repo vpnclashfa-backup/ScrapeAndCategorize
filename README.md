@@ -1,8 +1,10 @@
-# 📊 نتایج استخراج (آخرین به‌روزرسانی: 2025-05-23 18:08:39 +0330)
+# 📊 نتایج استخراج (آخرین به‌روزرسانی: 2025-05-23 18:12:55 +0330)
 
 این فایل به صورت خودکار توسط GitHub Actions ایجاد شده است.
 
-## 🔗 لینک‌های سریع به تمام فایل‌ها
+**نکته مهم:** فایل‌های مربوط به **کشورها**، حاوی **کانفیگ‌های** یافت شده در صفحاتی هستند که به آن کشور اشاره داشته‌اند.
+
+## 🔗 لینک‌های سریع به تمام فایل‌های خروجی
 
 * [Afghanistan](./output_configs/Afghanistan.txt)
 * [Armenia](./output_configs/Armenia.txt)
@@ -32,11 +34,11 @@
 * [Vmess](./output_configs/Vmess.txt)
 
 ---
-## 📄 جزئیات بر اساس URL
+## 📄 جزئیات بر اساس URL (موارد شناسایی شده)
 
 ### `https://raw.githubusercontent.com/10ium/V2Hub3/main/merged`
 
-| دسته | تعداد | لینک فایل |
+| دسته | تعداد (موارد شناسایی شده) | لینک فایل |
 |---|---|---|
 | Afghanistan | 4 | [`Afghanistan.txt`](./output_configs/Afghanistan.txt) |
 | Armenia | 5 | [`Armenia.txt`](./output_configs/Armenia.txt) |
@@ -63,7 +65,7 @@
 
 ### `https://raw.githubusercontent.com/10ium/V2RayAggregator/refs/heads/master/Eternity.txt`
 
-| دسته | تعداد | لینک فایل |
+| دسته | تعداد (موارد شناسایی شده) | لینک فایل |
 |---|---|---|
 | Afghanistan | 3 | [`Afghanistan.txt`](./output_configs/Afghanistan.txt) |
 | Armenia | 1 | [`Armenia.txt`](./output_configs/Armenia.txt) |
@@ -88,7 +90,7 @@
 
 ### `https://raw.githubusercontent.com/10ium/V2ray-Config/main/All_Configs_Sub.txt`
 
-| دسته | تعداد | لینک فایل |
+| دسته | تعداد (موارد شناسایی شده) | لینک فایل |
 |---|---|---|
 | Afghanistan | 4 | [`Afghanistan.txt`](./output_configs/Afghanistan.txt) |
 | Armenia | 5 | [`Armenia.txt`](./output_configs/Armenia.txt) |
@@ -119,7 +121,7 @@
 
 ### `https://raw.githubusercontent.com/10ium/V2rayCollector/main/mixed_iran.txt`
 
-| دسته | تعداد | لینک فایل |
+| دسته | تعداد (موارد شناسایی شده) | لینک فایل |
 |---|---|---|
 | Afghanistan | 4 | [`Afghanistan.txt`](./output_configs/Afghanistan.txt) |
 | Armenia | 6 | [`Armenia.txt`](./output_configs/Armenia.txt) |
@@ -147,7 +149,7 @@
 
 ### `https://raw.githubusercontent.com/10ium/multi-proxy-config-fetcher/refs/heads/main/configs/proxy_configs.txt`
 
-| دسته | تعداد | لینک فایل |
+| دسته | تعداد (موارد شناسایی شده) | لینک فایل |
 |---|---|---|
 | Afghanistan | 4 | [`Afghanistan.txt`](./output_configs/Afghanistan.txt) |
 | Armenia | 4 | [`Armenia.txt`](./output_configs/Armenia.txt) |
