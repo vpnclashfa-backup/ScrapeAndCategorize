@@ -34,7 +34,6 @@ async def fetch_url(session, url):
             response.raise_for_status()
             html = await response.text()
             soup = BeautifulSoup(html, 'html.parser')
-            # Extract text using space as separator for better results
             text = soup.get_text(separator=' ', strip=True)
             logging.info(f"Successfully fetched: {url}")
             return url, text
@@ -48,14 +47,12 @@ def find_matches(text, categories):
     for category, patterns in categories.items():
         for pattern_str in patterns:
             try:
-                # Compile each pattern for robustness
                 pattern = re.compile(pattern_str, re.IGNORECASE | re.MULTILINE)
                 found = pattern.findall(text)
                 if found:
                     matches[category].update(found)
             except re.error as e:
                 logging.error(f"Regex error for '{pattern_str}': {e}")
-    # Return only categories that have matches
     return {k: v for k, v in matches.items() if v}
 
 def save_to_file(directory, category_name, items_set):
@@ -82,7 +79,7 @@ def generate_simple_readme(protocol_counts, country_counts):
 
     md_content = f"# 📊 نتایج استخراج (آخرین به‌روزرسانی: {timestamp})\n\n"
     md_content += "این فایل به صورت خودکار ایجاد شده است.\n\n"
-    md_content += "**توضیح:** فایل‌های کشورها فقط شامل کانفیگ‌هایی هستند که نام/پرچم کشور در **اسم خود کانفیگ (بعد از #)** پیدا شده باشد.\n\n"
+    md_content += "**توضیح:** فایل‌های کشورها فقط شامل کانفیگ‌هایی هستند که نام/پرچم کشور (با رعایت مرز کلمه برای مخفف‌ها) در **اسم خود کانفیگ (بعد از #)** پیدا شده باشد.\n\n"
 
     md_content += "## 📁 فایل‌های پروتکل‌ها\n\n"
     if protocol_counts:
@@ -111,11 +108,11 @@ def generate_simple_readme(protocol_counts, country_counts):
     except Exception as e:
         logging.error(f"Failed to write {README_FILE}: {e}")
 
+
 async def main():
     """Main function to coordinate the scraping process."""
-    # --- Read Input Files ---
     if not os.path.exists(URLS_FILE) or not os.path.exists(KEYWORDS_FILE):
-        logging.critical("Input files (urls.txt or keywords.json) not found.")
+        logging.critical("Input files not found.")
         return
 
     with open(URLS_FILE, 'r') as f:
@@ -138,7 +135,7 @@ async def main():
     async with aiohttp.ClientSession() as session:
         fetched_pages = await asyncio.gather(*[fetch_with_sem(session, url) for url in urls])
 
-    # --- Process & Aggregate (Check #Name Logic) ---
+    # --- Process & Aggregate (Check #Name Logic with Word Boundaries) ---
     final_configs_by_country = {cat: set() for cat in country_category_names}
     final_all_protocols = {cat: set() for cat in PROTOCOL_CATEGORIES}
 
@@ -161,13 +158,29 @@ async def main():
                 continue
 
             try:
-                name_part = config.split('#', 1)[1].lower()
+                name_part = config.split('#', 1)[1] # Keep original case for regex
             except IndexError:
                 continue
 
             for country, keywords in country_categories.items():
                 for keyword in keywords:
-                    if keyword.lower() in name_part:
+                    match_found = False
+                    # <<<--- تغییر مهم: بررسی هوشمند کلمه کلیدی --->>>
+                    # آیا کلمه کلیدی یک مخفف (2 یا 3 حرف انگلیسی بزرگ) است؟
+                    is_abbr = (len(keyword) == 2 or len(keyword) == 3) and re.match(r'^[A-Z]+$', keyword)
+
+                    if is_abbr:
+                        # اگر مخفف است، از Regex با مرز کلمه (\b) استفاده کن
+                        pattern = r'\b' + re.escape(keyword) + r'\b'
+                        if re.search(pattern, name_part, re.IGNORECASE):
+                            match_found = True
+                    else:
+                        # اگر مخفف نیست (نام کامل، فارسی، چینی، اموجی)، از 'in' استفاده کن
+                        if keyword.lower() in name_part.lower():
+                            match_found = True
+                    # <<<--- پایان تغییر مهم --->>>
+
+                    if match_found:
                         final_configs_by_country[country].add(config)
                         break # Found country, move to next country
 
@@ -193,6 +206,5 @@ async def main():
 
     logging.info("--- Script Finished ---")
 
-# --- Run the main function ---
 if __name__ == "__main__":
     asyncio.run(main())
