@@ -18,6 +18,7 @@ REQUEST_TIMEOUT = 15  # seconds
 CONCURRENT_REQUESTS = 10  # Max concurrent requests
 
 # --- Logging Setup ---
+# Set level to INFO (or DEBUG for more details if needed)
 logging.basicConfig(level=logging.INFO,
                     format='%(asctime)s - %(levelname)s - %(message)s')
 
@@ -30,7 +31,11 @@ PROTOCOL_CATEGORIES = [
 async def fetch_url(session, url):
     """Asynchronously fetches the content of a single URL."""
     try:
-        async with session.get(url, timeout=REQUEST_TIMEOUT) as response:
+        # Add headers to mimic a browser, which can sometimes help
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+        }
+        async with session.get(url, timeout=REQUEST_TIMEOUT, headers=headers) as response:
             response.raise_for_status()
             html = await response.text()
             soup = BeautifulSoup(html, 'html.parser')
@@ -108,11 +113,10 @@ def generate_simple_readme(protocol_counts, country_counts):
     except Exception as e:
         logging.error(f"Failed to write {README_FILE}: {e}")
 
-
 async def main():
     """Main function to coordinate the scraping process."""
     if not os.path.exists(URLS_FILE) or not os.path.exists(KEYWORDS_FILE):
-        logging.critical("Input files not found.")
+        logging.critical("Input files (urls.txt or keywords.json) not found.")
         return
 
     with open(URLS_FILE, 'r') as f:
@@ -158,29 +162,29 @@ async def main():
                 continue
 
             try:
-                name_part = config.split('#', 1)[1] # Keep original case for regex
+                name_part = config.split('#', 1)[1] # Keep original case for regex checks
             except IndexError:
                 continue
 
             for country, keywords in country_categories.items():
                 for keyword in keywords:
                     match_found = False
-                    # <<<--- تغییر مهم: بررسی هوشمند کلمه کلیدی --->>>
-                    # آیا کلمه کلیدی یک مخفف (2 یا 3 حرف انگلیسی بزرگ) است؟
                     is_abbr = (len(keyword) == 2 or len(keyword) == 3) and re.match(r'^[A-Z]+$', keyword)
 
                     if is_abbr:
-                        # اگر مخفف است، از Regex با مرز کلمه (\b) استفاده کن
                         pattern = r'\b' + re.escape(keyword) + r'\b'
                         if re.search(pattern, name_part, re.IGNORECASE):
                             match_found = True
                     else:
-                        # اگر مخفف نیست (نام کامل، فارسی، چینی، اموجی)، از 'in' استفاده کن
                         if keyword.lower() in name_part.lower():
                             match_found = True
-                    # <<<--- پایان تغییر مهم --->>>
 
                     if match_found:
+                        # <<<--- کد اشکال‌زدایی: شروع --->>>
+                        # اگر کانفیگی به بنگلادش اضافه شد، دلیلش را چاپ کن
+                        if country == "Bangladesh":
+                           logging.warning(f"DEBUG: Adding '{config}' to 'Bangladesh' because keyword '{keyword}' matched name '{name_part}'.")
+                        # <<<--- کد اشکال‌زدایی: پایان --->>>
                         final_configs_by_country[country].add(config)
                         break # Found country, move to next country
 
@@ -206,5 +210,6 @@ async def main():
 
     logging.info("--- Script Finished ---")
 
+# --- Run the main function ---
 if __name__ == "__main__":
     asyncio.run(main())
