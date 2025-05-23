@@ -21,10 +21,10 @@ CONCURRENT_REQUESTS = 10
 logging.basicConfig(level=logging.INFO,
                     format='%(asctime)s - %(levelname)s - %(message)s')
 
-# --- Protocol Categories (Ensure these match your keywords.json keys) ---
+# --- Protocol Categories ---
 PROTOCOL_CATEGORIES = [
     "Vmess", "Vless", "Trojan", "ShadowSocks", "ShadowSocksR",
-    "Tuic", "Hysteria2", "WireGuard" # Adjust if your keys are different (e.g., hy2)
+    "Tuic", "Hysteria2", "WireGuard"
 ]
 
 async def fetch_url(session, url):
@@ -34,59 +34,27 @@ async def fetch_url(session, url):
             response.raise_for_status()
             html = await response.text()
             soup = BeautifulSoup(html, 'html.parser')
-            # Extract text, trying to preserve lines better
-            text = '\n'.join(soup.stripped_strings)
+            text = soup.get_text(separator=' ', strip=True) # Use space separator
             logging.info(f"Successfully fetched: {url}")
             return url, text
     except Exception as e:
         logging.warning(f"Failed to fetch or process {url}: {e}")
         return url, None
 
-def compile_patterns(categories):
-    """Compiles regex patterns for efficiency."""
-    compiled = {}
+def find_matches(text, categories):
+    """Finds all matches using keywords.json patterns."""
+    matches = {category: set() for category in categories}
     for category, patterns in categories.items():
-        compiled[category] = [re.compile(p, re.IGNORECASE) for p in patterns]
-    return compiled
-
-def process_text_line_by_line(text, compiled_categories, protocol_categories):
-    """Finds associations on a line-by-line basis."""
-    country_categories = {k: v for k, v in compiled_categories.items() if k not in protocol_categories}
-    protocol_patterns = {k: v for k, v in compiled_categories.items() if k in protocol_categories}
-
-    associated_configs = {cat: set() for cat in country_categories}
-    all_protocols_found = {cat: set() for cat in protocol_categories}
-
-    for line in text.splitlines():
-        line = line.strip()
-        if not line:
-            continue
-
-        line_countries = set()
-        line_configs = set()
-
-        # Find countries on this line
-        for country, patterns in country_categories.items():
-            for pattern in patterns:
-                if pattern.search(line):
-                    line_countries.add(country)
-                    break
-
-        # Find configs on this line
-        for protocol, patterns in protocol_patterns.items():
-            for pattern in patterns:
-                matches = pattern.findall(line)
-                if matches:
-                    line_configs.update(matches)
-                    all_protocols_found[protocol].update(matches)
-
-        # Associate if both found on the *same line*
-        if line_countries and line_configs:
-            for country in line_countries:
-                associated_configs[country].update(line_configs)
-
-    return associated_configs, all_protocols_found
-
+        for pattern_str in patterns:
+            try:
+                # Compile each pattern for robustness
+                pattern = re.compile(pattern_str, re.IGNORECASE | re.MULTILINE)
+                found = pattern.findall(text)
+                if found:
+                    matches[category].update(found)
+            except re.error as e:
+                logging.error(f"Regex error for '{pattern_str}': {e}")
+    return {k: v for k, v in matches.items() if v}
 
 def save_to_file(directory, category_name, items_set):
     """Helper function to save a set to a file."""
@@ -112,20 +80,26 @@ def generate_simple_readme(protocol_counts, country_counts):
 
     md_content = f"# 📊 نتایج استخراج (آخرین به‌روزرسانی: {timestamp})\n\n"
     md_content += "این فایل به صورت خودکار ایجاد شده است.\n\n"
-    md_content += "**توضیح:** فایل‌های کشورها فقط شامل کانفیگ‌هایی هستند که در **همان خط** با نام/پرچم کشور پیدا شده‌اند.\n\n"
+    md_content += "**توضیح:** فایل‌های کشورها فقط شامل کانفیگ‌هایی هستند که نام/پرچم کشور در **اسم خود کانفیگ (بعد از #)** پیدا شده باشد.\n\n"
 
     md_content += "## 📁 فایل‌های پروتکل‌ها\n\n"
-    md_content += "| پروتکل | تعداد کل | لینک |\n"
-    md_content += "|---|---|---|\n"
-    for category, count in sorted(protocol_counts.items()):
-        md_content += f"| {category} | {count} | [`{category}.txt`](./{OUTPUT_DIR}/{category}.txt) |\n"
+    if protocol_counts:
+        md_content += "| پروتکل | تعداد کل | لینک |\n"
+        md_content += "|---|---|---|\n"
+        for category, count in sorted(protocol_counts.items()):
+            md_content += f"| {category} | {count} | [`{category}.txt`](./{OUTPUT_DIR}/{category}.txt) |\n"
+    else:
+        md_content += "هیچ کانفیگ پروتکلی یافت نشد.\n"
     md_content += "\n"
 
     md_content += "## 🌍 فایل‌های کشورها (حاوی کانفیگ)\n\n"
-    md_content += "| کشور | تعداد کانفیگ مرتبط | لینک |\n"
-    md_content += "|---|---|---|\n"
-    for category, count in sorted(country_counts.items()):
-        md_content += f"| {category} | {count} | [`{category}.txt`](./{OUTPUT_DIR}/{category}.txt) |\n"
+    if country_counts:
+        md_content += "| کشور | تعداد کانفیگ مرتبط | لینک |\n"
+        md_content += "|---|---|---|\n"
+        for category, count in sorted(country_counts.items()):
+            md_content += f"| {category} | {count} | [`{category}.txt`](./{OUTPUT_DIR}/{category}.txt) |\n"
+    else:
+        md_content += "هیچ کانفیگ مرتبط با کشوری یافت نشد.\n"
     md_content += "\n"
 
     try:
@@ -146,8 +120,8 @@ async def main():
     with open(KEYWORDS_FILE, 'r', encoding='utf-8') as f:
         categories = json.load(f)
 
-    compiled_categories = compile_patterns(categories)
-    country_category_names = [cat for cat in categories if cat not in PROTOCOL_CATEGORIES]
+    country_categories = {cat: keywords for cat, keywords in categories.items() if cat not in PROTOCOL_CATEGORIES}
+    country_category_names = list(country_categories.keys())
 
     logging.info(f"Loaded {len(urls)} URLs and "
                  f"{len(categories)} categories.")
@@ -161,20 +135,47 @@ async def main():
     async with aiohttp.ClientSession() as session:
         fetched_pages = await asyncio.gather(*[fetch_with_sem(session, url) for url in urls])
 
-    # --- Process & Aggregate ---
+    # --- Process & Aggregate (New Logic: Check #Name) ---
     final_configs_by_country = {cat: set() for cat in country_category_names}
     final_all_protocols = {cat: set() for cat in PROTOCOL_CATEGORIES}
 
-    logging.info("Processing pages for line-by-line association...")
+    logging.info("Processing pages for config name association...")
     for url, text in fetched_pages:
-        if text:
-            url_country_configs, url_protocols = process_text_line_by_line(
-                text, compiled_categories, PROTOCOL_CATEGORIES
-            )
-            for country, configs in url_country_configs.items():
-                final_configs_by_country[country].update(configs)
-            for protocol, configs in url_protocols.items():
-                final_all_protocols[protocol].update(configs)
+        if not text:
+            continue
+
+        # Find all matches once per page
+        page_matches = find_matches(text, categories)
+
+        all_page_configs = set()
+        # Collect all protocol configs & add to global list
+        for cat in PROTOCOL_CATEGORIES:
+            if cat in page_matches:
+                all_page_configs.update(page_matches[cat])
+                final_all_protocols[cat].update(page_matches[cat])
+
+        # Associate based on #Name part
+        for config in all_page_configs:
+            if '#' not in config:
+                continue # Skip if no name/remark
+
+            try:
+                name_part = config.split('#', 1)[1].lower() # Get name and lowercase
+            except IndexError:
+                continue # Should not happen if '#' is in config, but good to be safe
+
+            # Check if any country keyword exists in the name_part
+            for country, keywords in country_categories.items():
+                for keyword in keywords:
+                    if keyword.lower() in name_part:
+                        final_configs_by_country[country].add(config)
+                        # Optional: If you want a config to belong to only ONE country,
+                        # you could add a 'break' here to stop checking other keywords
+                        # for this country, and another 'break' outside this loop
+                        # to stop checking other countries for this config.
+                        # For now, we allow a config to belong to multiple countries
+                        # if multiple flags/names are in its name.
+                        break # Found a match for this country, check next country
 
     # --- Save Output Files ---
     if os.path.exists(OUTPUT_DIR):
