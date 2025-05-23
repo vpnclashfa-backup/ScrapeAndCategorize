@@ -14,7 +14,7 @@ URLS_FILE = 'urls.txt'
 KEYWORDS_FILE = 'keywords.json'
 OUTPUT_DIR = 'output_configs'
 README_FILE = 'README.md'
-REJECTED_LOG_FILE = 'rejected_configs_report.md' # نام فایل گزارش رد شده‌ها
+REJECTED_LOG_FILE = 'rejected_configs_report.md'
 REQUEST_TIMEOUT = 15
 CONCURRENT_REQUESTS = 10
 
@@ -22,50 +22,97 @@ CONCURRENT_REQUESTS = 10
 logging.basicConfig(level=logging.INFO,
                     format='%(asctime)s - %(levelname)s - %(message)s')
 
-# --- Protocol Categories ---
+# --- Protocol Categories (بسیار مهم: این لیست باید دقیقاً با کلیدهای پروتکل در keywords.json شما یکی باشد) ---
 PROTOCOL_CATEGORIES = [
     "Vmess", "Vless", "Trojan", "ShadowSocks", "ShadowSocksR",
     "Tuic", "Hysteria2", "WireGuard"
 ]
 
-# <<<--- تابع اعتبارسنجی به‌روز شده با بازگرداندن دلیل --->>>
-def is_config_valid(config_string, min_len=20, max_len=2500, max_overall_percent_char_ratio=0.5, max_specific_percent25_count=10):
+# <<<--- تابع اعتبارسنجی به‌روز شده و تعدیل شده --->>>
+def is_config_valid(config_string_original, min_len=20, max_len=2500, max_overall_percent_char_ratio=0.6, max_specific_percent25_count=10):
     """
     Checks if a config string looks potentially valid.
     Returns (True, None) if valid, or (False, "reason_string") if invalid.
     """
+    config_string = config_string_original.strip() # حذف فاصله‌های اضافی ابتدا و انتها
+
     l = len(config_string)
+    # 1. Check length
     if not (min_len <= l <= max_len):
         return False, f"طول نامعتبر ({l}). مورد انتظار: {min_len}-{max_len}"
 
+    # 2. Check for excessive overall '%' characters if the string is long enough
     if l > 50 and (config_string.count('%') / l) > max_overall_percent_char_ratio:
         return False, f"تعداد زیاد کاراکتر % نسبت به طول کل ({config_string.count('%')}/{l})"
 
+    # 3. Check for the specific problematic '%25' pattern if it's very frequent
     if config_string.count('%25') > max_specific_percent25_count:
         return False, f"تعداد زیاد تکرار '%25' ({config_string.count('%25')})"
 
-    proto_prefix = None
-    for p in PROTOCOL_CATEGORIES:
-        if config_string.lower().startswith(p.lower() + "://"):
-            proto_prefix = p.lower()
+    # 4. Must start with a known protocol
+    proto_name_key = None # کلید پروتکل از PROTOCOL_CATEGORIES
+    proto_prefix_val = None # خود پیشوند مثل vless, trojan
+    for p_key in PROTOCOL_CATEGORIES:
+        if config_string.lower().startswith(p_key.lower() + "://"):
+            proto_name_key = p_key # ذخیره کلید اصلی برای استفاده در پیام‌ها
+            proto_prefix_val = p_key.lower()
             break
-    if not proto_prefix:
+    if not proto_prefix_val:
         return False, "پیشوند پروتکل معتبر یافت نشد"
 
-    # --- بررسی‌های ساختاری دیگر (می‌توانید این بخش را ساده‌تر یا پیچیده‌تر کنید) ---
-    # مثال: برای VLESS/VMESS/TROJAN دنبال UUID بگردیم
-    if proto_prefix in ["vless", "vmess", "trojan"]:
-        uuid_part_match = re.search(r'([a-fA-F0-9]{8}-?[a-fA-F0-9]{4}-?[a-fA-F0-9]{4}-?[a-fA-F0-9]{4}-?[a-fA-F0-9]{12})', config_string)
-        if not uuid_part_match:
-            return False, f"UUID معتبر برای {proto_prefix} یافت نشد"
-        # اگر UUID پیدا شد، بررسی کنیم که آیا قبل از @ آمده است
-        if '@' in config_string and config_string.find(uuid_part_match.group(1)) > config_string.find('@'):
-            return False, f"UUID برای {proto_prefix} بعد از @ یافت شد که نامعتبر است"
+    payload = config_string.split("://", 1)[1] # بخش بعد از ://
+
+    # --- بررسی‌های ساختاری مخصوص هر پروتکل ---
+
+    if proto_prefix_val == "vless":
+        if '@' not in payload: return False, f"{proto_name_key}: علامت @ یافت نشد"
+        if not re.search(r':\d{2,5}', payload): return False, f"{proto_name_key}: پورت یافت نشد"
+        uuid_part = payload.split('@', 1)[0]
+        uuid_pattern = r'^[a-fA-F0-9]{8}-?[a-fA-F0-9]{4}-?[a-fA-F0-9]{4}-?[a-fA-F0-9]{4}-?[a-fA-F0-9]{12}$'
+        if not re.match(uuid_pattern, uuid_part):
+            return False, f"{proto_name_key}: UUID معتبر ('{uuid_part}') یافت نشد"
+
+    elif proto_prefix_val == "vmess":
+        # Vmess can be vmess://BASE64 or vmess://uuid@host...
+        # If it looks like it might not be full base64 (e.g. contains '@' early on)
+        if '@' in payload.split('?',1)[0].split('#',1)[0] and not payload.startswith("ey"): # "ey" is common start for base64 json
+            if '@' not in payload: return False, f"{proto_name_key} (non-base64): @ یافت نشد"
+            if not re.search(r':\d{2,5}', payload): return False, f"{proto_name_key} (non-base64): پورت یافت نشد"
+            uuid_part = payload.split('@', 1)[0]
+            uuid_pattern = r'^[a-fA-F0-9]{8}-?[a-fA-F0-9]{4}-?[a-fA-F0-9]{4}-?[a-fA-F0-9]{4}-?[a-fA-F0-9]{12}$'
+            if not re.match(uuid_pattern, uuid_part):
+                return False, f"{proto_name_key} (non-base64): UUID معتبر ('{uuid_part}') یافت نشد"
+        # Otherwise, for likely base64 vmess, we rely on length/percent checks and prefix.
+
+    elif proto_prefix_val == "trojan":
+        # Trojan password is not necessarily a UUID. Just check for @ and port.
+        if '@' not in payload: return False, f"{proto_name_key}: @ یافت نشد"
+        if not re.search(r':\d{2,5}', payload): return False, f"{proto_name_key}: پورت یافت نشد"
+
+    elif proto_prefix_val == "ss": # ShadowSocks
+        # ss://method:pass@host:port OR ss://BASE64(method:pass@host:port) OR ss://BASE64(json_config_for_other_clients)
+        # If payload contains '@', it's likely method:pass@host:port. Check port.
+        if '@' in payload:
+            if not re.search(r':\d{2,5}', payload.split('@',1)[-1]): # Check port after last @
+                 return False, f"{proto_name_key}: پورت بعد از @ یافت نشد"
+        # If no '@' but is very short, could be ss://BASE64(method:pass) which is usually not directly usable.
+        # If it's a longer Base64 (like example 4 from user), it might be a V2Ray-style SS JSON.
+        # This is complex to validate without decoding. For now, if no '@' and not clearly base64 for other clients,
+        # it might be too simple. But given example 4, we accept it if prefix is ss://
+        # and it passes length/percent checks.
+
+    elif proto_prefix_val == "ssr":
+        # ssr://BASE64. No easy structural checks beyond prefix, length, %.
+        pass
+
+    elif proto_prefix_val in ["wireguard", "tuic", "hy2"]:
+        if '@' not in payload: return False, f"{proto_name_key}: @ یافت نشد"
+        if not re.search(r':\d{2,5}', payload): return False, f"{proto_name_key}: پورت یافت نشد"
 
 
-    # اگر به اینجا رسید، یعنی معتبر است (یا حداقل از فیلترهای فعلی گذشته)
     return True, None
 # <<<--- پایان تابع اعتبارسنجی --->>>
+
 
 async def fetch_url(session, url):
     try:
@@ -112,12 +159,10 @@ def save_to_file(directory, category_name, items_set):
         return False, 0
 
 def save_rejected_log(rejected_items):
-    """Saves rejected configs to a Markdown file."""
     if not rejected_items:
-        logging.info(f"No configs rejected in this run. If {REJECTED_LOG_FILE} exists, it won't be modified unless it contains previous rejections.")
-        # Optionally create an empty file or a file saying "no rejections"
-        # For now, just create it if there are items.
-        if not os.path.exists(REJECTED_LOG_FILE) and not rejected_items:
+        logging.info(f"No configs rejected in this run.")
+        # Create a file saying no rejections if it doesn't exist or is empty
+        if not os.path.exists(REJECTED_LOG_FILE) or os.path.getsize(REJECTED_LOG_FILE) == 0 :
              with open(REJECTED_LOG_FILE, 'w', encoding='utf-8') as f:
                 f.write(f"# ⚠️ گزارش کانفیگ‌های رد شده (آخرین به‌روزرسانی: {datetime.now(pytz.timezone('Asia/Tehran')).strftime('%Y-%m-%d %H:%M:%S %Z')})\n\n")
                 f.write("هیچ کانفیگی در این اجرا رد نشده است.\n")
@@ -134,7 +179,7 @@ def save_rejected_log(rejected_items):
         config = item["config"]
         reason = item["reason"]
         source_url = item["url"]
-        md_content += f"## کانفیگ:\n```text\n{config}\n```\n" # Use text for better rendering of long strings
+        md_content += f"## کانفیگ:\n```text\n{config}\n```\n"
         md_content += f"**دلیل رد شدن:** {reason}\n\n"
         md_content += f"**منبع URL:** `{source_url}`\n\n"
         md_content += "---\n\n"
@@ -154,7 +199,7 @@ def generate_simple_readme(protocol_counts, country_counts):
 
     md_content = f"# 📊 نتایج استخراج (آخرین به‌روزرسانی: {timestamp})\n\n"
     md_content += "این فایل به صورت خودکار ایجاد شده است.\n\n"
-    md_content += f"**توضیح:** فایل‌های کشورها فقط شامل کانفیگ‌هایی هستند که نام/پرچم کشور (با رعایت مرز کلمه برای مخفف‌ها) در **اسم خود کانفیگ (بعد از #)** پیدا شده باشد. کانفیگ‌های مشکوک (فیک) فیلتر شده‌اند. گزارش کامل کانفیگ‌های رد شده را می‌توانید در [`{REJECTED_LOG_FILE}`](./{REJECTED_LOG_FILE}) مشاهده کنید.\n\n" # <--- لینک اضافه شد
+    md_content += f"**توضیح:** فایل‌های کشورها فقط شامل کانفیگ‌هایی هستند که نام/پرچم کشور (با رعایت مرز کلمه برای مخفف‌ها) در **اسم خود کانفیگ (بعد از #)** پیدا شده باشد. کانفیگ‌های مشکوک و نامعتبر از نظر ساختاری فیلتر شده‌اند. گزارش کامل کانفیگ‌های رد شده را می‌توانید در [`{REJECTED_LOG_FILE}`](./{REJECTED_LOG_FILE}) مشاهده کنید.\n\n"
 
     md_content += "## 📁 فایل‌های پروتکل‌ها\n\n"
     if protocol_counts:
@@ -210,10 +255,10 @@ async def main():
 
     final_configs_by_country = {cat: set() for cat in country_category_names}
     final_all_protocols = {cat: set() for cat in PROTOCOL_CATEGORIES}
-    rejected_configs_log = [] # <--- لیست برای نگهداری رد شده‌ها
+    rejected_configs_log = []
 
     logging.info("Processing pages & filtering configs...")
-    for url, text in fetched_pages: # <--- 'url' از اینجا می‌آید
+    for url, text in fetched_pages:
         if not text:
             continue
 
@@ -225,9 +270,13 @@ async def main():
                 all_page_configs.update(page_matches[cat])
 
         for config in all_page_configs:
-            is_valid, reason = is_config_valid(config) # <--- دریافت دلیل
+            is_valid, reason = is_config_valid(config)
             if not is_valid:
-                rejected_configs_log.append({"config": config, "reason": reason, "url": url}) # <--- اضافه کردن URL منبع
+                rejected_configs_log.append({"config": config, "reason": reason, "url": url})
+                if reason: # Log the reason only if specific reason is returned
+                    logging.warning(f"REJECTED ('{reason}'): {config[:70]}... (URL: {url})")
+                else: # Generic failure if no reason given by is_config_valid somehow
+                    logging.warning(f"REJECTED (Generic): {config[:70]}... (URL: {url})")
                 continue
 
             for cat in PROTOCOL_CATEGORIES:
@@ -273,7 +322,7 @@ async def main():
         if saved: country_counts[category] = count
 
     generate_simple_readme(protocol_counts, country_counts)
-    save_rejected_log(rejected_configs_log) # <--- ذخیره گزارش رد شده‌ها
+    save_rejected_log(rejected_configs_log)
 
     logging.info("--- Script Finished ---")
 
