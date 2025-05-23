@@ -27,31 +27,68 @@ PROTOCOL_CATEGORIES = [
     "Tuic", "Hysteria2", "WireGuard"
 ]
 
-# <<<--- تابع جدید برای فیلتر کردن کانفیگ‌های فیک --->>>
-def is_config_valid(config_string, min_len=20, max_len=2000, max_percent_25=5):
+# <<<--- تابع اعتبارسنجی ساختاری به‌روز شده --->>>
+def is_config_valid(config_string, min_len=30, max_len=2000, max_percent_25=5):
     """
-    Checks if a config string looks potentially valid based on length
-    and excessive URL encoding.
+    Checks if a config string has basic structural validity.
     """
     l = len(config_string)
     # 1. Check length
     if not (min_len <= l <= max_len):
-        logging.debug(f"Skipping due to length ({l}): {config_string[:30]}...")
+        logging.debug(f"Skipping (Length {l}): {config_string[:30]}...")
         return False
 
-    # 2. Check for excessive %25 (multiple URL encodings)
+    # 2. Check for excessive %25
     if config_string.count('%25') > max_percent_25:
-        logging.debug(f"Skipping due to %25 count: {config_string[:60]}...")
+        logging.debug(f"Skipping (%25 Count): {config_string[:60]}...")
         return False
 
-    # 3. Check for basic protocol start (redundant but safe)
-    if not any(config_string.lower().startswith(p.lower()+"://") for p in PROTOCOL_CATEGORIES):
-         logging.debug(f"Skipping due to invalid start: {config_string[:30]}...")
-         return False
+    # 3. Must start with a known protocol
+    proto_prefix = None
+    for p in PROTOCOL_CATEGORIES:
+        if config_string.lower().startswith(p.lower() + "://"):
+            proto_prefix = p.lower()
+            break
+    if not proto_prefix:
+        logging.debug(f"Skipping (No Prefix): {config_string[:30]}...")
+        return False
 
-    # If all checks pass, it's likely valid
+    # 4. Must contain '@' (for most common structures)
+    if '@' not in config_string:
+        # Allow ssr and some ss without @, but be stricter otherwise
+        if proto_prefix not in ['ssr', 'ss']:
+            logging.debug(f"Skipping (No @): {config_string[:60]}...")
+            return False
+
+    # 5. Must contain a port number (almost always after @ or host)
+    if not re.search(r':\d+', config_string):
+        logging.debug(f"Skipping (No Port): {config_string[:60]}...")
+        return False
+
+    # 6. Check for a reasonable host (IP or domain)
+    try:
+        # Try to extract the part that should be the host
+        host_part = re.split(r'[@:]', config_string.split('://', 1)[1])[1]
+        host_part = host_part.split('?', 1)[0].split('#', 1)[0]
+        if not host_part: # Host cannot be empty
+            logging.debug(f"Skipping (Empty Host): {config_string[:60]}...")
+            return False
+        # Check if it looks like an IP or contains a dot (domain)
+        if not (re.match(r'^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$', host_part) or '.' in host_part):
+            logging.debug(f"Skipping (Invalid Host '{host_part}'): {config_string[:60]}...")
+            return False
+    except IndexError:
+        logging.debug(f"Skipping (Host Parse Error): {config_string[:60]}...")
+        return False # Couldn't parse likely host part
+
+    # 7. Check for UUID in Vless/Vmess/Trojan
+    if proto_prefix in ["vless", "vmess", "trojan"]:
+        if not re.search(r'[a-fA-F0-9]{8}-?[a-fA-F0-9]{4}-?[a-fA-F0-9]{4}-?[a-fA-F0-9]{4}-?[a-fA-F0-9]{12}', config_string):
+            logging.debug(f"Skipping (No UUID): {config_string[:60]}...")
+            return False
+
     return True
-# <<<--- پایان تابع جدید --->>>
+# <<<--- پایان تابع اعتبارسنجی --->>>
 
 
 async def fetch_url(session, url):
@@ -109,7 +146,7 @@ def generate_simple_readme(protocol_counts, country_counts):
 
     md_content = f"# 📊 نتایج استخراج (آخرین به‌روزرسانی: {timestamp})\n\n"
     md_content += "این فایل به صورت خودکار ایجاد شده است.\n\n"
-    md_content += "**توضیح:** فایل‌های کشورها فقط شامل کانفیگ‌هایی هستند که نام/پرچم کشور (با رعایت مرز کلمه برای مخفف‌ها) در **اسم خود کانفیگ (بعد از #)** پیدا شده باشد. کانفیگ‌های مشکوک (فیک) فیلتر شده‌اند.\n\n" # <--- توضیح فیلتر اضافه شد
+    md_content += "**توضیح:** فایل‌های کشورها فقط شامل کانفیگ‌هایی هستند که نام/پرچم کشور (با رعایت مرز کلمه برای مخفف‌ها) در **اسم خود کانفیگ (بعد از #)** پیدا شده باشد. کانفیگ‌های فیک و نامعتبر از نظر ساختاری فیلتر شده‌اند.\n\n"
 
     md_content += "## 📁 فایل‌های پروتکل‌ها\n\n"
     if protocol_counts:
@@ -181,20 +218,20 @@ async def main():
             if cat in page_matches:
                 all_page_configs.update(page_matches[cat])
 
-        # <<<--- تغییر مهم: فیلتر کردن و سپس پردازش --->>>
+        # Filter and process valid configs
         for config in all_page_configs:
-            # 1. ابتدا کانفیگ را اعتبارسنجی کن
+            # 1. Validate config structure
             if not is_config_valid(config):
-                logging.info(f"Skipping FAKE/INVALID config: {config[:60]}...")
-                continue # <-- اگر معتبر نیست، سراغ بعدی برو
+                # logging.info(f"Skipping INVALID config: {config[:60]}...") # Keep logging level INFO
+                continue # Skip if not valid
 
-            # 2. اگر معتبر بود، به لیست پروتکل مربوطه اضافه کن
+            # 2. Add to its protocol list
             for cat in PROTOCOL_CATEGORIES:
                 if config.lower().startswith(cat.lower() + "://"):
                      final_all_protocols[cat].add(config)
                      break
 
-            # 3. اگر معتبر بود و نام داشت، سعی کن به کشور مرتبط کنی
+            # 3. Associate with country if name matches
             if '#' in config:
                 try:
                     name_part = config.split('#', 1)[1]
@@ -215,13 +252,8 @@ async def main():
                                 match_found = True
 
                         if match_found:
-                            # Debugging for Bangladesh (or any other)
-                            # if country == "Bangladesh":
-                            #    logging.warning(f"DEBUG: Adding '{config}' to 'Bangladesh' because keyword '{keyword}' matched name '{name_part}'.")
                             final_configs_by_country[country].add(config)
-                            break # Found country, move to next country
-        # <<<--- پایان تغییر --->>>
-
+                            break
 
     # --- Save Output Files ---
     if os.path.exists(OUTPUT_DIR):
