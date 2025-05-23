@@ -8,6 +8,8 @@ import os
 import shutil
 from datetime import datetime
 import pytz
+import base64
+from urllib.parse import parse_qs, unquote # <--- unquote اضافه شد
 
 # --- Configuration ---
 URLS_FILE = 'urls.txt'
@@ -21,11 +23,66 @@ CONCURRENT_REQUESTS = 10  # Max concurrent requests
 logging.basicConfig(level=logging.INFO,
                     format='%(asctime)s - %(levelname)s - %(message)s')
 
-# --- Protocol Categories (Ensure these match your keywords.json keys EXACTLY) ---
+# --- Protocol Categories ---
 PROTOCOL_CATEGORIES = [
     "Vmess", "Vless", "Trojan", "ShadowSocks", "ShadowSocksR",
     "Tuic", "Hysteria2", "WireGuard"
 ]
+
+# --- Base64 Decoding Helper ---
+def decode_base64(data):
+    """
+    Decodes a Base64 string, handling URL-safe and padding issues.
+    Tries URL-safe first, then standard. Returns None on error.
+    """
+    try:
+        data = data.replace('_', '/').replace('-', '+') # Ensure standard alphabet
+        missing_padding = len(data) % 4
+        if missing_padding:
+            data += '=' * (4 - missing_padding)
+        return base64.b64decode(data).decode('utf-8')
+    except Exception as e:
+        # logging.debug(f"Base64 decode failed for '{data[:20]}...': {e}")
+        return None
+
+# --- Protocol Name Extraction Helpers ---
+def get_vmess_name(vmess_link):
+    """Extracts the name (ps) from a Vmess link if possible."""
+    if not vmess_link.startswith("vmess://"):
+        return None
+    try:
+        b64_part = vmess_link[8:]
+        decoded_str = decode_base64(b64_part)
+        if decoded_str:
+            vmess_json = json.loads(decoded_str)
+            return vmess_json.get('ps')
+    except Exception as e:
+        logging.warning(f"Failed to parse Vmess name from {vmess_link[:30]}...: {e}")
+    return None
+
+def get_ssr_name(ssr_link):
+    """Extracts the name (remarks) from an SSR link if possible."""
+    if not ssr_link.startswith("ssr://"):
+        return None
+    try:
+        b64_part = ssr_link[6:]
+        decoded_str = decode_base64(b64_part)
+        if not decoded_str:
+            return None
+
+        parts = decoded_str.split('/?')
+        if len(parts) < 2:
+            return None
+
+        params_str = parts[1]
+        params = parse_qs(params_str)
+
+        if 'remarks' in params and params['remarks']:
+            remarks_b64 = params['remarks'][0]
+            return decode_base64(remarks_b64) # Remarks is also Base64
+    except Exception as e:
+        logging.warning(f"Failed to parse SSR name from {ssr_link[:30]}...: {e}")
+    return None
 
 async def fetch_url(session, url):
     """Asynchronously fetches the content of a single URL."""
@@ -34,9 +91,14 @@ async def fetch_url(session, url):
             response.raise_for_status()
             html = await response.text()
             soup = BeautifulSoup(html, 'html.parser')
-            text = soup.get_text(separator=' ', strip=True)
+            text_content = ""
+            for element in soup.find_all(['pre', 'code', 'p', 'div', 'li', 'span', 'td']):
+                 text_content += element.get_text(separator='\n', strip=True) + "\n"
+            if not text_content:
+                text_content = soup.get_text(separator=' ', strip=True)
+
             logging.info(f"Successfully fetched: {url}")
-            return url, text
+            return url, text_content
     except Exception as e:
         logging.warning(f"Failed to fetch or process {url}: {e}")
         return url, None
@@ -50,7 +112,8 @@ def find_matches(text, categories):
                 pattern = re.compile(pattern_str, re.IGNORECASE | re.MULTILINE)
                 found = pattern.findall(text)
                 if found:
-                    matches[category].update(found)
+                    cleaned_found = {item.strip() for item in found if item.strip()}
+                    matches[category].update(cleaned_found)
             except re.error as e:
                 logging.error(f"Regex error for '{pattern_str}': {e}")
     return {k: v for k, v in matches.items() if v}
@@ -79,7 +142,8 @@ def generate_simple_readme(protocol_counts, country_counts):
 
     md_content = f"# 📊 نتایج استخراج (آخرین به‌روزرسانی: {timestamp})\n\n"
     md_content += "این فایل به صورت خودکار ایجاد شده است.\n\n"
-    md_content += "**توضیح:** فایل‌های کشورها فقط شامل کانفیگ‌هایی هستند که نام/پرچم کشور (با رعایت مرز کلمه برای مخفف‌ها) در **اسم خود کانفیگ (بعد از #)** پیدا شده باشد.\n\n"
+    md_content += "**توضیح:** فایل‌های کشورها فقط شامل کانفیگ‌هایی هستند که نام/پرچم کشور (با رعایت مرز کلمه برای مخفف‌ها) در **اسم کانفیگ** پیدا شده باشد. اسم کانفیگ ابتدا از بخش `#` لینک و در صورت نبود، از نام داخلی (برای Vmess/SSR) استخراج می‌شود.\n\n"
+    md_content += "**نکته:** کانفیگ‌هایی که به شدت URL-Encode شده‌اند (حاوی `%25%25%25` یا `I_Love_`) از نتایج حذف شده‌اند.\n\n" # <--- اضافه شد
 
     md_content += "## 📁 فایل‌های پروتکل‌ها\n\n"
     if protocol_counts:
@@ -135,9 +199,13 @@ async def main():
     async with aiohttp.ClientSession() as session:
         fetched_pages = await asyncio.gather(*[fetch_with_sem(session, url) for url in urls])
 
-    # --- Process & Aggregate (Check #Name Logic with Word Boundaries) ---
+    # --- Process & Aggregate ---
     final_configs_by_country = {cat: set() for cat in country_category_names}
     final_all_protocols = {cat: set() for cat in PROTOCOL_CATEGORIES}
+
+    # <<<--- اضافه شد: الگوی فیلتر کردن --- >>>
+    filter_pattern = re.compile(r'(%25){3,}') # شناسایی ۳ یا بیشتر %25 پشت سر هم
+    # <<<--- پایان بخش اضافه شده --- >>>
 
     logging.info("Processing pages for config name association...")
     for url, text in fetched_pages:
@@ -149,40 +217,64 @@ async def main():
         all_page_configs = set()
         for cat in PROTOCOL_CATEGORIES:
             if cat in page_matches:
-                all_page_configs.update(page_matches[cat])
-                final_all_protocols[cat].update(page_matches[cat])
+                # <<<--- تغییر مهم: اعمال فیلتر --- >>>
+                for config in page_matches[cat]:
+                    # اگر کانفیگ با الگوی فیلتر مطابقت داشت یا حاوی I_Love_ بود، آن را نادیده بگیر
+                    if filter_pattern.search(config) or 'I_Love_' in config:
+                        logging.warning(f"Skipping heavily encoded/filtered config: {config[:60]}...")
+                        continue # برو سراغ کانفیگ بعدی و این یکی را اضافه نکن
 
-        # Associate based on #Name part
+                    # اگر فیلتر نشد، آن را اضافه کن
+                    all_page_configs.add(config)
+                    final_all_protocols[cat].add(config)
+                # <<<--- پایان تغییر مهم --- >>>
+
+
+        # حالا با all_page_configs که فیلتر شده است، کار می‌کنیم
         for config in all_page_configs:
-            if '#' not in config:
+            name_to_check = None
+
+            # 1. اولویت با نام بعد از #
+            if '#' in config:
+                try:
+                    potential_name = config.split('#', 1)[1]
+                    name_to_check = unquote(potential_name).strip()
+                    if not name_to_check:
+                        name_to_check = None
+                except IndexError:
+                    pass
+
+            # 2. اگر نام # نبود، نام داخلی را چک کن
+            if not name_to_check:
+                if config.startswith('ssr://'):
+                    name_to_check = get_ssr_name(config)
+                elif config.startswith('vmess://'):
+                    name_to_check = get_vmess_name(config)
+
+            # 3. اگر نامی پیدا نشد، برو بعدی
+            if not name_to_check:
                 continue
 
-            try:
-                name_part = config.split('#', 1)[1] # Keep original case for regex
-            except IndexError:
-                continue
-
+            # 4. بررسی کشور با نام پیدا شده
             for country, keywords in country_categories.items():
                 for keyword in keywords:
                     match_found = False
-                    # <<<--- تغییر مهم: بررسی هوشمند کلمه کلیدی --->>>
-                    # آیا کلمه کلیدی یک مخفف (2 یا 3 حرف انگلیسی بزرگ) است؟
                     is_abbr = (len(keyword) == 2 or len(keyword) == 3) and re.match(r'^[A-Z]+$', keyword)
 
                     if is_abbr:
-                        # اگر مخفف است، از Regex با مرز کلمه (\b) استفاده کن
                         pattern = r'\b' + re.escape(keyword) + r'\b'
-                        if re.search(pattern, name_part, re.IGNORECASE):
+                        if re.search(pattern, name_to_check, re.IGNORECASE):
                             match_found = True
                     else:
-                        # اگر مخفف نیست (نام کامل، فارسی، چینی، اموجی)، از 'in' استفاده کن
-                        if keyword.lower() in name_part.lower():
+                        if keyword.lower() in name_to_check.lower():
                             match_found = True
-                    # <<<--- پایان تغییر مهم --->>>
 
                     if match_found:
                         final_configs_by_country[country].add(config)
-                        break # Found country, move to next country
+                        break
+                if match_found:
+                    break
+
 
     # --- Save Output Files ---
     if os.path.exists(OUTPUT_DIR):
