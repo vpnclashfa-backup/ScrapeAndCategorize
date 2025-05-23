@@ -1,0 +1,15 @@
+hy2://238c7704-944d-40cd-a1cf-fb775d51ac54@164.152.33.5:21042?insecure=1&sni=www.bing.com#%F0%9F%87%A7%F0%9F%87%B7%20Brazil%20-%20S%C3%A3o%20Paulo%20%F0%9F%8C%8E%20HY2-UDP-TLS%204%E2%83%A3
+ss://1a7a39e4-8c9b-4052-b8b2-c0929536bba5@95.164.4.88:8443?security=tls&sni=pq-brazil1.09vpn.com&allowInsecure=1&fp=chrome&type=ws&path=/vless/&packetEncoding=xudp&encryption=none#%F0%9F%87%A7%F0%9F%87%B7%20Brazil%20-%20S%C3%A3o%20Paulo%20%F0%9F%8C%8E%20VL-WS-TLS%204%E2%83%A3
+ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@38.180.79.9:80?security=none&type=ws&host=reedfree8mahsang2.redorg.ir&path=Telegram🇨🇳#🇧🇷[openproxylist.com]
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTplekcyTHF4OFNTNjg3@147.45.116.44:443#BR%F0%9F%87%A7%F0%9F%87%B7+%7C+147.45.116.44-443+%7C+129.72ms
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTplekcyTHF4OFNTNjg=@147.45.116.44:443#BR%F0%9F%87%A7%F0%9F%87%B7+%7C+147.45.116.44-443+%7C+124.2ms
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTplekcyTHF4OFNTNjg=@147.45.116.44:443#🇧🇷[openproxylist.com]
+ss://YWVzLTI1Ni1jZmI6ZjhmN2FDemNQS2JzRjhwMw@185.192.124.188:989#premium-br
+ss://YWVzLTI1Ni1nY206OTJTQ0IxVFc2VFNSREs4Rw==@185.192.124.41:20013#BR%F0%9F%87%A7%F0%9F%87%B7+%7C+185.192.124.41-20013+%7C+113.27ms
+ss://YWVzLTI1Ni1nY206YTg2OWJhN2UtZTQ2Yy00NmJmLTlkMGEtMmE0ZGRlY2MwNjI3@129.159.49.207:7705#BR%F0%9F%87%A7%F0%9F%87%B7+%7C+129.159.49.207-7705+%7C+116.15ms
+ss://bc09f682-8c7e-4530-9380-d103fa739079@147.45.116.4:777?encryption=none&flow=xtls-rprx-vision&security=reality&sni=fortune.com&fp=chrome&pbk=_K91Z0rRa3uH-re6enMM0AQ63OhZkyjD5_HaeLLv6lM&sid=0ca9f654d16681&spx=/&type=tcp&headerType=none#🇧🇷BR_962_@Surfboardv2ray
+ss://bc09f682-8c7e-4530-9380-d103fa739079@147.45.116.4:888?encryption=none&flow=xtls-rprx-vision&security=reality&sni=fortune.com&fp=chrome&pbk=_K91Z0rRa3uH-re6enMM0AQ63OhZkyjD5_HaeLLv6lM&sid=0ca9f654d16681&spx=/&type=tcp&headerType=none#🇧🇷BR_963_@Surfboardv2ray
+vless://1a7a39e4-8c9b-4052-b8b2-c0929536bba5@95.164.4.88:8443?security=tls&sni=pq-brazil1.09vpn.com&allowInsecure=1&fp=chrome&type=ws&path=/vless/&packetEncoding=xudp&encryption=none#%F0%9F%87%A7%F0%9F%87%B7%20Brazil%20-%20S%C3%A3o%20Paulo%20%F0%9F%8C%8E%20VL-WS-TLS%204%E2%83%A3
+vless://53fa8faf-ba4b-4322-9c69-a3e5b1555049@38.180.79.9:80?security=none&type=ws&host=reedfree8mahsang2.redorg.ir&path=Telegram🇨🇳#🇧🇷[openproxylist.com]
+vless://bc09f682-8c7e-4530-9380-d103fa739079@147.45.116.4:777?encryption=none&flow=xtls-rprx-vision&security=reality&sni=fortune.com&fp=chrome&pbk=_K91Z0rRa3uH-re6enMM0AQ63OhZkyjD5_HaeLLv6lM&sid=0ca9f654d16681&spx=/&type=tcp&headerType=none#🇧🇷BR_962_@Surfboardv2ray
+vless://bc09f682-8c7e-4530-9380-d103fa739079@147.45.116.4:888?encryption=none&flow=xtls-rprx-vision&security=reality&sni=fortune.com&fp=chrome&pbk=_K91Z0rRa3uH-re6enMM0AQ63OhZkyjD5_HaeLLv6lM&sid=0ca9f654d16681&spx=/&type=tcp&headerType=none#🇧🇷BR_963_@Surfboardv2ray
