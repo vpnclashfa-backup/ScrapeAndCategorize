@@ -1,23 +1,23 @@
-# 📊 نتایج استخراج (آخرین به‌روزرسانی: 2025-05-23 21:17:14 +0330)
+# 📊 نتایج استخراج (آخرین به‌روزرسانی: 2025-05-23 21:24:02 +0330)
 
 این فایل به صورت خودکار ایجاد شده است.
 
 **توضیح:** فایل‌های کشورها فقط شامل کانفیگ‌هایی هستند که نام/پرچم کشور (با رعایت مرز کلمه برای مخفف‌ها) در **اسم کانفیگ** پیدا شده باشد. اسم کانفیگ ابتدا از بخش `#` لینک و در صورت نبود، از نام داخلی (برای Vmess/SSR) استخراج می‌شود.
 
-**نکته:** کانفیگ‌هایی که به شدت URL-Encode شده‌اند (حاوی `%25%25%25` یا `I_Love_`) از نتایج حذف شده‌اند.
+**نکته:** کانفیگ‌هایی که به شدت URL-Encode شده‌اند (حاوی تعداد زیادی `%25`، طولانی یا دارای کلمات کلیدی خاص) از نتایج حذف شده‌اند.
 
 ## 📁 فایل‌های پروتکل‌ها
 
 | پروتکل | تعداد کل | لینک |
 |---|---|---|
 | Hysteria2 | 192 | [`Hysteria2.txt`](./output_configs/Hysteria2.txt) |
-| ShadowSocks | 36930 | [`ShadowSocks.txt`](./output_configs/ShadowSocks.txt) |
+| ShadowSocks | 36169 | [`ShadowSocks.txt`](./output_configs/ShadowSocks.txt) |
 | ShadowSocksR | 61 | [`ShadowSocksR.txt`](./output_configs/ShadowSocksR.txt) |
-| Trojan | 3202 | [`Trojan.txt`](./output_configs/Trojan.txt) |
+| Trojan | 3200 | [`Trojan.txt`](./output_configs/Trojan.txt) |
 | Tuic | 11 | [`Tuic.txt`](./output_configs/Tuic.txt) |
-| Vless | 31473 | [`Vless.txt`](./output_configs/Vless.txt) |
+| Vless | 30715 | [`Vless.txt`](./output_configs/Vless.txt) |
 | Vmess | 1530 | [`Vmess.txt`](./output_configs/Vmess.txt) |
-| WireGuard | 67 | [`WireGuard.txt`](./output_configs/WireGuard.txt) |
+| WireGuard | 60 | [`WireGuard.txt`](./output_configs/WireGuard.txt) |
 
 ## 🌍 فایل‌های کشورها (حاوی کانفیگ)
 
@@ -40,23 +40,23 @@
 | CentralAfricanRepublic | 22 | [`CentralAfricanRepublic.txt`](./output_configs/CentralAfricanRepublic.txt) |
 | Chile | 1 | [`Chile.txt`](./output_configs/Chile.txt) |
 | China | 139 | [`China.txt`](./output_configs/China.txt) |
-| Colombia | 20 | [`Colombia.txt`](./output_configs/Colombia.txt) |
+| Colombia | 19 | [`Colombia.txt`](./output_configs/Colombia.txt) |
 | CostaRica | 9 | [`CostaRica.txt`](./output_configs/CostaRica.txt) |
 | Croatia | 4 | [`Croatia.txt`](./output_configs/Croatia.txt) |
 | Cyprus | 422 | [`Cyprus.txt`](./output_configs/Cyprus.txt) |
-| Czechia | 351 | [`Czechia.txt`](./output_configs/Czechia.txt) |
+| Czechia | 237 | [`Czechia.txt`](./output_configs/Czechia.txt) |
 | Denmark | 6 | [`Denmark.txt`](./output_configs/Denmark.txt) |
 | Ecuador | 2 | [`Ecuador.txt`](./output_configs/Ecuador.txt) |
 | EquatorialGuinea | 2 | [`EquatorialGuinea.txt`](./output_configs/EquatorialGuinea.txt) |
 | Estonia | 86 | [`Estonia.txt`](./output_configs/Estonia.txt) |
 | Finland | 328 | [`Finland.txt`](./output_configs/Finland.txt) |
-| France | 954 | [`France.txt`](./output_configs/France.txt) |
-| Germany | 2436 | [`Germany.txt`](./output_configs/Germany.txt) |
+| France | 952 | [`France.txt`](./output_configs/France.txt) |
+| Germany | 2412 | [`Germany.txt`](./output_configs/Germany.txt) |
 | Greece | 7 | [`Greece.txt`](./output_configs/Greece.txt) |
 | Iceland | 15 | [`Iceland.txt`](./output_configs/Iceland.txt) |
 | India | 75 | [`India.txt`](./output_configs/India.txt) |
 | Indonesia | 100 | [`Indonesia.txt`](./output_configs/Indonesia.txt) |
-| Iran | 567 | [`Iran.txt`](./output_configs/Iran.txt) |
+| Iran | 558 | [`Iran.txt`](./output_configs/Iran.txt) |
 | Iraq | 4 | [`Iraq.txt`](./output_configs/Iraq.txt) |
 | Ireland | 16 | [`Ireland.txt`](./output_configs/Ireland.txt) |
 | Israel | 24 | [`Israel.txt`](./output_configs/Israel.txt) |
@@ -99,7 +99,7 @@
 | SouthKorea | 284 | [`SouthKorea.txt`](./output_configs/SouthKorea.txt) |
 | SouthSudan | 10 | [`SouthSudan.txt`](./output_configs/SouthSudan.txt) |
 | Spain | 50 | [`Spain.txt`](./output_configs/Spain.txt) |
-| Sweden | 397 | [`Sweden.txt`](./output_configs/Sweden.txt) |
+| Sweden | 295 | [`Sweden.txt`](./output_configs/Sweden.txt) |
 | Switzerland | 96 | [`Switzerland.txt`](./output_configs/Switzerland.txt) |
 | Taiwan | 23 | [`Taiwan.txt`](./output_configs/Taiwan.txt) |
 | Thailand | 6 | [`Thailand.txt`](./output_configs/Thailand.txt) |
@@ -109,7 +109,7 @@
 | Turkmenistan | 57 | [`Turkmenistan.txt`](./output_configs/Turkmenistan.txt) |
 | UAE | 92 | [`UAE.txt`](./output_configs/UAE.txt) |
 | UK | 1412 | [`UK.txt`](./output_configs/UK.txt) |
-| USA | 9371 | [`USA.txt`](./output_configs/USA.txt) |
+| USA | 8727 | [`USA.txt`](./output_configs/USA.txt) |
 | Ukraine | 21 | [`Ukraine.txt`](./output_configs/Ukraine.txt) |
 | Vietnam | 69 | [`Vietnam.txt`](./output_configs/Vietnam.txt) |
 
