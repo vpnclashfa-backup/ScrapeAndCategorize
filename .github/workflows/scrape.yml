@@ -1,0 +1,45 @@
+name: Daily Scrape and Process
+
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+  # Runs the workflow daily at 00:00 UTC
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest # Use the latest Ubuntu runner
+
+    steps:
+      - name: 📥 Check out repository
+        # Checks out your repository under $GITHUB_WORKSPACE, 
+        # so your job can access it.
+        uses: actions/checkout@v4
+
+      - name: 🐍 Set up Python
+        # Sets up a Python environment for use in actions.
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11' # Specify the Python version you want to use
+          cache: 'pip' # Caches pip dependencies
+
+      - name: ⚙️ Install dependencies
+        # Installs the Python libraries listed in requirements.txt.
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: 🕸️ Run scraping script
+        # Executes the Python script to fetch data and generate results.
+        run: python scraper.py
+
+      - name: 💾 Upload results artifact
+        # Uploads the generated results.json file as a build artifact.
+        # This allows you to download the results from the workflow run page.
+        uses: actions/upload-artifact@v4
+        with:
+          name: scraping-results # Name of the artifact
+          path: results.json # Path to the file to upload
+          retention-days: 7 # Keep artifacts for 7 days (adjust as needed)
