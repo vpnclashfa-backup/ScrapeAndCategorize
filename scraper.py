@@ -9,7 +9,7 @@ import shutil
 from datetime import datetime
 import pytz
 import base64
-from urllib.parse import parse_qs, unquote # <--- unquote اضافه شد
+from urllib.parse import parse_qs, unquote
 
 # --- Configuration ---
 URLS_FILE = 'urls.txt'
@@ -18,6 +18,8 @@ OUTPUT_DIR = 'output_configs'
 README_FILE = 'README.md'
 REQUEST_TIMEOUT = 15  # seconds
 CONCURRENT_REQUESTS = 10  # Max concurrent requests
+MAX_CONFIG_LENGTH = 1500 # <--- اضافه شد: حداکثر طول مجاز کانفیگ
+MIN_PERCENT25_COUNT = 15 # <--- اضافه شد: حداقل تعداد %25 برای فیلتر شدن
 
 # --- Logging Setup ---
 logging.basicConfig(level=logging.INFO,
@@ -84,6 +86,37 @@ def get_ssr_name(ssr_link):
         logging.warning(f"Failed to parse SSR name from {ssr_link[:30]}...: {e}")
     return None
 
+# --- New Filter Function --- <--- اضافه شد
+def should_filter_config(config):
+    """
+    Checks if a config should be filtered based on heavy encoding,
+    specific keywords, or excessive length.
+    """
+    # 1. Check for specific keywords (case-insensitive)
+    if 'i_love_' in config.lower():
+        logging.warning(f"Filtering by keyword 'I_Love_': {config[:60]}...")
+        return True
+
+    # 2. Check for high count of '%25'
+    percent25_count = config.count('%25')
+    if percent25_count >= MIN_PERCENT25_COUNT:
+        logging.warning(f"Filtering by high %25 count ({percent25_count}): {config[:60]}...")
+        return True
+
+    # 3. Check for excessive length
+    if len(config) >= MAX_CONFIG_LENGTH:
+        logging.warning(f"Filtering by excessive length ({len(config)}): {config[:60]}...")
+        return True
+
+    # 4. Check for '%2525' as another indicator
+    if '%2525' in config:
+         logging.warning(f"Filtering by '%2525' presence: {config[:60]}...")
+         return True
+
+    return False
+# --- پایان بخش اضافه شده ---
+
+
 async def fetch_url(session, url):
     """Asynchronously fetches the content of a single URL."""
     try:
@@ -143,7 +176,7 @@ def generate_simple_readme(protocol_counts, country_counts):
     md_content = f"# 📊 نتایج استخراج (آخرین به‌روزرسانی: {timestamp})\n\n"
     md_content += "این فایل به صورت خودکار ایجاد شده است.\n\n"
     md_content += "**توضیح:** فایل‌های کشورها فقط شامل کانفیگ‌هایی هستند که نام/پرچم کشور (با رعایت مرز کلمه برای مخفف‌ها) در **اسم کانفیگ** پیدا شده باشد. اسم کانفیگ ابتدا از بخش `#` لینک و در صورت نبود، از نام داخلی (برای Vmess/SSR) استخراج می‌شود.\n\n"
-    md_content += "**نکته:** کانفیگ‌هایی که به شدت URL-Encode شده‌اند (حاوی `%25%25%25` یا `I_Love_`) از نتایج حذف شده‌اند.\n\n" # <--- اضافه شد
+    md_content += "**نکته:** کانفیگ‌هایی که به شدت URL-Encode شده‌اند (حاوی تعداد زیادی `%25`، طولانی یا دارای کلمات کلیدی خاص) از نتایج حذف شده‌اند.\n\n" # <--- توضیح به‌روز شد
 
     md_content += "## 📁 فایل‌های پروتکل‌ها\n\n"
     if protocol_counts:
@@ -203,10 +236,6 @@ async def main():
     final_configs_by_country = {cat: set() for cat in country_category_names}
     final_all_protocols = {cat: set() for cat in PROTOCOL_CATEGORIES}
 
-    # <<<--- اضافه شد: الگوی فیلتر کردن --- >>>
-    filter_pattern = re.compile(r'(%25){3,}') # شناسایی ۳ یا بیشتر %25 پشت سر هم
-    # <<<--- پایان بخش اضافه شده --- >>>
-
     logging.info("Processing pages for config name association...")
     for url, text in fetched_pages:
         if not text:
@@ -217,12 +246,10 @@ async def main():
         all_page_configs = set()
         for cat in PROTOCOL_CATEGORIES:
             if cat in page_matches:
-                # <<<--- تغییر مهم: اعمال فیلتر --- >>>
                 for config in page_matches[cat]:
-                    # اگر کانفیگ با الگوی فیلتر مطابقت داشت یا حاوی I_Love_ بود، آن را نادیده بگیر
-                    if filter_pattern.search(config) or 'I_Love_' in config:
-                        logging.warning(f"Skipping heavily encoded/filtered config: {config[:60]}...")
-                        continue # برو سراغ کانفیگ بعدی و این یکی را اضافه نکن
+                    # <<<--- تغییر مهم: استفاده از تابع فیلتر جدید --- >>>
+                    if should_filter_config(config):
+                        continue # اگر تابع گفت فیلتر شود، این کانفیگ را نادیده بگیر
 
                     # اگر فیلتر نشد، آن را اضافه کن
                     all_page_configs.add(config)
