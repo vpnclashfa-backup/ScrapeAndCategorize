@@ -21,6 +21,12 @@ CONCURRENT_REQUESTS = 10
 logging.basicConfig(level=logging.INFO,
                     format='%(asctime)s - %(levelname)s - %(message)s')
 
+# --- Protocol Categories (Ensure these match your keywords.json keys) ---
+PROTOCOL_CATEGORIES = [
+    "Vmess", "Vless", "Trojan", "ShadowSocks", "ShadowSocksR",
+    "Tuic", "Hysteria2", "WireGuard" # Adjust if your keys are different (e.g., hy2)
+]
+
 async def fetch_url(session, url):
     """Fetches a single URL."""
     try:
@@ -36,7 +42,7 @@ async def fetch_url(session, url):
         return url, None
 
 def find_matches(text, categories):
-    """Finds matches in text."""
+    """Finds matches in text and returns {category: set_of_items}."""
     matches = {category: set() for category in categories}
     for category, patterns in categories.items():
         for pattern in patterns:
@@ -48,6 +54,21 @@ def find_matches(text, categories):
                 logging.error(f"Regex error for '{pattern}': {e}")
     return {k: v for k, v in matches.items() if v}
 
+def save_to_file(directory, category_name, items_set):
+    """Helper function to save a set to a file."""
+    if not items_set:
+        return False
+    file_path = os.path.join(directory, f"{category_name}.txt")
+    try:
+        with open(file_path, 'w', encoding='utf-8') as f:
+            for item in sorted(list(items_set)):
+                f.write(f"{item}\n")
+        logging.info(f"Saved {len(items_set)} items to {file_path}")
+        return True
+    except Exception as e:
+        logging.error(f"Failed to write file {file_path}: {e}")
+        return False
+
 def generate_readme(results_per_url, categories_with_files):
     """Generates the README.md content."""
     tz = pytz.timezone('Asia/Tehran')
@@ -56,14 +77,14 @@ def generate_readme(results_per_url, categories_with_files):
 
     md_content = f"# 📊 نتایج استخراج (آخرین به‌روزرسانی: {timestamp})\n\n"
     md_content += "این فایل به صورت خودکار توسط GitHub Actions ایجاد شده است.\n\n"
-    md_content += "## 🔗 لینک‌های سریع به تمام فایل‌ها\n\n"
+    md_content += "**نکته مهم:** فایل‌های مربوط به **کشورها**، حاوی **کانفیگ‌های** یافت شده در صفحاتی هستند که به آن کشور اشاره داشته‌اند.\n\n"
 
-    # <<<--- تغییر: لینک به تمام فایل‌های ایجاد شده (کشور و پروتکل) --->>>
+    md_content += "## 🔗 لینک‌های سریع به تمام فایل‌های خروجی\n\n"
     for category in sorted(categories_with_files):
         md_content += f"* [{category}](./{OUTPUT_DIR}/{category}.txt)\n"
     md_content += "\n---\n"
 
-    md_content += "## 📄 جزئیات بر اساس URL\n\n"
+    md_content += "## 📄 جزئیات بر اساس URL (موارد شناسایی شده)\n\n"
 
     if not results_per_url:
         md_content += "هیچ URLی پردازش نشد یا هیچ نتیجه‌ای یافت نشد.\n"
@@ -76,12 +97,11 @@ def generate_readme(results_per_url, categories_with_files):
             elif not categories_found:
                 md_content += "* *هیچ کلمه کلیدی یا کانفیگی یافت نشد.*\n"
             else:
-                md_content += "| دسته | تعداد | لینک فایل |\n"
+                md_content += "| دسته | تعداد (موارد شناسایی شده) | لینک فایل |\n"
                 md_content += "|---|---|---|\n"
                 for category, items in sorted(categories_found.items()):
                     count = len(items)
-                    # <<<--- تغییر: لینک به تمام دسته‌ها --->>>
-                    link = f"[`{category}.txt`](./{OUTPUT_DIR}/{category}.txt)"
+                    link = f"[`{category}.txt`](./{OUTPUT_DIR}/{category}.txt)" if category in categories_with_files else "-"
                     md_content += f"| {category} | {count} | {link} |\n"
             md_content += "\n"
 
@@ -103,6 +123,9 @@ async def main():
     with open(KEYWORDS_FILE, 'r', encoding='utf-8') as f:
         categories = json.load(f)
 
+    all_category_names = list(categories.keys())
+    country_category_names = [cat for cat in all_category_names if cat not in PROTOCOL_CATEGORIES]
+
     logging.info(f"Loaded {len(urls)} URLs and "
                  f"{len(categories)} categories.")
 
@@ -110,7 +133,6 @@ async def main():
     tasks = []
     sem = asyncio.Semaphore(CONCURRENT_REQUESTS)
     results_per_url = {}
-    all_found_items = {category: set() for category in categories}
 
     async def fetch_with_sem(session, url):
         async with sem:
@@ -119,43 +141,57 @@ async def main():
     async with aiohttp.ClientSession() as session:
         fetched_pages = await asyncio.gather(*[fetch_with_sem(session, url) for url in urls])
 
-    # --- Process Results ---
+    # --- Process Results (Store original findings) ---
     logging.info("Processing all fetched pages...")
     for url, text in fetched_pages:
         if text:
-            url_matches = find_matches(text, categories)
-            results_per_url[url] = url_matches
-            for category, items in url_matches.items():
-                all_found_items[category].update(items)
+            results_per_url[url] = find_matches(text, categories)
         else:
             results_per_url[url] = {"error": True}
+
+    # --- Aggregate for File Output (New Logic) ---
+    configs_by_country = {cat: set() for cat in country_category_names}
+    all_protocol_configs = {cat: set() for cat in PROTOCOL_CATEGORIES}
+
+    for url, categories_found in results_per_url.items():
+        if "error" in categories_found or not categories_found:
+            continue
+
+        page_configs = set()
+        page_countries = set()
+
+        for cat, items in categories_found.items():
+            if cat in PROTOCOL_CATEGORIES:
+                page_configs.update(items)
+                all_protocol_configs[cat].update(items)
+            else:
+                page_countries.add(cat) # Add country category name
+
+        # Associate configs with countries found on the same page
+        if page_configs and page_countries:
+            for country in page_countries:
+                configs_by_country[country].update(page_configs)
 
     # --- Save Output Files ---
     if os.path.exists(OUTPUT_DIR):
         shutil.rmtree(OUTPUT_DIR)
     os.makedirs(OUTPUT_DIR, exist_ok=True)
-    logging.info(f"Saving all found items to directory: {OUTPUT_DIR}")
+    logging.info(f"Saving files to directory: {OUTPUT_DIR}")
 
-    total_saved_items = 0
     categories_with_files = []
-    # <<<--- تغییر: ایجاد فایل برای *تمام* دسته‌ها (کشور و پروتکل) --->>>
-    for category, items in all_found_items.items():
-        if items: # فقط اگر چیزی پیدا شده باشد فایل ایجاد کن
-            categories_with_files.append(category)
-            file_path = os.path.join(OUTPUT_DIR, f"{category}.txt")
-            try:
-                with open(file_path, 'w', encoding='utf-8') as f:
-                    for item in sorted(list(items)):
-                        f.write(f"{item}\n")
-                logging.info(f"Saved {len(items)} items to {file_path}")
-                total_saved_items += len(items)
-            except Exception as e:
-                logging.error(f"Failed to write file {file_path}: {e}")
 
-    logging.info(f"Saved a total of {total_saved_items} items across all files.")
+    # Save protocol files (all configs of a type)
+    for category, items in all_protocol_configs.items():
+        if save_to_file(OUTPUT_DIR, category, items):
+            categories_with_files.append(category)
+
+    # Save country files (configs associated with a country)
+    for category, items in configs_by_country.items():
+        if save_to_file(OUTPUT_DIR, category, items):
+            categories_with_files.append(category)
 
     # --- Generate README.md ---
-    generate_readme(results_per_url, categories_with_files) # <--- پاس دادن لیست فایل‌های ایجاد شده
+    generate_readme(results_per_url, categories_with_files)
 
     logging.info("--- Script Finished ---")
 
