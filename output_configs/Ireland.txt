@@ -1,4 +1,5 @@
 ss://10b59513-ef76-4494-a925-305ec45dd3a4@85.159.229.243:2040?security=reality&sni=github.com&type=tcp&fp=chrome&pbk=iPjWLvXWt7ABJaSRRwzjgLrvlJlwoYQZN8zF-G3D-Qs&sid=27cfa05000c23cc4#%E7%88%B1%E5%B0%94%E5%85%B0_052310002
+ss://YWVzLTEyOC1nY206WUhSUnRzbTNYK3gybWdsNzZ5WTl1aWRzT3duRWUzMC90eWJsUVUvaEd0VT0=@193.57.138.81:27082#IE%F0%9F%87%AE%F0%9F%87%AA+%7C+193.57.138.81-27082+%7C+146.27ms
 ss://YWVzLTEyOC1nY206WUhSUnRzbTNYK3gybWdsNzZ5WTl1aWRzT3duRWUzMC90eWJsUVUvaEd0VT0=@193.57.138.81:27082#IE%F0%9F%87%AE%F0%9F%87%AA+%7C+193.57.138.81-27082+%7C+83.16ms
 ss://c48d54b2-c560-5f86-904f-b4ecf4a3b4ad@s3.saitsazs.ir:30107?sni=refersion.com&sid=31e7200536a1ad45&mode=gun&security=reality&encryption=none&fp=chrome&authority=mci.ir&type=grpc&pbk=qdfo8UQXXsXPViln7MbAIIvVgKrDnuRoFBGVTJDm134#🇮🇪
 trojan://telegram-id-directvpn@54.217.71.51:22222?security=tls&sni=trojan.burgerip.co.uk&alpn=http%2F1.1&type=tcp&headerType=none#%F0%9F%91%89%F0%9F%86%94%20%40v2ray_configs_pool%F0%9F%93%A1%F0%9F%87%AE%F0%9F%87%AAIreland

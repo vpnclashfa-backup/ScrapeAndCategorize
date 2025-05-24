@@ -49,6 +49,7 @@ ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@45.12.30.240:80?type=ws&host=reedfree8
 ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@45.12.30.76:80?path=Telegram%3A%40%40vpnclashfa+-+738#RO🇷🇴
 ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@45.12.30.76:80?type=ws&host=reedfree8mahsang2.redorg.ir&path=Telegram:#%E7%BD%97%E9%A9%AC%E5%B0%BC%E4%BA%9A_052310022
 ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@45.12.30.99:80?path=Telegram%F0%9F%87%AE%F0%9F%87%B7Channel+id%3A+%40ShadowProxy66+%2F%3Fed%3D2560&security=none&encryption=none&host=reedfree8mahsang2.redorg.ir&type=ws#%E7%BD%97%E9%A9%AC%E5%B0%BC%E4%BA%9A_052310138
+ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@45.12.31.10:80?path=Telegram%3A%40%40vpnclashfa+-+726#RO🇷🇴
 ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@45.12.31.10:80?path=Telegram%3A%40%40vpnclashfa+-+739#RO🇷🇴
 ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@45.12.31.10:80?security=none&type=ws&host=reedfree8mahsang2.redorg.ir&path=Telegram%3A%40vpnAndroid2%2F%3Fed%3D2560#%E7%BD%97%E9%A9%AC%E5%B0%BC%E4%BA%9A_052310023
 ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@45.12.31.137:80?type=ws&host=reedfree8mahsang2.redorg.ir&path=Telegram:#%E7%BD%97%E9%A9%AC%E5%B0%BC%E4%BA%9A_052310024
@@ -110,9 +111,11 @@ ss://96a1b724-68d2-4f4d-ab25-38ecd83577bc@45.85.119.37:8443?path=%2F&security=tl
 ss://96a1b724-68d2-4f4d-ab25-38ecd83577bc@45.85.119.85:8443?security=tls&sni=NuWoLcZn28.qUiCkOrA.OrG&type=ws&host=NuWoLcZn28.qUiCkOrA.OrG&path=%2F&fp=chrome&alpn=h2%2Chttp%2F1.1#%E7%BD%97%E9%A9%AC%E5%B0%BC%E4%BA%9A_052310056
 ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpmOGY3YUN6Y1BLYnNGOHAz@185.126.237.38:990#%F0%9F%87%B7%F0%9F%87%B4%20RO-185.126.237.38%3A990
 ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpmOGY3YUN6Y1BLYnNGOHAz@185.126.237.38:990#RO%F0%9F%87%B7%F0%9F%87%B4+%7C+185.126.237.38-990+%7C+112.09ms
+ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpmOGY3YUN6Y1BLYnNGOHAz@185.126.237.38:990#RO%F0%9F%87%B7%F0%9F%87%B4+%7C+185.126.237.38-990+%7C+179.28ms
 ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpmOGY3YUN6Y1BLYnNGOHAz@188.214.157.154:990#%F0%9F%87%B7%F0%9F%87%B4RO🤯
-ss://YWVzLTI1Ni1jZmI6ZjhmN2FDemNQS2JzRjhwMw==@194.14.217.38:989#%F0%9F%87%B7%F0%9F%87%B4RO-194.14.217.38-0536
+ss://YWVzLTI1Ni1jZmI6ZjhmN2FDemNQS2JzRjhwMw==@194.14.217.38:989#%F0%9F%87%B7%F0%9F%87%B4RO-194.14.217.38-0467
 ss://YWVzLTI1Ni1nY206WEpTTUJNVk1JTFA4SUpQRQ==@185.126.237.58:20027#RO%F0%9F%87%B7%F0%9F%87%B4+%7C+185.126.237.58-20027+%7C+120.1ms
+ss://YWVzLTI1Ni1nY206WEpTTUJNVk1JTFA4SUpQRQ==@185.126.237.58:20027#RO%F0%9F%87%B7%F0%9F%87%B4+%7C+185.126.237.58-20027+%7C+180.85ms
 ss://acUrLC9r73Z5T6zFeg2rRg@46.229.253.68:443?type=tcp&encryption=none&flow=xtls-rprx-vision&sni=whatsapp.com&fp=chrome&security=reality&pbk=4za81qMtiP3hieYozjR1OWXmj5CckIgqOIhkqI4l8RE&sid=39fb4a388ff77f12#%E7%BD%97%E9%A9%AC%E5%B0%BC%E4%BA%9A_052310082
 ss://b4f6b703-961b-46bf-8d7e-e2330c5be800@45.85.119.139:443?security=tls&sni=InBarZendegi.site&type=xhttp&host=inbarzendegi.site&fp=chrome&alpn=h3#%E7%BD%97%E9%A9%AC%E5%B0%BC%E4%BA%9A_052310057
 ss://b99590df-eda0-4e34-e1a9-3d1118faed83@45.12.30.158:8880?security=none&type=httpupgrade&host=nufillter.jtip.sbs.&path=#%E7%BD%97%E9%A9%AC%E5%B0%BC%E4%BA%9A_052310058
@@ -192,6 +195,7 @@ vless://53fa8faf-ba4b-4322-9c69-a3e5b1555049@45.12.30.240:80?type=ws&host=reedfr
 vless://53fa8faf-ba4b-4322-9c69-a3e5b1555049@45.12.30.76:80?path=Telegram%3A%40%40vpnclashfa+-+738#RO🇷🇴
 vless://53fa8faf-ba4b-4322-9c69-a3e5b1555049@45.12.30.76:80?type=ws&host=reedfree8mahsang2.redorg.ir&path=Telegram:#%E7%BD%97%E9%A9%AC%E5%B0%BC%E4%BA%9A_052310022
 vless://53fa8faf-ba4b-4322-9c69-a3e5b1555049@45.12.30.99:80?path=Telegram%F0%9F%87%AE%F0%9F%87%B7Channel+id%3A+%40ShadowProxy66+%2F%3Fed%3D2560&security=none&encryption=none&host=reedfree8mahsang2.redorg.ir&type=ws#%E7%BD%97%E9%A9%AC%E5%B0%BC%E4%BA%9A_052310138
+vless://53fa8faf-ba4b-4322-9c69-a3e5b1555049@45.12.31.10:80?path=Telegram%3A%40%40vpnclashfa+-+726#RO🇷🇴
 vless://53fa8faf-ba4b-4322-9c69-a3e5b1555049@45.12.31.10:80?path=Telegram%3A%40%40vpnclashfa+-+739#RO🇷🇴
 vless://53fa8faf-ba4b-4322-9c69-a3e5b1555049@45.12.31.10:80?security=none&type=ws&host=reedfree8mahsang2.redorg.ir&path=Telegram%3A%40vpnAndroid2%2F%3Fed%3D2560#%E7%BD%97%E9%A9%AC%E5%B0%BC%E4%BA%9A_052310023
 vless://53fa8faf-ba4b-4322-9c69-a3e5b1555049@45.12.31.137:80?type=ws&host=reedfree8mahsang2.redorg.ir&path=Telegram:#%E7%BD%97%E9%A9%AC%E5%B0%BC%E4%BA%9A_052310024
@@ -282,3 +286,5 @@ vless://ffffffff-ffff-ffff-ffff-ffffffffffff@45.85.119.238:80?path=%2F&security=
 vmess://eyJhZGQiOiI1LjE4Mi4zNy4yMzEiLCJhaWQiOiIwIiwiYWxwbiI6IiIsImZwIjoiIiwiaG9zdCI6IiIsImlkIjoiOTM5NTQ3NGMtZTJhMS00NTY1LWJhNTYtYzE2ZTczNzNjNGM0IiwibmV0IjoidGNwIiwicGF0aCI6IiIsInBvcnQiOiI0OTY2NCIsInBzIjoiMXzwn4yAMTMtUk8gfCAgMS44TUIvcyIsInNjeSI6ImF1dG8iLCJzbmkiOiIiLCJ0bHMiOiIiLCJ0eXBlIjoibm9uZSIsInYiOiIyIn0=
 vmess://eyJhZGQiOiI1LjE4Mi4zNy4yMzEiLCJhaWQiOiIwIiwiYWxwbiI6IiIsImZwIjoiIiwiaG9zdCI6IiIsImlkIjoiOTM5NTQ3NGMtZTJhMS00NTY1LWJhNTYtYzE2ZTczNzNjNGM0IiwibmV0IjoidGNwIiwicGF0aCI6IiIsInBvcnQiOiI0OTY2NCIsInBzIjoiUk9cdWQ4M2NcdWRkZjdcdWQ4M2NcdWRkZjQgfCA1LjE4Mi4zNy4yMzEtNDk2NjQgfCAxMTUuMzVtcyIsInNjeSI6ImF1dG8iLCJzbmkiOiIiLCJ0bHMiOiIiLCJ0eXBlIjoibm9uZSIsInYiOiIyIn0=
 vmess://eyJhZGQiOiI1LjE4Mi4zNy4yMzEiLCJhaWQiOiIwIiwiYWxwbiI6IiIsImZwIjoiIiwiaG9zdCI6IiIsImlkIjoiOTM5NTQ3NGMtZTJhMS00NTY1LWJhNTYtYzE2ZTczNzNjNGM0IiwibmV0IjoidGNwIiwicGF0aCI6IiIsInBvcnQiOiI0OTY2NCIsInBzIjoiUk9cdWQ4M2NcdWRkZjdcdWQ4M2NcdWRkZjQgfCA1LjE4Mi4zNy4yMzEtNDk2NjQgfCAxMTguM21zIiwic2N5IjoiYXV0byIsInNuaSI6IiIsInRscyI6IiIsInR5cGUiOiIiLCJ2IjoiMiJ9
+vmess://eyJhZGQiOiI1LjE4Mi4zNy4yMzEiLCJhaWQiOiIwIiwiYWxwbiI6IiIsImZwIjoiIiwiaG9zdCI6IiIsImlkIjoiOTM5NTQ3NGMtZTJhMS00NTY1LWJhNTYtYzE2ZTczNzNjNGM0IiwibmV0IjoidGNwIiwicGF0aCI6IiIsInBvcnQiOiI0OTY2NCIsInBzIjoiUk9cdWQ4M2NcdWRkZjdcdWQ4M2NcdWRkZjQgfCA1LjE4Mi4zNy4yMzEtNDk2NjQgfCAxODYuNjFtcyIsInNjeSI6ImF1dG8iLCJzbmkiOiIiLCJ0bHMiOiIiLCJ0eXBlIjoibm9uZSIsInYiOiIyIn0=
+vmess://eyJhZGQiOiI1LjE4Mi4zNy4yMzEiLCJhaWQiOiIwIiwiYWxwbiI6IiIsImZwIjoiIiwiaG9zdCI6IiIsImlkIjoiOTM5NTQ3NGMtZTJhMS00NTY1LWJhNTYtYzE2ZTczNzNjNGM0IiwibmV0IjoidGNwIiwicGF0aCI6IiIsInBvcnQiOiI0OTY2NCIsInBzIjoiUk9cdWQ4M2NcdWRkZjdcdWQ4M2NcdWRkZjQgfCA1LjE4Mi4zNy4yMzEtNDk2NjQgfCAxODguMThtcyIsInNjeSI6ImF1dG8iLCJzbmkiOiIiLCJ0bHMiOiIiLCJ0eXBlIjoiIiwidiI6IjIifQ==
