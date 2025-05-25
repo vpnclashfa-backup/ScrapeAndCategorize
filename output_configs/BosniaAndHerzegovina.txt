@@ -1,0 +1,2 @@
+ss://4a3dc64b-17e1-4ae7-a9a4-851f9794d4c6@216.230.233.49:25536/?type=tcp&encryption=none&flow=xtls-rprx-vision&sni=apps.apple.com&fp=chrome&security=reality&pbk=ydfJ-qHuqDCqmGnFbRwzqYT7gA9mWoh0gtYvMzt8OmI&sid=fc3d#%25F0%259F%2587%25BA%25F0%259F%2587%25B8%2540FREE2CONFIG
+vless://4a3dc64b-17e1-4ae7-a9a4-851f9794d4c6@216.230.233.49:25536/?type=tcp&encryption=none&flow=xtls-rprx-vision&sni=apps.apple.com&fp=chrome&security=reality&pbk=ydfJ-qHuqDCqmGnFbRwzqYT7gA9mWoh0gtYvMzt8OmI&sid=fc3d#%25F0%259F%2587%25BA%25F0%259F%2587%25B8%2540FREE2CONFIG
