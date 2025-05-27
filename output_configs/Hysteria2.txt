@@ -97,8 +97,8 @@ hy2://KYPSpQi9oC@77.239.112.132:54075?obfs=salamander&obfs-password=v2raybluecry
 hy2://KYPSpQi9oC@77.239.112.132:54075?obfs=salamander&obfs-password=v2raybluecrystal&insecure=1#🔒
 hy2://KevinZakarian@66.23.198.32:443?insecure=1&obfs=salamander&obfs-password=KevinZakarian&sni=www.eliv2ray.net#🔒
 hy2://NTA0MDg5OjEzMzI4ODo3YjA2ZDIyYThhN2M3NjRm@47.76.232.205:3074?insecure=1#🔒
-hy2://PassWord2@45.138.99.106:8443?insecure=1&obfs=salamander&obfs-password=PassWord1#🔒
 hy2://PassWord2@45.138.99.106:8443?obfs=salamander&obfs-password=PassWord1&insecure=1#%F0%9F%87%A9%F0%9F%87%AA%20Germany%20-%20D%C3%BCsseldorf%20%F0%9F%8C%8D%20HY2-UDP-TLS%204%E2%83%A3
+hy2://PassWord2@45.138.99.106:8443?obfs=salamander&obfs-password=PassWord1&insecure=1#🔒
 hy2://a278eadd-c35c-403f-a286-7767a74307c1@45.140.169.231:8080?insecure=1&sni=www.eliv2ray.net#🔒
 hy2://a6a3c7fc-0de8-11ef-ba67-f23c91cfbbc9@107.167.18.102:8443?insecure=1&sni=ea9b4647-supts0-sxw44d-1re2s.hy2.gotochinatown.net#%F0%9F%87%BA%F0%9F%87%B8%20United%20States%20-%20Los%20Angeles%20%F0%9F%8C%8E%20HY2-UDP-TLS%204%E2%83%A3
 hy2://a914681a-8dda-4c98-8468-c313f5539b14@213.35.99.16:2056?insecure=1&sni=sg3.eyucdn.xyz#🔒

@@ -1,1 +1,0 @@
-trojan://Aimer@188.164.159.107:2096?security=tls&sni=epccn.ambercc.filegear-sg.me&type=tcp&headerType=none#%E5%85%8D%E8%B4%B9VPN%EF%BC%9Ahttps%3A%2F%2Ftt.vg%2FgwaAy
