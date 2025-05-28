@@ -1,3 +1,3 @@
 ss://YWVzLTI1Ni1jZmI6ZjhmN2FDemNQS2JzRjhwMw@185.213.23.226:989#premium-no
-ss://b1c801ec-1c5e-4d12-8b53-8da11c64a21b@46.29.238.35:443?type=tcp&encryption=none&flow=xtls-rprx-vision&sni=video.intfreed.ru&fp=chrome&security=reality&pbk=JxwG7rAbNCd_C82p9K69AZDWh51fri2nm3wLHHrfyiw&sid=7755e972daf8eec8#%E6%8C%AA%E5%A8%81_052610001
-vless://b1c801ec-1c5e-4d12-8b53-8da11c64a21b@46.29.238.35:443?type=tcp&encryption=none&flow=xtls-rprx-vision&sni=video.intfreed.ru&fp=chrome&security=reality&pbk=JxwG7rAbNCd_C82p9K69AZDWh51fri2nm3wLHHrfyiw&sid=7755e972daf8eec8#%E6%8C%AA%E5%A8%81_052610001
+ss://b1c801ec-1c5e-4d12-8b53-8da11c64a21b@46.29.238.35:443?type=tcp&encryption=none&flow=xtls-rprx-vision&sni=video.intfreed.ru&fp=chrome&security=reality&pbk=JxwG7rAbNCd_C82p9K69AZDWh51fri2nm3wLHHrfyiw&sid=7755e972daf8eec8#%E6%8C%AA%E5%A8%81_052710001
+vless://b1c801ec-1c5e-4d12-8b53-8da11c64a21b@46.29.238.35:443?type=tcp&encryption=none&flow=xtls-rprx-vision&sni=video.intfreed.ru&fp=chrome&security=reality&pbk=JxwG7rAbNCd_C82p9K69AZDWh51fri2nm3wLHHrfyiw&sid=7755e972daf8eec8#%E6%8C%AA%E5%A8%81_052710001
