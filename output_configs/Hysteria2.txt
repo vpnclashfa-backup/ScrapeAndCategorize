@@ -27,7 +27,6 @@ hy2://25a7be37-eca8-4d9e-a8ae-63722bf9ec2e@35.74.66.28:7001?insecure=1&sni=d1--c
 hy2://25a7be37-eca8-4d9e-a8ae-63722bf9ec2e@35.74.79.114:7001?insecure=1&sni=d1--cn-gotcha204-3.bilivideo.com#🔒
 hy2://25a7be37-eca8-4d9e-a8ae-63722bf9ec2e@43.207.208.50:7001?insecure=1&sni=d1--cn-gotcha204-3.bilivideo.com#🔒
 hy2://262e7386-f8a9-11ef-ba82-f23c913c8d2b@107.167.18.102:8443?insecure=1&sni=3b58370e-sv8cg0-tbhsus-1tgfe.hy2.gotochinatown.net#%F0%9F%87%BA%F0%9F%87%B8%20United%20States%20-%20Los%20Angeles%20%F0%9F%8C%8E%20HY2-UDP-TLS%204%E2%83%A3
-hy2://262e7386-f8a9-11ef-ba82-f23c913c8d2b@107.167.18.102:8443?insecure=1&sni=3b58370e-sv8cg0-tbhsus-1tgfe.hy2.gotochinatown.net#🔒
 hy2://27de93f4-144d-4a34-a823-9e30965964ce@45.147.201.231:33062?insecure=1&obfs=salamander&obfs-password=NDhhNmY5YTY0MGYzOTgxYQ%3D%3D#🔒
 hy2://2af14ba2-1a50-4e86-9eb9-b9c78f3507dc@147.182.255.75:30001?insecure=1#🔒
 hy2://2af14ba2-1a50-4e86-9eb9-b9c78f3507dc@18.162.213.220:60007?insecure=1#🔒
@@ -53,6 +52,7 @@ hy2://53bdfd4a-7f38-4cb6-b07e-49974de1a800@51.79.141.63:25022?insecure=1&sni=www
 hy2://5421ad38-6952-437f-a8ce-d6d3e9afd05f@43.199.206.200:30000?insecure=1&sni=www.teslamotors.com#🔒
 hy2://569dda85-bc76-4f8b-ae03-609d97f9e76c@143.198.48.33:5750?insecure=1&sni=www.bing.com#%F0%9F%87%BA%F0%9F%87%B8%20United%20States%20-%20Santa%20Clara%20%F0%9F%8C%8E%20HY2-UDP-TLS%204%E2%83%A3
 hy2://569dda85-bc76-4f8b-ae03-609d97f9e76c@143.198.48.33:5750?insecure=1&sni=www.bing.com#🔒
+hy2://5CBqBh6MeDq6GajcilBiDg%3D%3D@192.227.152.86:61001?insecure=1&sni=192-227-152-86.nip.io#🔒
 hy2://5CBqBh6MeDq6GajcilBiDg==@192.227.152.86:61001?insecure=1&sni=192-227-152-86.nip.io#%F0%9F%87%BA%F0%9F%87%B8%20United%20States%20-%20Buffalo%20%F0%9F%8C%8E%20HY2-UDP-TLS%204%E2%83%A3
 hy2://5CBqBh6MeDq6GajcilBiDg==@192.227.152.86:61001?insecure=1&sni=192-227-152-86.nip.io#🔒
 hy2://5gi8342LF4@156.226.175.200:52045?obfs=salamander&obfs-password=Cui080924#🔒
@@ -94,7 +94,6 @@ hy2://KYPSpQi9oC@77.239.112.132:54075?obfs=salamander&obfs-password=v2raybluecry
 hy2://KYPSpQi9oC@77.239.112.132:54075?obfs=salamander&obfs-password=v2raybluecrystal&insecure=1#🔒
 hy2://KevinZakarian@66.23.198.32:443?insecure=1&obfs=salamander&obfs-password=KevinZakarian&sni=www.eliv2ray.net#🔒
 hy2://NTA0MDg5OjEzMzI4ODo3YjA2ZDIyYThhN2M3NjRm@47.76.232.205:3074?insecure=1#🔒
-hy2://PassWord2@45.138.99.106:8443?insecure=1&obfs=salamander&obfs-password=PassWord1#🔒
 hy2://PassWord2@45.138.99.106:8443?obfs=salamander&obfs-password=PassWord1&insecure=1#%F0%9F%87%A9%F0%9F%87%AA%20Germany%20-%20D%C3%BCsseldorf%20%F0%9F%8C%8D%20HY2-UDP-TLS%204%E2%83%A3
 hy2://PassWord2@45.138.99.106:8443?obfs=salamander&obfs-password=PassWord1&insecure=1#🔒
 hy2://a278eadd-c35c-403f-a286-7767a74307c1@45.140.169.231:8080?insecure=1&sni=www.eliv2ray.net#🔒

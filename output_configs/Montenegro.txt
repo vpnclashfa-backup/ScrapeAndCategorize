@@ -1,3 +1,4 @@
+ss://02aa01e3-7f27-4e47-82e2-27c0b41bda9a@194.182.79.113:26468?mode=gun&security=none&encryption=none&type=grpc&serviceName=ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON%3Fed%3D2048#[🏁]t.me/ConfigsHub`
 ss://033a4982-a8c7-4bfb-9481-5a8a1c62cfd6@104.21.93.95:80?encryption=none&security=none&type=ws&host=azadnet.b0b723a182.workers.dev&path=%2FiDE2j5JJnqTGPjmS%3Fed%3D2560#t.me%2Fpeterjest
 ss://033a4982-a8c7-4bfb-9481-5a8a1c62cfd6@172.67.208.128:80?encryption=none&security=none&type=ws&host=azadnet.b0b723a182.workers.dev&path=%2FiDE2j5JJnqTGPjmS%3Fed%3D2560#t.me%2Fpeterjest
 ss://03c9f240-0bad-4f71-93f2-f5d272dada97@104.24.184.113:80?encryption=none&security=none&type=ws&host=sparkling-limit-ppal03.yibijow194.workers.dev&path=%2F#t.me%2Fpeterjest
@@ -106,6 +107,7 @@ ss://2e2b38da-7c5c-44fd-9098-414bf74641d1@hk-1-rvp.rayan-dns.dpdns.org:443?secur
 ss://30a082ad-3ebb-43d8-813c-f25072205c6d@104.18.20.135:443?encryption=none&security=tls&sni=25700.lanpinguo.cloud-ip.biz&type=ws&host=25700.lanpinguo.cloud-ip.biz&path=%2F%3Fed%3D2560#t.me%2Fpeterjest
 ss://30f2d443-af46-4dd6-83c9-b5e17299ebd2@92.243.74.2:443?encryption=none&security=tls&sni=carlotta.shorekeeper.cloudns.org&alpn=http%2F1.1&type=ws&host=carlotta.shorekeeper.cloudns.org&path=%2F#t.me%2Fpeterjest
 ss://30f2d443-af46-4dd6-83c9-b5e17299ebd2@92.243.74.3:443?encryption=none&security=tls&sni=carlotta.shorekeeper.cloudns.org&alpn=http%2F1.1&type=ws&host=carlotta.shorekeeper.cloudns.org&path=%2Fproxyip%3Dzani.yaemiko.ggff.net#t.me%2Fpeterjest
+ss://30f2d443-af46-4dd6-83c9-b5e17299ebd2@92.243.74.3:443?path=%2Fproxyip%3Dzani.yaemiko.ggff.net&security=tls&alpn=http%2F1.1&encryption=none&host=carlotta.shorekeeper.cloudns.org&fp=randomized&type=ws&sni=carlotta.shorekeeper.cloudns.org#[🏁]t.me/ConfigsHub`
 ss://31348b17-4ab2-40c0-b79e-c81032331d30@104.16.140.135:2086?encryption=none&security=none&sni=b4f0b859-super-smoke-7916.bouncy-vulture1054.workers.dev&type=ws&host=b4f0b859-super-smoke-7916.bouncy-vulture1054.workers.dev&path=%2F#t.me%2Fpeterjest
 ss://31348b17-4ab2-40c0-b79e-c81032331d30@104.16.140.135:2087?encryption=none&security=tls&sni=b4f0b859-super-smoke-7916.bouncy-vulture1054.workers.dev&type=ws&host=b4f0b859-super-smoke-7916.bouncy-vulture1054.workers.dev&path=%2F#t.me%2Fpeterjest
 ss://31348b17-4ab2-40c0-b79e-c81032331d30@185.135.9.138:2086?encryption=none&security=none&sni=b4f0b859-super-smoke-7916.bouncy-vulture1054.workers.dev&type=ws&host=b4f0b859-super-smoke-7916.bouncy-vulture1054.workers.dev&path=%2F%40AZARBAYJAB1%40AZARBAYJAB1%40AZARBAYJAB1%40AZARBAYJAB1%40AZARBAYJAB1%40AZARBAYJAB1%3Fed%3D2560#t.me%2Fpeterjest
@@ -141,7 +143,6 @@ ss://401374e6-df77-41fb-f638-dad8184f175b@154.211.8.125:443?encryption=none&secu
 ss://401374e6-df77-41fb-f638-dad8184f175b@156.238.19.95:443?encryption=none&security=tls&sni=pqh24v3.hiddendom.shop&alpn=h2&type=grpc#t.me%2Fpeterjest
 ss://401374e6-df77-41fb-f638-dad8184f175b@164.38.155.97:443?encryption=none&security=tls&sni=pqh24v3.hiddendom.shop&alpn=h2&type=grpc#t.me%2Fpeterjest
 ss://401374e6-df77-41fb-f638-dad8184f175b@167.68.42.168:443?encryption=none&security=tls&sni=pqh24v3.hiddendom.shop&alpn=h2&type=grpc#t.me%2Fpeterjest
-ss://401374e6-df77-41fb-f638-dad8184f175b@170.114.46.190:443?encryption=none&security=tls&type=grpc#%E7%94%B5%E6%8A%A5%E7%BE%A4%EF%BC%9Ahttps%3A%2F%2Ft.me%2Fvvkj11
 ss://401374e6-df77-41fb-f638-dad8184f175b@172.67.68.36:443?encryption=none&security=tls&sni=pqh24v3.hiddendom.shop&alpn=h2&type=grpc#t.me%2Fpeterjest
 ss://401374e6-df77-41fb-f638-dad8184f175b@185.135.9.223:443?type=grpc&mode=gun&security=tls&sni=pqh24v3.hiddendom.shop&alpn=h2#[🇬🇧]t.me/ConfigsHub`
 ss://401374e6-df77-41fb-f638-dad8184f175b@45.159.217.161:443?encryption=none&security=tls&sni=pqh44v2.hiddendom.shop&type=grpc#t.me%2Fpeterjest
@@ -180,11 +181,11 @@ ss://4bdab609-92da-4c23-b993-bbcb8caf2b03@188.114.96.1:443?encryption=none&secur
 ss://4c511b03-55b2-44df-bdb3-c07a18b2b864@65.109.202.140:443?encryption=none&security=none&type=tcp&headerType=none#t.me%2Fpeterjest
 ss://4c9541c7-5fa1-403c-84af-175e3b25a27f@172.67.207.26:8080?encryption=none&security=none&type=ws&host=201.58vtg99l.workers.dev&path=%2F#t.me%2Fpeterjest
 ss://4d5400ef-201d-43a3-890f-c767746fc524@104.21.32.208:443?encryption=none&security=tls&sni=PpaL03.EDmUnD-RAU.wORkeRs.dev&type=ws&host=pPaL03.EdMUnD-RAu.WoRKErS.DEv&path=%2FTelegram%40SiNABiGO%2F%3Fed%3D2048#t.me%2Fpeterjest
-ss://4d91916f-a7fd-419b-8b90-640bb8d4b3f2@45.85.118.20:443?path=%2FfJBvsL0uR2MtzRig&security=tls&alpn=http%2F1.1&encryption=none&host=myphotograpicpicture.ir&type=ws&sni=mypHOtoGRAPICpIctUre.iR#[🇬🇧]t.me/ConfigsHub`
 ss://4e41764d-ac31-43f5-8e9b-231ddf252d1f@172.67.144.126:443?encryption=none&security=tls&sni=899.288288.shoP&alpn=http%2F1.1&type=ws&host=899.288288.shop&path=%2FwAlPWPCQWnsVcNgLsMVz#t.me%2Fpeterjest
 ss://4ea45d5a-edb9-4eae-903b-997d28e76094@185.234.247.110:443?security=tls&sni=zula.ir&allowInsecure=1&fp=chrome&type=grpc&serviceName=vless-grpc&encryption=none#Rayan%20-%20VPH%20-%20gRPC-105%20-%20NL%20-%20%F0%9F%94%B5%20t.me/Rayan_Config
 ss://4ea841c1-0dc1-4563-9f47-deba8407cb4e@104.26.14.85:8080?encryption=none&security=none&type=ws&host=J9.oDOtZrHUoO.ZuLAIR.ORg.&path=%2F%3Fed%3D2048#t.me%2Fpeterjest
 ss://4ea841c1-0dc1-4563-9f47-deba8407cb4e@172.67.73.163:8080?encryption=none&security=none&type=ws&host=J9.oDOtZrHUoO.ZuLAIR.ORg.&path=%2F%3Fed%3D2048#t.me%2Fpeterjest
+ss://4fd16f19-a4eb-4c99-888e-07af121173d8@194.182.79.113:26468?mode=gun&security=none&encryption=none&type=grpc&serviceName=ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON%3Fed%3D2048#[🏁]t.me/ConfigsHub`
 ss://4fe79f13-aa15-5aa3-bfa7-122c6f661756@194.147.35.22:2052?encryption=none&security=none&type=ws&host=sPeedtest2.sbs.speedtest.net&path=%2Fvless#t.me%2Fpeterjest
 ss://508a5202-d450-42d2-a74c-9326dcda8b63@104.21.46.90:443?encryption=none&security=tls&sni=XCdvFRTtt.fREEvpnATM.dPDNS.oRg&alpn=http%2F1.1&type=ws&host=xcdvfrttt.freevpnatm.dpdns.org&path=%2FprUFeqTNsRZbl4sVHqtMKS#t.me%2Fpeterjest
 ss://508a5202-d450-42d2-a74c-9326dcda8b63@104.21.81.192:443?encryption=none&security=tls&sni=sssdeCVBnh.999156.XYz&alpn=http%2F1.1&type=ws&host=sssdecvbnh.999156.xyz&path=%2FprUFeqTNsRZbl4sVHqtMKS#t.me%2Fpeterjest
@@ -255,6 +256,7 @@ ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@185.148.106.71:8880?encryption=none&se
 ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@185.148.107.152:80?encryption=none&security=none&type=ws&host=reedfree8mahsang2.redorg.ir&path=Telegram%3A%20%40vpnAndroid2%2F%3Fed%3D2560#t.me%2Fpeterjest
 ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@185.16.110.20:8880?encryption=none&security=none&sni=reedfree8mahsang2.redorg.ir&type=ws&host=reedfree8mahsang2.redorg.ir&path=%2F#t.me%2Fpeterjest
 ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@185.162.228.165:8880?encryption=none&security=none&type=ws&host=reedfree8mahsang2.redorg.ir&path=Telegram%40vpnAndroid2%2F%3Fed%3D2560#t.me%2Fpeterjest
+ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@185.162.229.205:80?path=Telegram%3A%40vpnAndroid2%2F%3Fed%3D2560&security=none&encryption=none&host=reedfree8mahsang2.redorg.ir&type=ws#[🇬🇧]t.me/ConfigsHub`
 ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@185.162.230.6:80?encryption=none&security=none&sni=reedfree8mahsang2.redorg.ir&type=ws&host=reedfree8mahsang2.redorg.ir&path=%2F#t.me%2Fpeterjest
 ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@185.176.24.20:8880?encryption=none&security=none&type=ws&host=reedfree8mahsang2.redorg.ir&path=%2F%3Fed%3D2560#t.me%2Fpeterjest
 ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@185.176.24.238:8880?encryption=none&security=none&type=ws&host=reedfree8mahsang2.redorg.ir&path=Telegram%40vpnAndroid2%2F%3Fed%3D2560#t.me%2Fpeterjest
@@ -272,7 +274,6 @@ ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@192.65.217.20:8880?encryption=none&sec
 ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@193.33.87.20:8880?encryption=none&security=none&sni=reedfree8mahsang2.redorg.ir&type=ws&host=reedfree8mahsang2.redorg.ir&path=%2F#t.me%2Fpeterjest
 ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@193.9.49.158:80?encryption=none&security=none&type=ws&host=reedfree8mahsang2.redorg.ir&path=Telegram%3A%40vpnAndroid2%2F%3Fed%3D2560#t.me%2Fpeterjest
 ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@194.53.53.20:8880?encryption=none&security=none&type=ws&host=reedfree8mahsang2.redorg.ir&path=%2F%3Fed%3D2560#t.me%2Fpeterjest
-ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@194.53.53.20:8880?path=%2F%3Fed%3D2560&security=none&encryption=none&host=reedfree8mahsang2.redorg.ir&type=ws#[🏁]t.me/ConfigsHub`
 ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@194.53.53.213:8880?encryption=none&security=none&type=ws&host=reedfree8mahsang2.redorg.ir&path=Telegram%40vpnAndroid2%2F%3Fed%3D2560#t.me%2Fpeterjest
 ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@195.245.221.20:8880?encryption=none&security=none&type=ws&host=reedfree8mahsang2.redorg.ir&path=%2F%3Fed%3D2560#t.me%2Fpeterjest
 ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@195.85.23.200:8880?encryption=none&security=none&type=ws&host=reedfree8mahsang2.redorg.ir&path=Telegram%40vpnAndroid2%2F%3Fed%3D2560#t.me%2Fpeterjest
@@ -325,9 +326,7 @@ ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@45.131.210.98:80?encryption=none&secur
 ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@45.131.211.196:80?encryption=none&security=none&type=ws&host=reedfree8mahsang2.redorg.ir&path=Telegram%3A#t.me%2Fpeterjest
 ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@45.131.211.92:80?encryption=none&security=none&type=ws&host=reedfree8mahsang2.redorg.ir&path=Telegram%F0%9F%87%AE%F0%9F%87%B7Channel%20id%3A%20%40ShadowProxy66%20%2F%3Fed%3D2560#t.me%2Fpeterjest
 ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@45.131.211.95:80?encryption=none&security=none&type=ws&host=reedfree8mahsang2.redorg.ir&path=Telegram%3A#t.me%2Fpeterjest
-ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@45.131.211.95:80?path=Telegram%3A&security=none&encryption=none&host=reedfree8mahsang2.redorg.ir&type=ws#[🏁]t.me/ConfigsHub`
 ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@45.131.211.98:8880?encryption=none&security=none&type=ws&host=reedfree8mahsang2.redorg.ir&path=%2FTelegram%40ShadowProxy66%2F%3Fed%3D2560#t.me%2Fpeterjest
-ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@45.131.211.98:8880?path=%2FTelegram%40ShadowProxy66%2F%3Fed%3D2560&security=none&encryption=none&host=reedfree8mahsang2.redorg.ir&type=ws#[🏁]t.me/ConfigsHub`
 ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@45.131.4.6:80?encryption=none&security=none&type=ws&host=reedfree8mahsang2.redorg.ir&path=Telegram%3A%20%40vpnAndroid2%2F%3Fed%3D2560#t.me%2Fpeterjest
 ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@45.131.5.20:8880?encryption=none&security=none&type=ws&host=reedfree8mahsang2.redorg.ir&path=%2F%3Fed%3D2560#t.me%2Fpeterjest
 ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@45.131.5.211:80?encryption=none&security=none&type=ws&host=reedfree8mahsang2.redorg.ir&path=%2FTelegram-%40V2ray_Alpha%2F%3Fed%3D2560#t.me%2Fpeterjest
@@ -337,6 +336,7 @@ ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@45.131.7.13:80?encryption=none&securit
 ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@45.131.7.224:80?encryption=none&security=none&type=ws&host=reedfree8mahsang2.redorg.ir&path=%2FTelegram%3A%20%40vpnAndroid2%2F%3Fed%3D2560#t.me%2Fpeterjest
 ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@45.131.7.24:80?encryption=none&security=none&type=ws&host=reedfree8mahsang2.redorg.ir&path=Telegram%3A%20%40vpnAndroid2%2F%3Fed%3D2560#t.me%2Fpeterjest
 ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@45.131.7.3:8880?encryption=none&security=none&type=ws&host=reedfree8mahsang2.redorg.ir&path=%2FTelegram%40ShadowProxy66%2F%3Fed%3D2560#t.me%2Fpeterjest
+ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@45.131.7.3:8880?path=%2FTelegram%40ShadowProxy66%2F%3Fed%3D2560&security=none&encryption=none&host=reedfree8mahsang2.redorg.ir&type=ws#[🏁]t.me/ConfigsHub`
 ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@45.131.7.55:80?encryption=none&security=none&type=ws&host=reedfree8mahsang2.redorg.ir&path=Telegram%3A#t.me%2Fpeterjest
 ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@45.142.120.56:8880?encryption=none&security=none&type=ws&host=reedfree8mahsang2.redorg.ir&path=Telegram%40vpnAndroid2%2F%3Fed%3D2560#t.me%2Fpeterjest
 ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@45.142.120.93:8880?encryption=none&security=none&type=ws&host=reedfree8mahsang2.redorg.ir&path=Telegram%40vpnAndroid2%2F%3Fed%3D2560#t.me%2Fpeterjest
@@ -453,6 +453,7 @@ ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@5.10.244.184:8880?encryption=none&secu
 ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@5.10.244.186:8880?encryption=none&security=none&type=ws&host=reedfree8mahsang2.redorg.ir&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3%20%40MxlShare%20%40WangCai2%20%2F%3Fed%3D2560#t.me%2Fpeterjest
 ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@5.10.244.18:8880?encryption=none&security=none&sni=reedfree8mahsang2.redorg.ir&type=ws&host=reedfree8mahsang2.redorg.ir&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3#t.me%2Fpeterjest
 ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@5.10.244.191:8880?encryption=none&security=none&sni=reedfree8mahsang2.redorg.ir&type=ws&host=reedfree8mahsang2.redorg.ir&path=%2FTelegramU0001F1E8U0001F1F3#t.me%2Fpeterjest
+ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@5.10.244.202:8880?path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3%20%40MxlShare%20%40WangCai2%20%2F%3Fed%3D2560&security=none&encryption=none&host=reedfree8mahsang2.redorg.ir&type=ws#[🏁]t.me/ConfigsHub`
 ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@5.10.244.205:8880?encryption=none&security=none&sni=reedfree8mahsang2.redorg.ir&type=ws&host=reedfree8mahsang2.redorg.ir&path=%2FTelegramU0001F1E8U0001F1F3#t.me%2Fpeterjest
 ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@5.10.244.206:8880?encryption=none&security=none&sni=reedfree8mahsang2.redorg.ir&type=ws&host=reedfree8mahsang2.redorg.ir&path=%2FTelegramU0001F1E8U0001F1F3#t.me%2Fpeterjest
 ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@5.10.244.221:8880?encryption=none&security=none&sni=reedfree8mahsang2.redorg.ir&type=ws&host=reedfree8mahsang2.redorg.ir&path=%2FTelegramU0001F1E8U0001F1F3#t.me%2Fpeterjest
@@ -1071,7 +1072,6 @@ ss://de4cffdb-4e60-4284-9161-1c37c3313029@104.18.15.19:2086?encryption=none&secu
 ss://df0680ca-e43c-498d-ed86-8e196eedd012@45.140.167.168:8880?encryption=none&security=none&type=grpc#t.me%2Fpeterjest
 ss://df0680ca-e43c-498d-ed86-8e196eedd012@45.140.167.253:8880?encryption=none&security=none&type=grpc#t.me%2Fpeterjest
 ss://df0680ca-e43c-498d-ed86-8e196eedd012@45.140.167.59:8880?encryption=none&security=none&type=grpc#t.me%2Fpeterjest
-ss://df0680ca-e43c-498d-ed86-8e196eedd012@45.140.167.59:8880?mode=gun&security=none&encryption=none&type=grpc#[🇬🇧]t.me/ConfigsHub`
 ss://df0680ca-e43c-498d-ed86-8e196eedd012@45.159.248.125:8880?encryption=none&security=none&type=grpc#t.me%2Fpeterjest
 ss://df0680ca-e43c-498d-ed86-8e196eedd012@45.159.248.125:8880?type=grpc&mode=gun&authority=/@Evay_vpn----@Evay_vpn----@Evay_vpn----@Evay_vpn----@Evay_vpn----@Evay_vpn----@Evay_vpn----@Evay_vpn----@Evay_vpn#[🇬🇧]t.me/ConfigsHub`
 ss://df0680ca-e43c-498d-ed86-8e196eedd012@45.89.111.250:8880?encryption=none&security=none&type=grpc#t.me%2Fpeterjest
@@ -1576,6 +1576,7 @@ ss://fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf@92.53.191.29:8880?encryption=none&secu
 ss://fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf@92.60.74.20:8880?encryption=none&security=none&sni=us.laoyoutiao.link&type=ws&host=us.laoyoutiao.link&path=%2FTelegramU0001F1E8U0001F1F3#t.me%2Fpeterjest
 ss://fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf@94.140.0.29:8880?encryption=none&security=none&sni=hk.laoyoutiao.link&type=ws&host=hk.laoyoutiao.link&path=%2FTelegramU0001F1E8U0001F1F3#t.me%2Fpeterjest
 ss://fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf@94.247.142.29:8880?encryption=none&security=none&sni=hk.laoyoutiao.link&type=ws&host=hk.laoyoutiao.link&path=%2FTelegramU0001F1E8U0001F1F3#t.me%2Fpeterjest
+ss://faf51e77-ee0f-4089-a490-b45a1ccdc09f@194.182.79.119:17958?mode=gun&security=none&encryption=none&type=grpc&serviceName=ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON%3Fed%3D2048#[🏁]t.me/ConfigsHub`
 ss://fc361924-4934-4ad4-a680-e2bfb1eb6c41@91.192.81.178:2087?security=tls&sni=zula.ir&allowInsecure=1&fp=chrome&type=ws&path=/vless&host=91.192.81.178&encryption=none#Rayan%20-%20GSS%20-%20WSDR-114%20-%20SG%20-%20I%20-%20%F0%9F%9F%A2%20t.me/Rayan_Config
 ss://ffe171e8-cb29-4d8e-b2b2-c57ebcb1d3cb@104.22.36.243:443?encryption=none&security=tls&sni=dk.youlingkais.filegear-sg.me&type=ws&host=dk.youlingkais.filegear-sg.me&path=%2F%3Fed%3D2560#t.me%2Fpeterjest
 ss://ffe171e8-cb29-4d8e-b2b2-c57ebcb1d3cb@104.22.37.243:443?encryption=none&security=tls&sni=dk.youlingkais.filegear-sg.me&type=ws&host=dk.youlingkais.filegear-sg.me&path=%2F%3Fed%3D2560#t.me%2Fpeterjest
@@ -1763,13 +1764,11 @@ trojan://telegram-id-privatevpns@13.38.215.57:22222?security=tls&alpn=http/1.1&h
 trojan://telegram-id-privatevpns@13.38.215.57:22222?security=tls&alpn=http/1.1&headerType=none&type=tcp&sni=trojan.burgerip.co.uk#(S104)🇨🇵t.me/PrivateVPNs🤯
 trojan://telegram-id-privatevpns@13.38.223.72:22222?security=tls&alpn=http/1.1&headerType=none&type=tcp&sni=trojan.burgerip.co.uk#(S103)🇨🇵t.me/PrivateVPNs📚آموزش
 trojan://telegram-id-privatevpns@13.38.223.72:22222?security=tls&alpn=http/1.1&headerType=none&type=tcp&sni=trojan.burgerip.co.uk#(S103)🇨🇵t.me/PrivateVPNs🤯
-trojan://telegram-id-privatevpns@13.39.152.74:22222?security=tls&alpn=http/1.1&headerType=none&type=tcp&sni=trojan.burgerip.co.uk#(S103)🇨🇵t.me/PrivateVPNs📚آموزش
 trojan://telegram-id-privatevpns@13.39.192.171:22222?security=tls&alpn=http/1.1&headerType=none&type=tcp&sni=trojan.burgerip.co.uk#(S103)🇨🇵t.me/PrivateVPNs📚آموزش
 trojan://telegram-id-privatevpns@13.39.249.145:22222?security=tls&alpn=http/1.1&headerType=none&type=tcp&sni=trojan.burgerip.co.uk#(S104)🇨🇵t.me/PrivateVPNs📚آموزش
 trojan://telegram-id-privatevpns@13.49.13.19:22222?security=tls&alpn=http/1.1&headerType=none&type=tcp&sni=trojan.burgerip.co.uk#(S110)🇸🇪t.me/PrivateVPNs📚آموزش
-trojan://telegram-id-privatevpns@13.60.153.19:22222?security=tls&alpn=http/1.1&headerType=none&type=tcp&sni=trojan.burgerip.co.uk#(S109)🇸🇪t.me/PrivateVPNs📚آموزش
-trojan://telegram-id-privatevpns@13.61.140.186:22222?security=tls&alpn=http/1.1&headerType=none&type=tcp&sni=trojan.burgerip.co.uk#(S110)🇸🇪t.me/PrivateVPNs📚آموزش
 trojan://telegram-id-privatevpns@15.188.12.36:22222?security=tls&alpn=http/1.1&headerType=none&type=tcp&sni=trojan.burgerip.co.uk#(S104)🇨🇵t.me/PrivateVPNs📚آموزش
+trojan://telegram-id-privatevpns@15.188.12.36:22222?security=tls&alpn=http/1.1&headerType=none&type=tcp&sni=trojan.burgerip.co.uk#(S104)🇨🇵t.me/PrivateVPNs🤯
 trojan://telegram-id-privatevpns@15.188.224.253:22222?security=tls&alpn=http/1.1&headerType=none&type=tcp&sni=trojan.burgerip.co.uk#(S103)🇨🇵t.me/PrivateVPNs📚آموزش
 trojan://telegram-id-privatevpns@15.188.224.253:22222?security=tls&alpn=http/1.1&headerType=none&type=tcp&sni=trojan.burgerip.co.uk#(S103)🇨🇵t.me/PrivateVPNs🤯
 trojan://telegram-id-privatevpns@15.188.249.149:22222?security=tls&alpn=http/1.1&headerType=none&type=tcp&sni=trojan.burgerip.co.uk#(S104)🇨🇵t.me/PrivateVPNs📚آموزش
@@ -1782,17 +1781,19 @@ trojan://telegram-id-privatevpns@15.237.97.69:22222?security=tls&alpn=http/1.1&h
 trojan://telegram-id-privatevpns@16.16.8.137:22222?security=tls&alpn=http/1.1&headerType=none&type=tcp&sni=trojan.burgerip.co.uk#(S109)🇸🇪t.me/PrivateVPNs📚آموزش
 trojan://telegram-id-privatevpns@35.180.5.145:22222?security=tls&alpn=http/1.1&headerType=none&type=tcp&sni=trojan.burgerip.co.uk#(S103)🇨🇵t.me/PrivateVPNs📚آموزش
 trojan://telegram-id-privatevpns@35.181.127.254:22222?security=tls&alpn=http/1.1&headerType=none&type=tcp&sni=trojan.burgerip.co.uk#(S103)🇨🇵t.me/PrivateVPNs📚آموزش
-trojan://telegram-id-privatevpns@35.181.19.90:22222?security=tls&alpn=http/1.1&headerType=none&type=tcp&sni=trojan.burgerip.co.uk#(S104)🇨🇵t.me/PrivateVPNs📚آموزش
 trojan://telegram-id-privatevpns@35.181.231.189:22222?security=tls&alpn=http/1.1&headerType=none&type=tcp&sni=trojan.burgerip.co.uk#(S104)🇨🇵t.me/PrivateVPNs📚آموزش
+trojan://telegram-id-privatevpns@35.181.231.189:22222?security=tls&alpn=http/1.1&headerType=none&type=tcp&sni=trojan.burgerip.co.uk#(S104)🇨🇵t.me/PrivateVPNs🤯
 trojan://telegram-id-privatevpns@35.181.234.28:22222?security=tls&alpn=http/1.1&headerType=none&type=tcp&sni=trojan.burgerip.co.uk#(S103)🇨🇵t.me/PrivateVPNs📚آموزش
 trojan://telegram-id-privatevpns@35.181.42.7:22222?security=tls&alpn=http/1.1&headerType=none&type=tcp&sni=trojan.burgerip.co.uk#(S103)🇨🇵t.me/PrivateVPNs📚آموزش
 trojan://telegram-id-privatevpns@35.181.77.27:22222?security=tls&alpn=http/1.1&headerType=none&type=tcp&sni=trojan.burgerip.co.uk#(S103)🇨🇵t.me/PrivateVPNs📚آموزش
-trojan://telegram-id-privatevpns@35.181.77.27:22222?security=tls&alpn=http/1.1&headerType=none&type=tcp&sni=trojan.burgerip.co.uk#(S103)🇨🇵t.me/PrivateVPNs🤯
+trojan://telegram-id-privatevpns@51.44.100.175:22222?security=tls&alpn=http/1.1&headerType=none&type=tcp&sni=trojan.burgerip.co.uk#(S103)🇨🇵t.me/PrivateVPNs📚آموزش
+trojan://telegram-id-privatevpns@51.44.125.229:22222?security=tls&alpn=http/1.1&headerType=none&type=tcp&sni=trojan.burgerip.co.uk#(S103)🇨🇵t.me/PrivateVPNs📚آموزش
+trojan://telegram-id-privatevpns@51.44.125.229:22222?security=tls&alpn=http/1.1&headerType=none&type=tcp&sni=trojan.burgerip.co.uk#(S103)🇨🇵t.me/PrivateVPNs🤯
 trojan://telegram-id-privatevpns@51.44.232.118:22222?security=tls&alpn=http/1.1&headerType=none&type=tcp&sni=trojan.burgerip.co.uk#(S104)🇨🇵t.me/PrivateVPNs📚آموزش
-trojan://telegram-id-privatevpns@51.44.232.118:22222?security=tls&alpn=http/1.1&headerType=none&type=tcp&sni=trojan.burgerip.co.uk#(S104)🇨🇵t.me/PrivateVPNs🤯
+trojan://telegram-id-privatevpns@51.44.45.149:22222?security=tls&alpn=http/1.1&headerType=none&type=tcp&sni=trojan.burgerip.co.uk#(S104)🇨🇵t.me/PrivateVPNs📚آموزش
+trojan://telegram-id-privatevpns@51.44.45.149:22222?security=tls&alpn=http/1.1&headerType=none&type=tcp&sni=trojan.burgerip.co.uk#(S104)🇨🇵t.me/PrivateVPNs🤯
 trojan://telegram-id-privatevpns@52.47.166.120:22222?security=tls&alpn=http/1.1&headerType=none&type=tcp&sni=trojan.burgerip.co.uk#(S103)🇨🇵t.me/PrivateVPNs📚آموزش
 trojan://telegram-id-privatevpns@52.47.56.53:22222?security=tls&alpn=http/1.1&headerType=none&type=tcp&sni=trojan.burgerip.co.uk#(S103)🇨🇵t.me/PrivateVPNs📚آموزش
-trojan://telegram-id-privatevpns@52.47.56.53:22222?security=tls&alpn=http/1.1&headerType=none&type=tcp&sni=trojan.burgerip.co.uk#(S103)🇨🇵t.me/PrivateVPNs🤯
 trojan://tg-fq521free@216.24.57.30:443?security=tls&sni=torjan.xn--xhq44j.eu.org&type=ws&host=torjan.xn--xhq44j.eu.org&path=%2F#t.me%2Fpeterjest
 trojan://trojan@104.18.13.229:8443?security=tls&sni=pangpi.pages.dev&type=ws&host=pangpi.pages.dev&path=%2F#t.me%2Fpeterjest
 trojan://trojan@104.18.4.250:2053?security=tls&sni=ana-service-anaservice--anaservice-antenircomorg.fmwlmluu.workers.dev&type=ws&host=ana-service-anaservice--anaservice-antenircomorg.fmwlmluu.workers.dev&path=%2F#t.me%2Fpeterjest
@@ -1806,6 +1807,7 @@ trojan://yaml777@104.21.61.73:443?security=tls&sni=yaml7.ggff.net&type=ws&host=y
 trojan://your_password@43.218.139.54:443/?type=tcp&security=tls&sni=aws-id-jakarta-1.f1rocketnode.com&allowInsecure=1#%DB%8C%D8%A7%20%D8%A8%D8%A7%20%D8%B1%D8%A8%D8%A7%D8%AA%20%3D%E2%80%BA%20http%3A%2F%2Ft.me%2Fsubcr_robot%3Fstart
 trojan://your_password@43.218.139.54:443/?type=tcp&security=tls&sni=aws-id-jakarta-1.f1rocketnode.com&allowInsecure=1#Or%20Goto%3D%E2%80%BA%20http%3A%2F%2Ft.me%2Fsubcr_robot%3Fstart
 trojan://zsu4Mq3A9J@51.195.254.75:8443?security=tls&sni=uk-02.allhubb.info&type=tcp&headerType=none#t.me%2Fpeterjest
+vless://02aa01e3-7f27-4e47-82e2-27c0b41bda9a@194.182.79.113:26468?mode=gun&security=none&encryption=none&type=grpc&serviceName=ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON%3Fed%3D2048#[🏁]t.me/ConfigsHub`
 vless://033a4982-a8c7-4bfb-9481-5a8a1c62cfd6@104.21.93.95:80?encryption=none&security=none&type=ws&host=azadnet.b0b723a182.workers.dev&path=%2FiDE2j5JJnqTGPjmS%3Fed%3D2560#t.me%2Fpeterjest
 vless://033a4982-a8c7-4bfb-9481-5a8a1c62cfd6@172.67.208.128:80?encryption=none&security=none&type=ws&host=azadnet.b0b723a182.workers.dev&path=%2FiDE2j5JJnqTGPjmS%3Fed%3D2560#t.me%2Fpeterjest
 vless://03c9f240-0bad-4f71-93f2-f5d272dada97@104.24.184.113:80?encryption=none&security=none&type=ws&host=sparkling-limit-ppal03.yibijow194.workers.dev&path=%2F#t.me%2Fpeterjest
@@ -1914,6 +1916,7 @@ vless://2e2b38da-7c5c-44fd-9098-414bf74641d1@hk-1-rvp.rayan-dns.dpdns.org:443?se
 vless://30a082ad-3ebb-43d8-813c-f25072205c6d@104.18.20.135:443?encryption=none&security=tls&sni=25700.lanpinguo.cloud-ip.biz&type=ws&host=25700.lanpinguo.cloud-ip.biz&path=%2F%3Fed%3D2560#t.me%2Fpeterjest
 vless://30f2d443-af46-4dd6-83c9-b5e17299ebd2@92.243.74.2:443?encryption=none&security=tls&sni=carlotta.shorekeeper.cloudns.org&alpn=http%2F1.1&type=ws&host=carlotta.shorekeeper.cloudns.org&path=%2F#t.me%2Fpeterjest
 vless://30f2d443-af46-4dd6-83c9-b5e17299ebd2@92.243.74.3:443?encryption=none&security=tls&sni=carlotta.shorekeeper.cloudns.org&alpn=http%2F1.1&type=ws&host=carlotta.shorekeeper.cloudns.org&path=%2Fproxyip%3Dzani.yaemiko.ggff.net#t.me%2Fpeterjest
+vless://30f2d443-af46-4dd6-83c9-b5e17299ebd2@92.243.74.3:443?path=%2Fproxyip%3Dzani.yaemiko.ggff.net&security=tls&alpn=http%2F1.1&encryption=none&host=carlotta.shorekeeper.cloudns.org&fp=randomized&type=ws&sni=carlotta.shorekeeper.cloudns.org#[🏁]t.me/ConfigsHub`
 vless://31348b17-4ab2-40c0-b79e-c81032331d30@104.16.140.135:2086?encryption=none&security=none&sni=b4f0b859-super-smoke-7916.bouncy-vulture1054.workers.dev&type=ws&host=b4f0b859-super-smoke-7916.bouncy-vulture1054.workers.dev&path=%2F#t.me%2Fpeterjest
 vless://31348b17-4ab2-40c0-b79e-c81032331d30@104.16.140.135:2087?encryption=none&security=tls&sni=b4f0b859-super-smoke-7916.bouncy-vulture1054.workers.dev&type=ws&host=b4f0b859-super-smoke-7916.bouncy-vulture1054.workers.dev&path=%2F#t.me%2Fpeterjest
 vless://31348b17-4ab2-40c0-b79e-c81032331d30@185.135.9.138:2086?encryption=none&security=none&sni=b4f0b859-super-smoke-7916.bouncy-vulture1054.workers.dev&type=ws&host=b4f0b859-super-smoke-7916.bouncy-vulture1054.workers.dev&path=%2F%40AZARBAYJAB1%40AZARBAYJAB1%40AZARBAYJAB1%40AZARBAYJAB1%40AZARBAYJAB1%40AZARBAYJAB1%3Fed%3D2560#t.me%2Fpeterjest
@@ -1949,7 +1952,6 @@ vless://401374e6-df77-41fb-f638-dad8184f175b@154.211.8.125:443?encryption=none&s
 vless://401374e6-df77-41fb-f638-dad8184f175b@156.238.19.95:443?encryption=none&security=tls&sni=pqh24v3.hiddendom.shop&alpn=h2&type=grpc#t.me%2Fpeterjest
 vless://401374e6-df77-41fb-f638-dad8184f175b@164.38.155.97:443?encryption=none&security=tls&sni=pqh24v3.hiddendom.shop&alpn=h2&type=grpc#t.me%2Fpeterjest
 vless://401374e6-df77-41fb-f638-dad8184f175b@167.68.42.168:443?encryption=none&security=tls&sni=pqh24v3.hiddendom.shop&alpn=h2&type=grpc#t.me%2Fpeterjest
-vless://401374e6-df77-41fb-f638-dad8184f175b@170.114.46.190:443?encryption=none&security=tls&type=grpc#%E7%94%B5%E6%8A%A5%E7%BE%A4%EF%BC%9Ahttps%3A%2F%2Ft.me%2Fvvkj11
 vless://401374e6-df77-41fb-f638-dad8184f175b@172.67.68.36:443?encryption=none&security=tls&sni=pqh24v3.hiddendom.shop&alpn=h2&type=grpc#t.me%2Fpeterjest
 vless://401374e6-df77-41fb-f638-dad8184f175b@185.135.9.223:443?type=grpc&mode=gun&security=tls&sni=pqh24v3.hiddendom.shop&alpn=h2#[🇬🇧]t.me/ConfigsHub`
 vless://401374e6-df77-41fb-f638-dad8184f175b@45.159.217.161:443?encryption=none&security=tls&sni=pqh44v2.hiddendom.shop&type=grpc#t.me%2Fpeterjest
@@ -1988,11 +1990,11 @@ vless://4bdab609-92da-4c23-b993-bbcb8caf2b03@188.114.96.1:443?encryption=none&se
 vless://4c511b03-55b2-44df-bdb3-c07a18b2b864@65.109.202.140:443?encryption=none&security=none&type=tcp&headerType=none#t.me%2Fpeterjest
 vless://4c9541c7-5fa1-403c-84af-175e3b25a27f@172.67.207.26:8080?encryption=none&security=none&type=ws&host=201.58vtg99l.workers.dev&path=%2F#t.me%2Fpeterjest
 vless://4d5400ef-201d-43a3-890f-c767746fc524@104.21.32.208:443?encryption=none&security=tls&sni=PpaL03.EDmUnD-RAU.wORkeRs.dev&type=ws&host=pPaL03.EdMUnD-RAu.WoRKErS.DEv&path=%2FTelegram%40SiNABiGO%2F%3Fed%3D2048#t.me%2Fpeterjest
-vless://4d91916f-a7fd-419b-8b90-640bb8d4b3f2@45.85.118.20:443?path=%2FfJBvsL0uR2MtzRig&security=tls&alpn=http%2F1.1&encryption=none&host=myphotograpicpicture.ir&type=ws&sni=mypHOtoGRAPICpIctUre.iR#[🇬🇧]t.me/ConfigsHub`
 vless://4e41764d-ac31-43f5-8e9b-231ddf252d1f@172.67.144.126:443?encryption=none&security=tls&sni=899.288288.shoP&alpn=http%2F1.1&type=ws&host=899.288288.shop&path=%2FwAlPWPCQWnsVcNgLsMVz#t.me%2Fpeterjest
 vless://4ea45d5a-edb9-4eae-903b-997d28e76094@185.234.247.110:443?security=tls&sni=zula.ir&allowInsecure=1&fp=chrome&type=grpc&serviceName=vless-grpc&encryption=none#Rayan%20-%20VPH%20-%20gRPC-105%20-%20NL%20-%20%F0%9F%94%B5%20t.me/Rayan_Config
 vless://4ea841c1-0dc1-4563-9f47-deba8407cb4e@104.26.14.85:8080?encryption=none&security=none&type=ws&host=J9.oDOtZrHUoO.ZuLAIR.ORg.&path=%2F%3Fed%3D2048#t.me%2Fpeterjest
 vless://4ea841c1-0dc1-4563-9f47-deba8407cb4e@172.67.73.163:8080?encryption=none&security=none&type=ws&host=J9.oDOtZrHUoO.ZuLAIR.ORg.&path=%2F%3Fed%3D2048#t.me%2Fpeterjest
+vless://4fd16f19-a4eb-4c99-888e-07af121173d8@194.182.79.113:26468?mode=gun&security=none&encryption=none&type=grpc&serviceName=ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON%3Fed%3D2048#[🏁]t.me/ConfigsHub`
 vless://4fe79f13-aa15-5aa3-bfa7-122c6f661756@194.147.35.22:2052?encryption=none&security=none&type=ws&host=sPeedtest2.sbs.speedtest.net&path=%2Fvless#t.me%2Fpeterjest
 vless://508a5202-d450-42d2-a74c-9326dcda8b63@104.21.46.90:443?encryption=none&security=tls&sni=XCdvFRTtt.fREEvpnATM.dPDNS.oRg&alpn=http%2F1.1&type=ws&host=xcdvfrttt.freevpnatm.dpdns.org&path=%2FprUFeqTNsRZbl4sVHqtMKS#t.me%2Fpeterjest
 vless://508a5202-d450-42d2-a74c-9326dcda8b63@104.21.81.192:443?encryption=none&security=tls&sni=sssdeCVBnh.999156.XYz&alpn=http%2F1.1&type=ws&host=sssdecvbnh.999156.xyz&path=%2FprUFeqTNsRZbl4sVHqtMKS#t.me%2Fpeterjest
@@ -2063,6 +2065,7 @@ vless://53fa8faf-ba4b-4322-9c69-a3e5b1555049@185.148.106.71:8880?encryption=none
 vless://53fa8faf-ba4b-4322-9c69-a3e5b1555049@185.148.107.152:80?encryption=none&security=none&type=ws&host=reedfree8mahsang2.redorg.ir&path=Telegram%3A%20%40vpnAndroid2%2F%3Fed%3D2560#t.me%2Fpeterjest
 vless://53fa8faf-ba4b-4322-9c69-a3e5b1555049@185.16.110.20:8880?encryption=none&security=none&sni=reedfree8mahsang2.redorg.ir&type=ws&host=reedfree8mahsang2.redorg.ir&path=%2F#t.me%2Fpeterjest
 vless://53fa8faf-ba4b-4322-9c69-a3e5b1555049@185.162.228.165:8880?encryption=none&security=none&type=ws&host=reedfree8mahsang2.redorg.ir&path=Telegram%40vpnAndroid2%2F%3Fed%3D2560#t.me%2Fpeterjest
+vless://53fa8faf-ba4b-4322-9c69-a3e5b1555049@185.162.229.205:80?path=Telegram%3A%40vpnAndroid2%2F%3Fed%3D2560&security=none&encryption=none&host=reedfree8mahsang2.redorg.ir&type=ws#[🇬🇧]t.me/ConfigsHub`
 vless://53fa8faf-ba4b-4322-9c69-a3e5b1555049@185.162.230.6:80?encryption=none&security=none&sni=reedfree8mahsang2.redorg.ir&type=ws&host=reedfree8mahsang2.redorg.ir&path=%2F#t.me%2Fpeterjest
 vless://53fa8faf-ba4b-4322-9c69-a3e5b1555049@185.176.24.20:8880?encryption=none&security=none&type=ws&host=reedfree8mahsang2.redorg.ir&path=%2F%3Fed%3D2560#t.me%2Fpeterjest
 vless://53fa8faf-ba4b-4322-9c69-a3e5b1555049@185.176.24.238:8880?encryption=none&security=none&type=ws&host=reedfree8mahsang2.redorg.ir&path=Telegram%40vpnAndroid2%2F%3Fed%3D2560#t.me%2Fpeterjest
@@ -2080,7 +2083,6 @@ vless://53fa8faf-ba4b-4322-9c69-a3e5b1555049@192.65.217.20:8880?encryption=none&
 vless://53fa8faf-ba4b-4322-9c69-a3e5b1555049@193.33.87.20:8880?encryption=none&security=none&sni=reedfree8mahsang2.redorg.ir&type=ws&host=reedfree8mahsang2.redorg.ir&path=%2F#t.me%2Fpeterjest
 vless://53fa8faf-ba4b-4322-9c69-a3e5b1555049@193.9.49.158:80?encryption=none&security=none&type=ws&host=reedfree8mahsang2.redorg.ir&path=Telegram%3A%40vpnAndroid2%2F%3Fed%3D2560#t.me%2Fpeterjest
 vless://53fa8faf-ba4b-4322-9c69-a3e5b1555049@194.53.53.20:8880?encryption=none&security=none&type=ws&host=reedfree8mahsang2.redorg.ir&path=%2F%3Fed%3D2560#t.me%2Fpeterjest
-vless://53fa8faf-ba4b-4322-9c69-a3e5b1555049@194.53.53.20:8880?path=%2F%3Fed%3D2560&security=none&encryption=none&host=reedfree8mahsang2.redorg.ir&type=ws#[🏁]t.me/ConfigsHub`
 vless://53fa8faf-ba4b-4322-9c69-a3e5b1555049@194.53.53.213:8880?encryption=none&security=none&type=ws&host=reedfree8mahsang2.redorg.ir&path=Telegram%40vpnAndroid2%2F%3Fed%3D2560#t.me%2Fpeterjest
 vless://53fa8faf-ba4b-4322-9c69-a3e5b1555049@195.245.221.20:8880?encryption=none&security=none&type=ws&host=reedfree8mahsang2.redorg.ir&path=%2F%3Fed%3D2560#t.me%2Fpeterjest
 vless://53fa8faf-ba4b-4322-9c69-a3e5b1555049@195.85.23.200:8880?encryption=none&security=none&type=ws&host=reedfree8mahsang2.redorg.ir&path=Telegram%40vpnAndroid2%2F%3Fed%3D2560#t.me%2Fpeterjest
@@ -2133,9 +2135,7 @@ vless://53fa8faf-ba4b-4322-9c69-a3e5b1555049@45.131.210.98:80?encryption=none&se
 vless://53fa8faf-ba4b-4322-9c69-a3e5b1555049@45.131.211.196:80?encryption=none&security=none&type=ws&host=reedfree8mahsang2.redorg.ir&path=Telegram%3A#t.me%2Fpeterjest
 vless://53fa8faf-ba4b-4322-9c69-a3e5b1555049@45.131.211.92:80?encryption=none&security=none&type=ws&host=reedfree8mahsang2.redorg.ir&path=Telegram%F0%9F%87%AE%F0%9F%87%B7Channel%20id%3A%20%40ShadowProxy66%20%2F%3Fed%3D2560#t.me%2Fpeterjest
 vless://53fa8faf-ba4b-4322-9c69-a3e5b1555049@45.131.211.95:80?encryption=none&security=none&type=ws&host=reedfree8mahsang2.redorg.ir&path=Telegram%3A#t.me%2Fpeterjest
-vless://53fa8faf-ba4b-4322-9c69-a3e5b1555049@45.131.211.95:80?path=Telegram%3A&security=none&encryption=none&host=reedfree8mahsang2.redorg.ir&type=ws#[🏁]t.me/ConfigsHub`
 vless://53fa8faf-ba4b-4322-9c69-a3e5b1555049@45.131.211.98:8880?encryption=none&security=none&type=ws&host=reedfree8mahsang2.redorg.ir&path=%2FTelegram%40ShadowProxy66%2F%3Fed%3D2560#t.me%2Fpeterjest
-vless://53fa8faf-ba4b-4322-9c69-a3e5b1555049@45.131.211.98:8880?path=%2FTelegram%40ShadowProxy66%2F%3Fed%3D2560&security=none&encryption=none&host=reedfree8mahsang2.redorg.ir&type=ws#[🏁]t.me/ConfigsHub`
 vless://53fa8faf-ba4b-4322-9c69-a3e5b1555049@45.131.4.6:80?encryption=none&security=none&type=ws&host=reedfree8mahsang2.redorg.ir&path=Telegram%3A%20%40vpnAndroid2%2F%3Fed%3D2560#t.me%2Fpeterjest
 vless://53fa8faf-ba4b-4322-9c69-a3e5b1555049@45.131.5.20:8880?encryption=none&security=none&type=ws&host=reedfree8mahsang2.redorg.ir&path=%2F%3Fed%3D2560#t.me%2Fpeterjest
 vless://53fa8faf-ba4b-4322-9c69-a3e5b1555049@45.131.5.211:80?encryption=none&security=none&type=ws&host=reedfree8mahsang2.redorg.ir&path=%2FTelegram-%40V2ray_Alpha%2F%3Fed%3D2560#t.me%2Fpeterjest
@@ -2145,6 +2145,7 @@ vless://53fa8faf-ba4b-4322-9c69-a3e5b1555049@45.131.7.13:80?encryption=none&secu
 vless://53fa8faf-ba4b-4322-9c69-a3e5b1555049@45.131.7.224:80?encryption=none&security=none&type=ws&host=reedfree8mahsang2.redorg.ir&path=%2FTelegram%3A%20%40vpnAndroid2%2F%3Fed%3D2560#t.me%2Fpeterjest
 vless://53fa8faf-ba4b-4322-9c69-a3e5b1555049@45.131.7.24:80?encryption=none&security=none&type=ws&host=reedfree8mahsang2.redorg.ir&path=Telegram%3A%20%40vpnAndroid2%2F%3Fed%3D2560#t.me%2Fpeterjest
 vless://53fa8faf-ba4b-4322-9c69-a3e5b1555049@45.131.7.3:8880?encryption=none&security=none&type=ws&host=reedfree8mahsang2.redorg.ir&path=%2FTelegram%40ShadowProxy66%2F%3Fed%3D2560#t.me%2Fpeterjest
+vless://53fa8faf-ba4b-4322-9c69-a3e5b1555049@45.131.7.3:8880?path=%2FTelegram%40ShadowProxy66%2F%3Fed%3D2560&security=none&encryption=none&host=reedfree8mahsang2.redorg.ir&type=ws#[🏁]t.me/ConfigsHub`
 vless://53fa8faf-ba4b-4322-9c69-a3e5b1555049@45.131.7.55:80?encryption=none&security=none&type=ws&host=reedfree8mahsang2.redorg.ir&path=Telegram%3A#t.me%2Fpeterjest
 vless://53fa8faf-ba4b-4322-9c69-a3e5b1555049@45.142.120.56:8880?encryption=none&security=none&type=ws&host=reedfree8mahsang2.redorg.ir&path=Telegram%40vpnAndroid2%2F%3Fed%3D2560#t.me%2Fpeterjest
 vless://53fa8faf-ba4b-4322-9c69-a3e5b1555049@45.142.120.93:8880?encryption=none&security=none&type=ws&host=reedfree8mahsang2.redorg.ir&path=Telegram%40vpnAndroid2%2F%3Fed%3D2560#t.me%2Fpeterjest
@@ -2261,6 +2262,7 @@ vless://53fa8faf-ba4b-4322-9c69-a3e5b1555049@5.10.244.184:8880?encryption=none&s
 vless://53fa8faf-ba4b-4322-9c69-a3e5b1555049@5.10.244.186:8880?encryption=none&security=none&type=ws&host=reedfree8mahsang2.redorg.ir&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3%20%40MxlShare%20%40WangCai2%20%2F%3Fed%3D2560#t.me%2Fpeterjest
 vless://53fa8faf-ba4b-4322-9c69-a3e5b1555049@5.10.244.18:8880?encryption=none&security=none&sni=reedfree8mahsang2.redorg.ir&type=ws&host=reedfree8mahsang2.redorg.ir&path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3#t.me%2Fpeterjest
 vless://53fa8faf-ba4b-4322-9c69-a3e5b1555049@5.10.244.191:8880?encryption=none&security=none&sni=reedfree8mahsang2.redorg.ir&type=ws&host=reedfree8mahsang2.redorg.ir&path=%2FTelegramU0001F1E8U0001F1F3#t.me%2Fpeterjest
+vless://53fa8faf-ba4b-4322-9c69-a3e5b1555049@5.10.244.202:8880?path=%2FTelegram%F0%9F%87%A8%F0%9F%87%B3%20%40MxlShare%20%40WangCai2%20%2F%3Fed%3D2560&security=none&encryption=none&host=reedfree8mahsang2.redorg.ir&type=ws#[🏁]t.me/ConfigsHub`
 vless://53fa8faf-ba4b-4322-9c69-a3e5b1555049@5.10.244.205:8880?encryption=none&security=none&sni=reedfree8mahsang2.redorg.ir&type=ws&host=reedfree8mahsang2.redorg.ir&path=%2FTelegramU0001F1E8U0001F1F3#t.me%2Fpeterjest
 vless://53fa8faf-ba4b-4322-9c69-a3e5b1555049@5.10.244.206:8880?encryption=none&security=none&sni=reedfree8mahsang2.redorg.ir&type=ws&host=reedfree8mahsang2.redorg.ir&path=%2FTelegramU0001F1E8U0001F1F3#t.me%2Fpeterjest
 vless://53fa8faf-ba4b-4322-9c69-a3e5b1555049@5.10.244.221:8880?encryption=none&security=none&sni=reedfree8mahsang2.redorg.ir&type=ws&host=reedfree8mahsang2.redorg.ir&path=%2FTelegramU0001F1E8U0001F1F3#t.me%2Fpeterjest
@@ -2607,7 +2609,6 @@ vless://de4cffdb-4e60-4284-9161-1c37c3313029@104.18.15.19:2086?encryption=none&s
 vless://df0680ca-e43c-498d-ed86-8e196eedd012@45.140.167.168:8880?encryption=none&security=none&type=grpc#t.me%2Fpeterjest
 vless://df0680ca-e43c-498d-ed86-8e196eedd012@45.140.167.253:8880?encryption=none&security=none&type=grpc#t.me%2Fpeterjest
 vless://df0680ca-e43c-498d-ed86-8e196eedd012@45.140.167.59:8880?encryption=none&security=none&type=grpc#t.me%2Fpeterjest
-vless://df0680ca-e43c-498d-ed86-8e196eedd012@45.140.167.59:8880?mode=gun&security=none&encryption=none&type=grpc#[🇬🇧]t.me/ConfigsHub`
 vless://df0680ca-e43c-498d-ed86-8e196eedd012@45.159.248.125:8880?encryption=none&security=none&type=grpc#t.me%2Fpeterjest
 vless://df0680ca-e43c-498d-ed86-8e196eedd012@45.159.248.125:8880?type=grpc&mode=gun&authority=/@Evay_vpn----@Evay_vpn----@Evay_vpn----@Evay_vpn----@Evay_vpn----@Evay_vpn----@Evay_vpn----@Evay_vpn----@Evay_vpn#[🇬🇧]t.me/ConfigsHub`
 vless://df0680ca-e43c-498d-ed86-8e196eedd012@45.89.111.250:8880?encryption=none&security=none&type=grpc#t.me%2Fpeterjest
@@ -3112,10 +3113,12 @@ vless://fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf@92.53.191.29:8880?encryption=none&s
 vless://fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf@92.60.74.20:8880?encryption=none&security=none&sni=us.laoyoutiao.link&type=ws&host=us.laoyoutiao.link&path=%2FTelegramU0001F1E8U0001F1F3#t.me%2Fpeterjest
 vless://fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf@94.140.0.29:8880?encryption=none&security=none&sni=hk.laoyoutiao.link&type=ws&host=hk.laoyoutiao.link&path=%2FTelegramU0001F1E8U0001F1F3#t.me%2Fpeterjest
 vless://fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf@94.247.142.29:8880?encryption=none&security=none&sni=hk.laoyoutiao.link&type=ws&host=hk.laoyoutiao.link&path=%2FTelegramU0001F1E8U0001F1F3#t.me%2Fpeterjest
+vless://faf51e77-ee0f-4089-a490-b45a1ccdc09f@194.182.79.119:17958?mode=gun&security=none&encryption=none&type=grpc&serviceName=ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON%3Fed%3D2048#[🏁]t.me/ConfigsHub`
 vless://fc361924-4934-4ad4-a680-e2bfb1eb6c41@91.192.81.178:2087?security=tls&sni=zula.ir&allowInsecure=1&fp=chrome&type=ws&path=/vless&host=91.192.81.178&encryption=none#Rayan%20-%20GSS%20-%20WSDR-114%20-%20SG%20-%20I%20-%20%F0%9F%9F%A2%20t.me/Rayan_Config
 vless://ffe171e8-cb29-4d8e-b2b2-c57ebcb1d3cb@104.22.36.243:443?encryption=none&security=tls&sni=dk.youlingkais.filegear-sg.me&type=ws&host=dk.youlingkais.filegear-sg.me&path=%2F%3Fed%3D2560#t.me%2Fpeterjest
 vless://ffe171e8-cb29-4d8e-b2b2-c57ebcb1d3cb@104.22.37.243:443?encryption=none&security=tls&sni=dk.youlingkais.filegear-sg.me&type=ws&host=dk.youlingkais.filegear-sg.me&path=%2F%3Fed%3D2560#t.me%2Fpeterjest
 vless://ffe171e8-cb29-4d8e-b2b2-c57ebcb1d3cb@172.67.30.171:443?encryption=none&security=tls&sni=dk.youlingkais.filegear-sg.me&type=ws&host=dk.youlingkais.filegear-sg.me&path=%2F%3Fed%3D2560#t.me%2Fpeterjest
+vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIlx1NzUzNVx1NjJBNVx1N0ZBNFx1RkYxQWh0dHBzOi8vdC5tZS92dmtqMTEiLA0KICAiYWRkIjogImZyMWEtMjAyNTA0MjAuODg4ODgwMDkueHl6IiwNCiAgInBvcnQiOiAiODAiLA0KICAiaWQiOiAiYzk3Y2Y0NmUtMTU1NC0zNmNiLThiMzYtYzM1NTZiODgzZGM0IiwNCiAgImFpZCI6ICIwIiwNCiAgInNjeSI6ICJhdXRvIiwNCiAgIm5ldCI6ICJodHRwdXBncmFkZSIsDQogICJ0eXBlIjogIm5vbmUiLA0KICAiaG9zdCI6ICIiLA0KICAicGF0aCI6ICIiLA0KICAidGxzIjogIiIsDQogICJzbmkiOiAiIiwNCiAgImFscG4iOiAiIiwNCiAgImZwIjogIiINCn0=
 vmess://ew0KICAidiI6ICIyIiwNCiAgInBzIjogIuWFs+azqOeUteaKpWh0dHBzOi8vdC5tZS9tZnRpemkiLA0KICAiYWRkIjogIjEyMC4xOTguNzEuMjE5IiwNCiAgInBvcnQiOiAiNDQwMTQiLA0KICAiaWQiOiAiNDE4MDQ4YWYtYTI5My00Yjk5LTliMGMtOThjYTM1ODBkZDI0IiwNCiAgImFpZCI6ICIwIiwNCiAgInNjeSI6ICJhdXRvIiwNCiAgIm5ldCI6ICJ0Y3AiLA0KICAidHlwZSI6ICJub25lIiwNCiAgImhvc3QiOiAiIiwNCiAgInBhdGgiOiAiLyIsDQogICJ0bHMiOiAiIiwNCiAgInNuaSI6ICIiLA0KICAiYWxwbiI6ICIiDQp9
 vmess://eyJ2IjogIjIiLCAicHMiOiAiMHwtaHR0cHM6Ly90Lm1lL01yWGJpbi05NyIsICJhZGQiOiAiMTQ2LjU5LjU1LjUwIiwgInBvcnQiOiA0NDMsICJhaWQiOiAwLCAic2N5IjogImF1dG8iLCAibmV0IjogIndzIiwgInR5cGUiOiAibm9uZSIsICJ0bHMiOiAidGxzIiwgImlkIjogIjAzZmNjNjE4LWI5M2QtNjc5Ni02YWVkLThhMzhjOTc1ZDU4MSIsICJzbmkiOiAid3JtZWxtd3hsZi5na3RldmxycXpud3Fxb3p5LmZhYnBmczY2Z2l6bW5vamhjdnF4d2wua3l0cmNmenFsYTg3Z3ZndnM2Yzdram5ydWJ1aC5jYyIsICJob3N0IjogIm8ubWV0dWppLmNvbSIsICJwYXRoIjogIi9saW5rdndzIn0=
 vmess://eyJ2IjogIjIiLCAicHMiOiAiMjh88J+Ps++4j+KAjfCfjIjpo57mnLrnvqQgdC5tZS9lc2hhb3llIiwgImFkZCI6ICIyMC4yLjIxOC4xNDIiLCAicG9ydCI6ICI4NDQzIiwgImFpZCI6IDAsICJzY3kiOiAiYXV0byIsICJuZXQiOiAid3MiLCAidHlwZSI6ICJub25lIiwgInRscyI6ICJ0bHMiLCAiaWQiOiAiMzk2MGYxMjgtMTE2My00MGEzLThkZDctN2M5MTE3NmUxNGE1IiwgInNuaSI6ICIwMS5hcHBsZWlkLmJmIiwgImhvc3QiOiAiMDEuYXBwbGVpZC5iZiIsICJwYXRoIjogIi93cz9lZD0yMDQ4In0=
@@ -3183,3 +3186,6 @@ vmess://eyJhZGQiOiI1MS4xNS4xOS4yMDYiLCJhaWQiOiIwIiwiaG9zdCI6Inp1bGEuaXIiLCJpZCI6
 vmess://eyJhZGQiOiI3OS4xMjcuMjI5LjU0IiwiYWlkIjoiMCIsImFscG4iOiIiLCJmcCI6IiIsImhvc3QiOiJjc2dvLm1vemlsbGEuNS4wLnhuLS0yYjViYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhLjEyNy4wLjAuMS5vZmZsaW5lc3BlZWR0ZXN0Lm5ldGRvd24udXNlci54bi0tMmI1YmFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWEuMC4yLjEueG4tLWo5aDEwMjhtcW1hb3l0aWkwMGFoYTIxaGZqcmQueG4tLW0zOWgudG9yLnJ1YmlrYS5jbG91ZG5zLmNoLiIsImlkIjoiZmExODk3ZGItMTkyNS00Yzg2LWE0OTUtOTM5YTk1OWFmOTAwIiwibmV0IjoidGNwIiwicGF0aCI6IiIsInBvcnQiOiIxODAwMCIsInBzIjoiW/Cfj4FddC5tZS9Db25maWdzSHViIiwic2N5IjoiYXV0byIsInNuaSI6IiIsInRscyI6IiIsInR5cGUiOiJub25lIiwidiI6IjIifQ==
 vmess://eyJhZGQiOiIxMDMuMjUzLjI2LjIxNSIsImFpZCI6IjAiLCJob3N0IjoiMTAzLjI1My4yNi4yMTUiLCJpZCI6ImI1NzQzNjcwLTA2YjUtMTFmMC1iMjMwLTIwNWM2ZDVmNWQ3OCIsIm5ldCI6IndzIiwicGF0aCI6Ii9qZms5OGEyMSIsInBvcnQiOiI0NDMiLCJwcyI6IlJheWFuIC0gRlNTIC0gV1NDVC0xMDMgLSBTRyAtIPCflLQgdC5tZS9SYXlhbl9Db25maWciLCJzY3kiOiJhdXRvIiwic25pIjoienVsYS5pciIsInRscyI6InRscyIsInR5cGUiOiJub25lIiwidiI6IjIifQ==
 vmess://eyJhZGQiOiIxMDMuMjUzLjI2LjIxNSIsImFpZCI6IjAiLCJob3N0IjoienVsYS5pciIsImlkIjoiYjU3NDM2NzAtMDZiNS0xMWYwLWIyMzAtMjA1YzZkNWY1ZDc4IiwibmV0Ijoid3MiLCJwYXRoIjoiL2pmazk4YTIxIiwicG9ydCI6IjgwIiwicHMiOiJSYXlhbiAtIEZTUyAtIFdTQ1QtMTA2IC0gU0cgLSDwn5S0IHQubWUvUmF5YW5fQ29uZmlnIiwic2N5IjoiYXV0byIsInNuaSI6IiIsInRscyI6IiIsInR5cGUiOiJub25lIiwidiI6IjIifQ==
+vmess://eyJhZGQiOiIxNzIuNjcuMTcwLjEwMyIsImFpZCI6IjAiLCJhbHBuIjoiIiwiZnAiOiIiLCJob3N0Ijoia2FuYWwtdGVsLmZyZWV2MmFscGhhLmNmZCIsImlkIjoiVGVsZWdyYW0tVjJyYXlfYWxwaGEiLCJuZXQiOiJ3cyIsInBhdGgiOiIvP2VkXHUwMDNkMjA0OCIsInBvcnQiOiIyMDgyIiwicHMiOiJ0Lm1lL0NvbmZpZ3NIdWIiLCJzY3kiOiJhdXRvIiwic25pIjoiIiwidGxzIjoibm9uZSIsInR5cGUiOiIiLCJ2IjoiMiJ9
+vmess://eyJhZGQiOiIyMy4xNjYuODguMTgzIiwiYWlkIjoiMCIsImFscG4iOiIiLCJmcCI6IiIsImhvc3QiOiIiLCJpZCI6IjA0NjIxYmFlLWFiMzYtMTFlYy1iOTA5LTAyNDJhYzEyMDAwMiIsIm5ldCI6InRjcCIsInBhdGgiOiIiLCJwb3J0IjoiMjIzMjQiLCJwcyI6Ilvwn4+BXXQubWUvQ29uZmlnc0h1YiIsInNjeSI6ImF1dG8iLCJzbmkiOiIiLCJ0bHMiOiIiLCJ0eXBlIjoiIiwidiI6IjIifQ==
+vmess://eyJhZGQiOiJtaW1haGRpaS5tdXNpY3MtZmEucnUiLCJhaWQiOiIwIiwiYWxwbiI6IiIsImZwIjoiIiwiaG9zdCI6Ii9Kb2luX0JhZGVfQ2hhbm5lbEBKT0tFUlJWUE4iLCJpZCI6IjZhY2E5OGU2LThkMjUtNDdmZi1iZDE5LWEwZGEwYTRiNTAyNyIsIm5ldCI6ImdycGMiLCJwYXRoIjoiIiwicG9ydCI6IjQ0MyIsInBzIjoiW/Cfh7Pwn4exXXQubWUvQ29uZmlnc0h1YiIsInNjeSI6ImF1dG8iLCJzbmkiOiIiLCJ0bHMiOiIiLCJ0eXBlIjoiZ3VuIiwidiI6IjIifQ==`
