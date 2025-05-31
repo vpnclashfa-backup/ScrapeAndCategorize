@@ -13,11 +13,11 @@ from urllib.parse import parse_qs, unquote
 
 # --- Configuration ---
 URLS_FILE = 'urls.txt'
-KEYWORDS_FILE = 'keywords.json' # این فایل باید حاوی پرچم‌ها باشد
+KEYWORDS_FILE = 'keywords.json'
 OUTPUT_DIR = 'output_configs'
 README_FILE = 'README.md'
-REQUEST_TIMEOUT = 15  # seconds
-CONCURRENT_REQUESTS = 10  # Max concurrent requests
+REQUEST_TIMEOUT = 15
+CONCURRENT_REQUESTS = 10
 MAX_CONFIG_LENGTH = 1500
 MIN_PERCENT25_COUNT = 15
 
@@ -110,21 +110,15 @@ async def fetch_url(session, url):
         logging.warning(f"Failed to fetch or process {url}: {e}")
         return url, None
 
-def find_matches(text, categories_data): # نام پارامتر به categories_data تغییر کرد
+def find_matches(text, categories_data):
     matches = {category: set() for category in categories_data}
     for category, patterns in categories_data.items():
         for pattern_str in patterns:
-            # اگر لیست الگوها خالی باشد یا آیتم‌ها رشته نباشند (مثلاً در مورد پرچم‌ها)
             if not isinstance(pattern_str, str):
                 continue
             try:
-                # برای پروتکل‌ها، الگوها رجکس هستند. برای کشورها، کلمات کلیدی هستند (به جز پرچم).
-                # این تابع صرفاً برای پیدا کردن کانفیگ‌ها با رجکس پروتکل‌ها استفاده می‌شود.
-                # بنابراین، تنها زمانی که pattern_str یک رجکس معتبر است، باید کامپایل شود.
-                # فرض می‌کنیم الگوهای پروتکل‌ها همیشه معتبرند.
                 is_protocol_pattern = any(proto_prefix in pattern_str for proto_prefix in [p.lower() + "://" for p in PROTOCOL_CATEGORIES])
-
-                if category in PROTOCOL_CATEGORIES or is_protocol_pattern: # فقط برای پروتکل‌ها رجکس را اعمال کن
+                if category in PROTOCOL_CATEGORIES or is_protocol_pattern:
                     pattern = re.compile(pattern_str, re.IGNORECASE | re.MULTILINE)
                     found = pattern.findall(text)
                     if found:
@@ -152,12 +146,11 @@ def save_to_file(directory, category_name, items_set):
 
 # --- تابع اصلاح شده generate_simple_readme ---
 def generate_simple_readme(protocol_counts, country_counts, all_keywords_data, github_repo_path="10ium/ScrapeAndCategorize", github_branch="main"):
-    """Generates README.md with country flags and new GitHub raw link format."""
+    """Generates README.md with country flags/codes before country name in the same column."""
     tz = pytz.timezone('Asia/Tehran')
     now = datetime.now(tz)
     timestamp = now.strftime("%Y-%m-%d %H:%M:%S %Z")
 
-    # ساخت URL پایه برای لینک‌های خام GitHub
     raw_github_base_url = f"https://raw.githubusercontent.com/{github_repo_path}/refs/heads/{github_branch}/{OUTPUT_DIR}"
 
     md_content = f"# 📊 نتایج استخراج (آخرین به‌روزرسانی: {timestamp})\n\n"
@@ -178,26 +171,32 @@ def generate_simple_readme(protocol_counts, country_counts, all_keywords_data, g
 
     md_content += "## 🌍 فایل‌های کشورها (حاوی کانفیگ)\n\n"
     if country_counts:
+        # هدر جدول کشورها به ۳ ستون بازگشت
         md_content += "| کشور | تعداد کانفیگ مرتبط | لینک |\n"
         md_content += "|---|---|---|\n"
         for country_category_name, count in sorted(country_counts.items()):
-            flag_emoji_str = ""
-            # استخراج پرچم از all_keywords_data
-            # country_category_name کلیدی مانند "USA", "Afghanistan" و غیره است.
+            # flag_or_code_str نمایش دهنده چیزی است که از انتهای لیست کلیدواژه ها استخراج می شود
+            # (چه ایموجی پرچم باشد چه کد کشور)
+            flag_or_code_str = ""
+
             if country_category_name in all_keywords_data:
                 keywords_list = all_keywords_data[country_category_name]
-                if keywords_list and isinstance(keywords_list, list): # اطمینان از اینکه لیست است و خالی نیست
-                    # فرض بر این است که آخرین آیتم در لیست کلیدواژه‌ها برای دسته‌بندی کشور، ایموجی پرچم آن است.
-                    potential_flag = keywords_list[-1]
-                    # یک بررسی ساده: آیا یک رشته کوتاه است و احتمالاً یک ایموجی است.
-                    # برای اطمینان بیشتر می‌توان بررسی کرد که آیا این کاراکترها در محدوده ایموجی‌های پرچم هستند یا خیر.
-                    # با توجه به ساختار JSON شما، آخرین آیتم پرچم است.
-                    if isinstance(potential_flag, str) and len(potential_flag) < 5: # پرچم‌ها معمولا کوتاه هستند
-                        flag_emoji_str = potential_flag + " " # اضافه کردن یک فاصله بعد از پرچم
+                if keywords_list and isinstance(keywords_list, list):
+                    # فرض بر این است که آخرین آیتم در لیست، همان چیزی است که باید نمایش داده شود (پرچم یا کد)
+                    potential_display_item = keywords_list[-1]
+                    # بررسی اولیه برای طول معمول پرچم‌ها یا کدهای کشور
+                    if isinstance(potential_display_item, str) and 1 <= len(potential_display_item) <= 7:
+                        flag_or_code_str = potential_display_item
 
             file_link = f"{raw_github_base_url}/{country_category_name}.txt"
-            link_text = f"{flag_emoji_str}{country_category_name}.txt" # اضافه کردن پرچم به متن لینک
-            md_content += f"| {country_category_name} | {count} | [`{link_text}`]({file_link}) |\n"
+            link_text = f"{country_category_name}.txt" # متن لینک فقط نام فایل است
+
+            # ترکیب پرچم/کد با نام کشور در ستون اول
+            country_display_text = country_category_name
+            if flag_or_code_str: # اگر چیزی (پرچم یا کد) استخراج شده باشد
+                country_display_text = f"{flag_or_code_str} {country_category_name}"
+            
+            md_content += f"| {country_display_text} | {count} | [`{link_text}`]({file_link}) |\n"
     else:
         md_content += "هیچ کانفیگ مرتبط با کشوری یافت نشد.\n"
     md_content += "\n"
@@ -209,6 +208,9 @@ def generate_simple_readme(protocol_counts, country_counts, all_keywords_data, g
     except Exception as e:
         logging.error(f"Failed to write {README_FILE}: {e}")
 
+# تابع main و بقیه توابع کمکی باید مانند نسخه قبلی باشند که all_keywords_data
+# را به درستی مدیریت می‌کردند. فقط generate_simple_readme تغییر کرده است.
+# در اینجا برای کامل بودن، تابع main از پاسخ قبلی کپی می‌شود.
 
 async def main():
     if not os.path.exists(URLS_FILE) or not os.path.exists(KEYWORDS_FILE):
@@ -218,14 +220,7 @@ async def main():
     with open(URLS_FILE, 'r') as f:
         urls = [line.strip() for line in f if line.strip()]
     with open(KEYWORDS_FILE, 'r', encoding='utf-8') as f:
-        # نام متغیر categories حفظ شده چون در بقیه اسکریپت استفاده می‌شود.
-        # این متغیر حاوی تمام داده‌های keywords.json خواهد بود.
-        categories_data = json.load(f)
-
-    # جداسازی دسته‌بندی کشورها از پروتکل‌ها
-    # categories_data شامل هم کشورها و هم پروتکل‌ها است
-    # find_matches برای پیدا کردن لینک‌های کانفیگ از روی رجکس‌های پروتکل‌ها استفاده می‌کند.
-    # دسته‌بندی کشورها برای تطبیق نام کانفیگ با کلمات کلیدی کشورها استفاده می‌شود.
+        categories_data = json.load(f) # categories_data حاوی کل محتوای keywords.json است
 
     protocol_patterns_for_matching = {
         cat: patterns for cat, patterns in categories_data.items() if cat in PROTOCOL_CATEGORIES
@@ -234,7 +229,6 @@ async def main():
         cat: patterns for cat, patterns in categories_data.items() if cat not in PROTOCOL_CATEGORIES
     }
     country_category_names = list(country_keywords_for_naming.keys())
-
 
     logging.info(f"Loaded {len(urls)} URLs and "
                  f"{len(categories_data)} total categories from keywords.json.")
@@ -255,18 +249,16 @@ async def main():
         if not text:
             continue
 
-        # پیدا کردن تمام کانفیگ‌های پروتکل‌ها در صفحه فعلی با استفاده از رجکس‌ها
         page_protocol_matches = find_matches(text, protocol_patterns_for_matching)
-
         all_page_configs_after_filter = set()
         for protocol_cat_name, configs_found in page_protocol_matches.items():
-            if protocol_cat_name in PROTOCOL_CATEGORIES: # اطمینان از اینکه یک دسته پروتکل است
+            if protocol_cat_name in PROTOCOL_CATEGORIES:
                 for config in configs_found:
                     if should_filter_config(config):
                         continue
                     all_page_configs_after_filter.add(config)
                     final_all_protocols[protocol_cat_name].add(config)
-        
+
         for config in all_page_configs_after_filter:
             name_to_check = None
             if '#' in config:
@@ -281,25 +273,35 @@ async def main():
                 elif config.startswith('vmess://'): name_to_check = get_vmess_name(config)
 
             if not name_to_check: continue
+            
+            current_name_to_check_str = name_to_check if isinstance(name_to_check, str) else ""
 
-            for country_name_key, keywords_for_country in country_keywords_for_naming.items():
-                # keywords_for_country شامل نام‌ها، کدها و پرچم است. پرچم نباید برای تطبیق نام استفاده شود.
-                # ما فقط کلمات کلیدی متنی را برای تطبیق نیاز داریم.
-                text_keywords_for_country = [kw for kw in keywords_for_country if isinstance(kw, str) and not (len(kw) < 5 and not kw.isalnum())] # فیلتر کردن پرچم‌ها
+            for country_name_key, keywords_for_country_list in country_keywords_for_naming.items():
+                text_keywords_for_country = []
+                if isinstance(keywords_for_country_list, list):
+                    for kw in keywords_for_country_list:
+                        # اینجا فرض می‌کنیم که اگر آیتم کوتاه باشد و فقط شامل حروف و اعداد نباشد، ممکن است ایموجی باشد و نباید در جستجوی متنی استفاده شود.
+                        # اگر آیتم طولانی‌تر باشد یا فقط شامل حروف و اعداد باشد، به عنوان کلیدواژه متنی در نظر گرفته می‌شود.
+                        if isinstance(kw, str):
+                            is_potential_emoji_or_short_code = (1 <= len(kw) <= 7)
+                            is_alphanumeric = kw.isalnum()
+                            # اگر کوتاه است و alphanumeric نیست (مثل 🇦🇫) یا اگر alphanumeric است ولی طولش بیشتر از ۳ است (مثل Afghanistan)
+                            # یا اگر alphanumeric نیست و طولش بیشتر از ۳ است (بعید برای کلیدواژه کشور)
+                            # هدف این است که کدهای دوحرفی و نام‌های کامل کشور را نگه داریم ولی ایموجی‌ها را برای جستجوی متن حذف کنیم.
+                            if not (is_potential_emoji_or_short_code and not is_alphanumeric): # اگر ایموجی نیست، اضافه کن
+                                text_keywords_for_country.append(kw)
+
 
                 for keyword in text_keywords_for_country:
                     match_found = False
                     is_abbr = (len(keyword) == 2 or len(keyword) == 3) and re.match(r'^[A-Z]+$', keyword)
                     
-                    # اطمینان از اینکه name_to_check رشته است
-                    current_name_to_check = name_to_check if isinstance(name_to_check, str) else ""
-
                     if is_abbr:
                         pattern = r'\b' + re.escape(keyword) + r'\b'
-                        if re.search(pattern, current_name_to_check, re.IGNORECASE):
+                        if re.search(pattern, current_name_to_check_str, re.IGNORECASE):
                             match_found = True
                     else:
-                        if keyword.lower() in current_name_to_check.lower():
+                        if keyword.lower() in current_name_to_check_str.lower():
                             match_found = True
                     
                     if match_found:
@@ -323,11 +325,8 @@ async def main():
         saved, count = save_to_file(OUTPUT_DIR, category, items)
         if saved: country_counts[category] = count
     
-    # --- فراخوانی تابع generate_simple_readme با پارامتر جدید ---
-    # categories_data حاوی تمام داده‌های keywords.json است که شامل پرچم‌ها نیز می‌شود.
-    # می‌توانید مسیر ریپازیتوری و نام برنچ را در صورت نیاز تغییر دهید
     generate_simple_readme(protocol_counts, country_counts, categories_data, 
-                           github_repo_path="10ium/ScrapeAndCategorize",  # مسیر ریپازیتوری خودتان
+                           github_repo_path="10ium/ScrapeAndCategorize", # مسیر ریپازیتوری خودتان
                            github_branch="main") # نام برنچ اصلی شما
 
     logging.info("--- Script Finished ---")
