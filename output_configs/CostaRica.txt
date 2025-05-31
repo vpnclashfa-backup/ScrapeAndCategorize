@@ -1,7 +1,9 @@
-ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@190.93.246.20:8880?path=/?ed=2560&security=none&encryption=none&host=reedfree8mahsang2.redorg.ir&type=ws#🇨🇷CR_486_@Surfboardv2ray
+ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@190.93.246.20:8880?encryption=none&security=tls&sni=reedfree8mahsang2.redorg.ir&type=ws&host=reedfree8mahsang2.redorg.ir&path=%2F%3Fed%3D2560#%F0%9F%87%A8%F0%9F%87%B7_%E5%93%A5%E6%96%AF%E8%BE%BE%E9%BB%8E%E5%8A%A0
+ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@190.93.246.20:8880?path=%2F%3Fed%3D2560&security=none&encryption=none&host=reedfree8mahsang2.redorg.ir&type=ws#[🇨🇷]t.me/ConfigsHub`
+ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@190.93.246.20:8880?path=/?ed=2560&security=none&encryption=none&host=reedfree8mahsang2.redorg.ir&type=ws#🇨🇷CR_491_@Surfboardv2ray
 ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpmOGY3YUN6Y1BLYnNGOHAz@145.14.131.37:990#%F0%9F%87%A8%F0%9F%87%B7%20CR-145.14.131.37%3A990
 ss://Y2hhY2hhMjAtaWV0Zi1wb2x5MTMwNTpmOGY3YUN6Y1BLYnNGOHAz@145.14.131.37:990#%F0%9F%87%A8%F0%9F%87%B7%20San%20Jos%C3%A9,%20SJ,%20Costa%20Rica
-ss://f055d270-0e76-4a41-a53f-871bbb51b003@190.93.247.172:443?path=%2F&security=tls&encryption=none&host=what.zhonghuoxing.top&fp=chrome&type=ws&sni=what.zhonghuoxing.top#👉🆔@v2ray_configs_pool📡🇨🇷®️Costa
-vless://53fa8faf-ba4b-4322-9c69-a3e5b1555049@190.93.246.20:8880?path=/?ed=2560&security=none&encryption=none&host=reedfree8mahsang2.redorg.ir&type=ws#🇨🇷CR_486_@Surfboardv2ray
-vless://f055d270-0e76-4a41-a53f-871bbb51b003@190.93.247.172:443?path=%2F&security=tls&encryption=none&host=what.zhonghuoxing.top&fp=chrome&type=ws&sni=what.zhonghuoxing.top#👉🆔@v2ray_configs_pool📡🇨🇷®️Costa
+vless://53fa8faf-ba4b-4322-9c69-a3e5b1555049@190.93.246.20:8880?encryption=none&security=tls&sni=reedfree8mahsang2.redorg.ir&type=ws&host=reedfree8mahsang2.redorg.ir&path=%2F%3Fed%3D2560#%F0%9F%87%A8%F0%9F%87%B7_%E5%93%A5%E6%96%AF%E8%BE%BE%E9%BB%8E%E5%8A%A0
+vless://53fa8faf-ba4b-4322-9c69-a3e5b1555049@190.93.246.20:8880?path=%2F%3Fed%3D2560&security=none&encryption=none&host=reedfree8mahsang2.redorg.ir&type=ws#[🇨🇷]t.me/ConfigsHub`
+vless://53fa8faf-ba4b-4322-9c69-a3e5b1555049@190.93.246.20:8880?path=/?ed=2560&security=none&encryption=none&host=reedfree8mahsang2.redorg.ir&type=ws#🇨🇷CR_491_@Surfboardv2ray
 vmess://eyJ2IjogIjIiLCAicHMiOiAiXHVkODNjXHVkZGU4XHVkODNjXHVkZGY3Q1IrMjRAU3VyZmJvYXJkdjJyYXkiLCAiYWRkIjogIjE5MC45My4yNDcuMTU1IiwgInBvcnQiOiAiNDQzIiwgImlkIjogIjAzZmNjNjE4LWI5M2QtNjc5Ni02YWVkLThhMzhjOTc1ZDU4MSIsICJhaWQiOiAiMCIsICJzY3kiOiAiYXV0byIsICJuZXQiOiAid3MiLCAidHlwZSI6ICJub25lIiwgImhvc3QiOiAibWFyaWVuLm1vdG9yY3ljbGVzIiwgInBhdGgiOiAiL2xpbmt2d3MiLCAidGxzIjogInRscyIsICJzbmkiOiAibWFyaWVuLm1vdG9yY3ljbGVzIiwgImFscG4iOiAiIiwgImZwIjogIiJ9
