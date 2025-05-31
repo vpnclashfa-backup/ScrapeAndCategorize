@@ -13,7 +13,7 @@ from urllib.parse import parse_qs, unquote
 
 # --- Configuration ---
 URLS_FILE = 'urls.txt'
-KEYWORDS_FILE = 'keywords.json'
+KEYWORDS_FILE = 'keywords.json' # باید حاوی کدهای دو حرفی کشور باشد
 OUTPUT_DIR = 'output_configs'
 README_FILE = 'README.md'
 REQUEST_TIMEOUT = 15
@@ -33,24 +33,15 @@ PROTOCOL_CATEGORIES = [
 
 # --- Helper function to check for Persian-like text ---
 def is_persian_like(text):
-    """
-    Checks if a string is predominantly Persian by looking for Arabic script characters
-    and the absence of Latin characters.
-    """
     if not isinstance(text, str) or not text.strip():
         return False
     has_persian_char = False
     has_latin_char = False
     for char in text:
-        # Arabic Unicode block (covers Persian, Arabic, Urdu, etc.)
-        # همچنین حروف یای فارسی و کاف فارسی را پوشش می‌دهد.
         if '\u0600' <= char <= '\u06FF' or char in ['\u200C', '\u200D']: # ZWNJ and ZWJ
             has_persian_char = True
         elif 'a' <= char.lower() <= 'z':
             has_latin_char = True
-        # اگر کاراکترهای دیگری (مثلا اعداد یا سیمبول‌های رایج) باشند، فعلا نادیده می‌گیریم
-        # و فقط بر اساس وجود فارسی و نبود لاتین تصمیم می‌گیریم.
-
     return has_persian_char and not has_latin_char
 
 # --- Base64 Decoding Helper ---
@@ -66,8 +57,7 @@ def decode_base64(data):
 
 # --- Protocol Name Extraction Helpers ---
 def get_vmess_name(vmess_link):
-    if not vmess_link.startswith("vmess://"):
-        return None
+    if not vmess_link.startswith("vmess://"): return None
     try:
         b64_part = vmess_link[8:]
         decoded_str = decode_base64(b64_part)
@@ -79,16 +69,13 @@ def get_vmess_name(vmess_link):
     return None
 
 def get_ssr_name(ssr_link):
-    if not ssr_link.startswith("ssr://"):
-        return None
+    if not ssr_link.startswith("ssr://"): return None
     try:
         b64_part = ssr_link[6:]
         decoded_str = decode_base64(b64_part)
-        if not decoded_str:
-            return None
+        if not decoded_str: return None
         parts = decoded_str.split('/?')
-        if len(parts) < 2:
-            return None
+        if len(parts) < 2: return None
         params_str = parts[1]
         params = parse_qs(params_str)
         if 'remarks' in params and params['remarks']:
@@ -100,19 +87,11 @@ def get_ssr_name(ssr_link):
 
 # --- New Filter Function ---
 def should_filter_config(config):
-    if 'i_love_' in config.lower():
-        logging.warning(f"Filtering by keyword 'I_Love_': {config[:60]}...")
-        return True
+    if 'i_love_' in config.lower(): return True
     percent25_count = config.count('%25')
-    if percent25_count >= MIN_PERCENT25_COUNT:
-        logging.warning(f"Filtering by high %25 count ({percent25_count}): {config[:60]}...")
-        return True
-    if len(config) >= MAX_CONFIG_LENGTH:
-        logging.warning(f"Filtering by excessive length ({len(config)}): {config[:60]}...")
-        return True
-    if '%2525' in config:
-        logging.warning(f"Filtering by '%2525' presence: {config[:60]}...")
-        return True
+    if percent25_count >= MIN_PERCENT25_COUNT: return True
+    if len(config) >= MAX_CONFIG_LENGTH: return True
+    if '%2525' in config: return True
     return False
 
 async def fetch_url(session, url):
@@ -124,8 +103,7 @@ async def fetch_url(session, url):
             text_content = ""
             for element in soup.find_all(['pre', 'code', 'p', 'div', 'li', 'span', 'td']):
                 text_content += element.get_text(separator='\n', strip=True) + "\n"
-            if not text_content:
-                text_content = soup.get_text(separator=' ', strip=True)
+            if not text_content: text_content = soup.get_text(separator=' ', strip=True)
             logging.info(f"Successfully fetched: {url}")
             return url, text_content
     except Exception as e:
@@ -136,12 +114,10 @@ def find_matches(text, categories_data):
     matches = {category: set() for category in categories_data}
     for category, patterns in categories_data.items():
         for pattern_str in patterns:
-            if not isinstance(pattern_str, str): # از پردازش آیتم‌هایی که رشته نیستند (مثل پرچم‌ها در لیست کلمات کلیدی) صرف نظر کن
-                continue
+            if not isinstance(pattern_str, str): continue
             try:
-                # این تابع عمدتا برای پیدا کردن لینک‌های کانفیگ بر اساس رجکس پروتکل‌ها استفاده می‌شود
                 is_protocol_pattern = any(proto_prefix in pattern_str for proto_prefix in [p.lower() + "://" for p in PROTOCOL_CATEGORIES])
-                if category in PROTOCOL_CATEGORIES or is_protocol_pattern: # فقط برای پروتکل‌ها رجکس را اعمال کن
+                if category in PROTOCOL_CATEGORIES or is_protocol_pattern:
                     pattern = re.compile(pattern_str, re.IGNORECASE | re.MULTILINE)
                     found = pattern.findall(text)
                     if found:
@@ -151,25 +127,20 @@ def find_matches(text, categories_data):
                 logging.error(f"Regex error for '{pattern_str}' in category '{category}': {e}")
     return {k: v for k, v in matches.items() if v}
 
-
 def save_to_file(directory, category_name, items_set):
-    if not items_set:
-        return False, 0
+    if not items_set: return False, 0
     file_path = os.path.join(directory, f"{category_name}.txt")
     count = len(items_set)
     try:
         with open(file_path, 'w', encoding='utf-8') as f:
-            for item in sorted(list(items_set)):
-                f.write(f"{item}\n")
+            for item in sorted(list(items_set)): f.write(f"{item}\n")
         logging.info(f"Saved {count} items to {file_path}")
         return True, count
     except Exception as e:
         logging.error(f"Failed to write file {file_path}: {e}")
         return False, 0
 
-# --- تابع generate_simple_readme با قابلیت نمایش نام فارسی ---
-# !!! توجه: اگر خطای قبلی شما در این تابع بوده، این بخش را با دقت بیشتری با فایل خودتان مقایسه کنید !!!
-# !!! به خصوص در حلقه for country_category_name, count in sorted(country_counts.items()): !!!
+# --- تابع generate_simple_readme با استفاده از تصاویر پرچم ---
 def generate_simple_readme(protocol_counts, country_counts, all_keywords_data, github_repo_path="10ium/ScrapeAndCategorize", github_branch="main"):
     tz = pytz.timezone('Asia/Tehran')
     now = datetime.now(tz)
@@ -197,46 +168,48 @@ def generate_simple_readme(protocol_counts, country_counts, all_keywords_data, g
     if country_counts:
         md_content += "| کشور | تعداد کانفیگ مرتبط | لینک |\n"
         md_content += "|---|---|---|\n"
-        # اگر خطای قبلی شما در این حلقه بوده (حدود خط ۱۷۶ به بعد در نسخه‌های قبلی)،
-        # اینجا جایی است که باید با دقت بیشتری نشانگرهای تداخل گیت را بررسی و حذف کنید.
         for country_category_name, count in sorted(country_counts.items()):
-            item_to_display_as_flag = ""
+            flag_image_markdown = "" # برای نگهداری تگ HTML تصویر پرچم
             persian_name_str = ""
+            iso_code_original_case = "" # برای نگهداری کد ISO با حروف اصلی از فایل JSON
 
             if country_category_name in all_keywords_data:
                 keywords_list = all_keywords_data[country_category_name]
                 if keywords_list and isinstance(keywords_list, list):
-                    # 1. استخراج پرچم/کد (با منطق قبلی)
+                    # 1. پیدا کردن کد دو حرفی ISO کشور برای استفاده در URL تصویر پرچم
+                    iso_code_lowercase_for_url = ""
                     for item in keywords_list:
-                        if isinstance(item, str) and (2 <= len(item) <= 7):
-                            if not item.isalnum(): # اگر صرفا حروف و عدد نباشد (احتمالا ایموجی)
-                                item_to_display_as_flag = item
-                                break
-                    if not item_to_display_as_flag and keywords_list: # Fallback
-                        potential_last_item = keywords_list[-1]
-                        if isinstance(potential_last_item, str) and (1 <= len(potential_last_item) <= 7):
-                            item_to_display_as_flag = potential_last_item
+                        if isinstance(item, str) and len(item) == 2 and item.isupper() and item.isalpha():
+                            iso_code_lowercase_for_url = item.lower()
+                            iso_code_original_case = item # ذخیره کد با حروف اصلی
+                            break 
+                    
+                    if iso_code_lowercase_for_url:
+                        # استفاده از flagcdn.com با عرض 20 پیکسل
+                        flag_image_url = f"https://flagcdn.com/w20/{iso_code_lowercase_for_url}.png"
+                        flag_image_markdown = f'<img src="{flag_image_url}" width="20" alt="{country_category_name} flag">'
                     
                     # 2. استخراج نام فارسی
                     for item in keywords_list:
                         if isinstance(item, str):
-                            if item == item_to_display_as_flag: # نباید خود پرچم/کد باشد
+                            # از خود کد ISO (که برای پرچم استفاده شد) صرف نظر کن
+                            if iso_code_original_case and item == iso_code_original_case:
                                 continue
-                            # نباید خود کلید اصلی (معمولا انگلیسی) باشد، مگر اینکه کلید اصلی خودش فارسی باشد (که بعید است)
-                            if item.lower() == country_category_name.lower() and not is_persian_like(item) : 
+                            # از نام اصلی کشور (کلید JSON) صرف نظر کن، مگر اینکه خودش فارسی باشد (بعید)
+                            if item.lower() == country_category_name.lower() and not is_persian_like(item):
                                 continue
-                            # نباید کد کوتاه کشور باشد
-                            if len(item) in [2,3] and item.isupper() and item.isalpha(): 
+                            # از سایر کدهای دو یا سه حرفی بزرگ که کد ISO انتخاب شده نیستند، صرف نظر کن
+                            if len(item) in [2,3] and item.isupper() and item.isalpha() and item != iso_code_original_case:
                                 continue
                             
-                            if is_persian_like(item): # تابع کمکی برای تشخیص فارسی
+                            if is_persian_like(item):
                                 persian_name_str = item
-                                break # اولین نام فارسی پیدا شده کافی است
+                                break 
             
             # 3. ساخت متن نهایی برای ستون "کشور"
             display_parts = []
-            if item_to_display_as_flag:
-                display_parts.append(item_to_display_as_flag)
+            if flag_image_markdown: # اگر تگ تصویر پرچم ساخته شده باشد
+                display_parts.append(flag_image_markdown)
             
             display_parts.append(country_category_name) # نام اصلی (کلید)
 
@@ -259,13 +232,14 @@ def generate_simple_readme(protocol_counts, country_counts, all_keywords_data, g
     except Exception as e:
         logging.error(f"Failed to write {README_FILE}: {e}")
 
-
+# تابع main و سایر توابع باید مشابه نسخه کامل قبلی باشند.
+# در اینجا برای کامل بودن، تابع main از پاسخ قبلی کپی می‌شود.
 async def main():
     if not os.path.exists(URLS_FILE) or not os.path.exists(KEYWORDS_FILE):
         logging.critical("Input files not found.")
         return
 
-    with open(URLS_FILE, 'r', encoding='utf-8') as f: # اضافه کردن encoding برای خواندن فایل urls
+    with open(URLS_FILE, 'r', encoding='utf-8') as f:
         urls = [line.strip() for line in f if line.strip()]
     with open(KEYWORDS_FILE, 'r', encoding='utf-8') as f:
         categories_data = json.load(f)
@@ -329,42 +303,29 @@ async def main():
                 if isinstance(keywords_for_country_list, list):
                     for kw in keywords_for_country_list:
                         if isinstance(kw, str):
-                            is_potential_emoji_or_short_code = (1 <= len(kw) <= 7) # طول معمول ایموجی یا کد کوتاه
-                            is_alphanum_only = kw.isalnum()
-
-                            # اگر آیتم شبیه ایموجی نیست (یعنی صرفا حروف و عدد نیست و کوتاه است)
-                            # و فارسی هم نیست، آن را به لیست کلمات کلیدی برای جستجو اضافه کن
-                            if (is_potential_emoji_or_short_code and is_alphanum_only and not is_persian_like(kw)) or \
-                               (not is_potential_emoji_or_short_code and not is_persian_like(kw)):
-                                text_keywords_for_country.append(kw)
-                            elif kw.lower() == country_name_key.lower(): # کلید اصلی را همیشه اضافه کن اگر تکراری نباشد
-                                if kw not in text_keywords_for_country:
+                            is_potential_emoji_or_short_code = (1 <= len(kw) <= 7)
+                            is_alphanumeric = kw.isalnum()
+                            if not (is_potential_emoji_or_short_code and not is_alphanumeric):
+                                if not is_persian_like(kw):
                                      text_keywords_for_country.append(kw)
-
-
+                                elif kw.lower() == country_name_key.lower():
+                                    if kw not in text_keywords_for_country:
+                                         text_keywords_for_country.append(kw)
                 for keyword in text_keywords_for_country:
                     match_found = False
-                    # اطمینان از اینکه keyword یک رشته است قبل از استفاده از متدهای رشته
-                    if not isinstance(keyword, str):
-                        continue
-
+                    if not isinstance(keyword, str): continue
                     is_abbr = (len(keyword) == 2 or len(keyword) == 3) and re.match(r'^[A-Z]+$', keyword)
-                    
                     if is_abbr:
                         pattern = r'\b' + re.escape(keyword) + r'\b'
-                        if re.search(pattern, current_name_to_check_str, re.IGNORECASE):
-                            match_found = True
+                        if re.search(pattern, current_name_to_check_str, re.IGNORECASE): match_found = True
                     else:
-                        if keyword.lower() in current_name_to_check_str.lower():
-                            match_found = True
-                    
+                        if keyword.lower() in current_name_to_check_str.lower(): match_found = True
                     if match_found:
                         final_configs_by_country[country_name_key].add(config)
                         break 
                 if match_found: break
 
-    if os.path.exists(OUTPUT_DIR):
-        shutil.rmtree(OUTPUT_DIR)
+    if os.path.exists(OUTPUT_DIR): shutil.rmtree(OUTPUT_DIR)
     os.makedirs(OUTPUT_DIR, exist_ok=True)
     logging.info(f"Saving files to directory: {OUTPUT_DIR}")
 
@@ -374,7 +335,6 @@ async def main():
     for category, items in final_all_protocols.items():
         saved, count = save_to_file(OUTPUT_DIR, category, items)
         if saved: protocol_counts[category] = count
-
     for category, items in final_configs_by_country.items():
         saved, count = save_to_file(OUTPUT_DIR, category, items)
         if saved: country_counts[category] = count
