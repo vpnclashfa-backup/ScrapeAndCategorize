@@ -1,6 +1,4 @@
 ss://20fda433-1864-433b-b3dd-8f119fe4cafd@217.196.104.83:8443?type=ws&encryption=none&host=happy.mianfeicf.lol&path=%2F%3Fed%3D2560&security=tls&sni=happy.mianfeicf.lol#%E5%A1%9E%E5%B0%94%E7%BB%B4%E4%BA%9A_053010003
 ss://89b3cbba-e6ac-485a-9481-976a0415eab9@38.180.100.80:443?encryption=none&security=tls&sni=vz.ylks.xyz&type=ws&host=vz.ylks.xyz&path=%2F%3Fproxyip%3Dproxyip.oracle.fxxk.dedyn.io#%E5%A1%9E%E5%B0%94%E7%BB%B4%E4%BA%9A_053010001
-ss://bacff32b-48b5-5191-b222-33538e15c735@45.89.55.188:8880?mode=gun&security=none&encryption=none&type=grpc&serviceName=vless-grpc#%40Golestan_VPN%20-%20%20%F0%9F%87%B7%F0%9F%87%B8‏⬅️
 vless://20fda433-1864-433b-b3dd-8f119fe4cafd@217.196.104.83:8443?type=ws&encryption=none&host=happy.mianfeicf.lol&path=%2F%3Fed%3D2560&security=tls&sni=happy.mianfeicf.lol#%E5%A1%9E%E5%B0%94%E7%BB%B4%E4%BA%9A_053010003
 vless://89b3cbba-e6ac-485a-9481-976a0415eab9@38.180.100.80:443?encryption=none&security=tls&sni=vz.ylks.xyz&type=ws&host=vz.ylks.xyz&path=%2F%3Fproxyip%3Dproxyip.oracle.fxxk.dedyn.io#%E5%A1%9E%E5%B0%94%E7%BB%B4%E4%BA%9A_053010001
-vless://bacff32b-48b5-5191-b222-33538e15c735@45.89.55.188:8880?mode=gun&security=none&encryption=none&type=grpc&serviceName=vless-grpc#%40Golestan_VPN%20-%20%20%F0%9F%87%B7%F0%9F%87%B8‏⬅️

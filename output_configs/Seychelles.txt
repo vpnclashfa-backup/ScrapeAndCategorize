@@ -3,7 +3,6 @@ ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@154.197.64.20:8880?type=ws&host=reedfr
 ss://5870e7d7-24e6-411a-914e-c965d7f7ae8a@154.197.75.80:80?path=%2FTelegram%3A%40%40vpnclashfa+-+561#SC🇸🇨
 ss://90bf198f-9810-40c8-cb6f-8d7908b576d3@154.197.64.21:8880?security=none&type=httpupgrade&host=nufillter.jtip.sbs.&path=%2Ftelegram-NUFiLTER%2Ctelegram-NUFiLTER%2Ctelegram-NUFiLTER%2Ctelegram-NUFiLTER%2Ctelegram-NUFiLTER%2Ctelegram-NUFiLTER%2Ctelegram-NUFiLTER%2Ctelegram-NUFiLTER#%E5%A1%9E%E8%88%8C%E5%B0%94_053010007
 ss://90bf198f-9810-40c8-cb6f-8d7908b576d3@154.197.64.52:8880?security=none&type=httpupgrade&host=nufillter.jtip.sbs.&path=%2Ftelegram-NUFiLTER%2Ctelegram-NUFiLTER%2Ctelegram-NUFiLTER%2Ctelegram-NUFiLTER%2Ctelegram-NUFiLTER%2Ctelegram-NUFiLTER%2Ctelegram-NUFiLTER%2Ctelegram-NUFiLTER#%E5%A1%9E%E8%88%8C%E5%B0%94_053010008
-ss://Y2hhY2hhMjAtaWV0Zjphc2QxMjM0NTY@137.175.113.192:8388#Relay_-%f0%9f%87%b8%f0%9f%87%a8SC_139
 ss://a0de1607-5b63-fab8-a759-9f98706b6125@146.19.90.10:443?security=reality&flow=xtls-rprx-vision&sni=speed.cloudflare.com&type=tcp&fp=chrome&pbk=oE7ZEghzkaOUiw1q3PqBtpllP1NlPHLY8ydJRuICtko#%E5%A1%9E%E8%88%8C%E5%B0%94_053010009
 ss://a0de1607-5b63-fab8-a759-9f98706b6125@178.20.215.10:443?allowInsecure=0&sni=speed.cloudflare.com&flow=xtls-rprx-vision-udp443&fp=chrome&security=tls#%E5%A1%9E%E8%88%8C%E5%B0%94_053010003
 ss://b99590df-eda0-4e34-e1a9-3d1118faed83@154.197.64.108:8880?security=none&type=httpupgrade&host=nufillter.jtip.sbs.&path=#%E5%A1%9E%E8%88%8C%E5%B0%94_053010010
