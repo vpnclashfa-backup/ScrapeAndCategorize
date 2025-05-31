@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 import os
 import shutil
 from datetime import datetime
-import pytz # اطمینان حاصل کنید که pytz نصب شده: pip install pytz
+import pytz
 import base64
 from urllib.parse import parse_qs, unquote
 
@@ -30,6 +30,28 @@ PROTOCOL_CATEGORIES = [
     "Vmess", "Vless", "Trojan", "ShadowSocks", "ShadowSocksR",
     "Tuic", "Hysteria2", "WireGuard"
 ]
+
+# --- Helper function to check for Persian-like text ---
+def is_persian_like(text):
+    """
+    Checks if a string is predominantly Persian by looking for Arabic script characters
+    and the absence of Latin characters.
+    """
+    if not isinstance(text, str) or not text.strip():
+        return False
+    has_persian_char = False
+    has_latin_char = False
+    for char in text:
+        # Arabic Unicode block (covers Persian, Arabic, Urdu, etc.)
+        # همچنین حروف یای فارسی و کاف فارسی را پوشش می‌دهد.
+        if '\u0600' <= char <= '\u06FF' or char in ['\u200C', '\u200D']: # ZWNJ and ZWJ
+            has_persian_char = True
+        elif 'a' <= char.lower() <= 'z':
+            has_latin_char = True
+        # اگر کاراکترهای دیگری (مثلا اعداد یا سیمبول‌های رایج) باشند، فعلا نادیده می‌گیریم
+        # و فقط بر اساس وجود فارسی و نبود لاتین تصمیم می‌گیریم.
+
+    return has_persian_char and not has_latin_char
 
 # --- Base64 Decoding Helper ---
 def decode_base64(data):
@@ -144,9 +166,14 @@ def save_to_file(directory, category_name, items_set):
         logging.error(f"Failed to write file {file_path}: {e}")
         return False, 0
 
+<<<<<<< HEAD
+# --- تابع generate_simple_readme با قابلیت نمایش نام فارسی ---
+def generate_simple_readme(protocol_counts, country_counts, all_keywords_data, github_repo_path="10ium/ScrapeAndCategorize", github_branch="main"):
+=======
 # --- تابع اصلاح شده generate_simple_readme ---
 def generate_simple_readme(protocol_counts, country_counts, all_keywords_data, github_repo_path="10ium/ScrapeAndCategorize", github_branch="main"):
     """Generates README.md with country flags/codes before country name in the same column."""
+>>>>>>> 80b6e0fbf644d44f4576259ce2a8e0a0d617b228
     tz = pytz.timezone('Asia/Tehran')
     now = datetime.now(tz)
     timestamp = now.strftime("%Y-%m-%d %H:%M:%S %Z")
@@ -175,13 +202,59 @@ def generate_simple_readme(protocol_counts, country_counts, all_keywords_data, g
         md_content += "| کشور | تعداد کانفیگ مرتبط | لینک |\n"
         md_content += "|---|---|---|\n"
         for country_category_name, count in sorted(country_counts.items()):
+<<<<<<< HEAD
+            item_to_display_as_flag = ""
+            persian_name_str = ""
+=======
             # flag_or_code_str نمایش دهنده چیزی است که از انتهای لیست کلیدواژه ها استخراج می شود
             # (چه ایموجی پرچم باشد چه کد کشور)
             flag_or_code_str = ""
+>>>>>>> 80b6e0fbf644d44f4576259ce2a8e0a0d617b228
 
             if country_category_name in all_keywords_data:
                 keywords_list = all_keywords_data[country_category_name]
                 if keywords_list and isinstance(keywords_list, list):
+<<<<<<< HEAD
+                    # 1. استخراج پرچم/کد (با منطق قبلی)
+                    for item in keywords_list:
+                        if isinstance(item, str) and (2 <= len(item) <= 7):
+                            if not item.isalnum(): # اگر صرفا حروف و عدد نباشد (احتمالا ایموجی)
+                                item_to_display_as_flag = item
+                                break
+                    if not item_to_display_as_flag and keywords_list: # Fallback
+                        potential_last_item = keywords_list[-1]
+                        if isinstance(potential_last_item, str) and (1 <= len(potential_last_item) <= 7):
+                            item_to_display_as_flag = potential_last_item
+                    
+                    # 2. استخراج نام فارسی
+                    for item in keywords_list:
+                        if isinstance(item, str):
+                            if item == item_to_display_as_flag: # نباید خود پرچم/کد باشد
+                                continue
+                            if item.lower() == country_category_name.lower(): # نباید خود کلید اصلی (معمولا انگلیسی) باشد
+                                continue
+                            if len(item) in [2,3] and item.isupper() and item.isalpha(): # نباید کد کوتاه کشور باشد
+                                continue
+                            
+                            if is_persian_like(item): # تابع کمکی برای تشخیص فارسی
+                                persian_name_str = item
+                                break # اولین نام فارسی پیدا شده کافی است
+            
+            # 3. ساخت متن نهایی برای ستون "کشور"
+            display_parts = []
+            if item_to_display_as_flag:
+                display_parts.append(item_to_display_as_flag)
+            
+            display_parts.append(country_category_name) # نام اصلی (کلید)
+
+            if persian_name_str:
+                display_parts.append(f"({persian_name_str})")
+            
+            country_display_text = " ".join(display_parts)
+            
+            file_link = f"{raw_github_base_url}/{country_category_name}.txt"
+            link_text = f"{country_category_name}.txt"
+=======
                     # فرض بر این است که آخرین آیتم در لیست، همان چیزی است که باید نمایش داده شود (پرچم یا کد)
                     potential_display_item = keywords_list[-1]
                     # بررسی اولیه برای طول معمول پرچم‌ها یا کدهای کشور
@@ -196,6 +269,7 @@ def generate_simple_readme(protocol_counts, country_counts, all_keywords_data, g
             if flag_or_code_str: # اگر چیزی (پرچم یا کد) استخراج شده باشد
                 country_display_text = f"{flag_or_code_str} {country_category_name}"
             
+>>>>>>> 80b6e0fbf644d44f4576259ce2a8e0a0d617b228
             md_content += f"| {country_display_text} | {count} | [`{link_text}`]({file_link}) |\n"
     else:
         md_content += "هیچ کانفیگ مرتبط با کشوری یافت نشد.\n"
@@ -220,7 +294,11 @@ async def main():
     with open(URLS_FILE, 'r') as f:
         urls = [line.strip() for line in f if line.strip()]
     with open(KEYWORDS_FILE, 'r', encoding='utf-8') as f:
+<<<<<<< HEAD
+        categories_data = json.load(f)
+=======
         categories_data = json.load(f) # categories_data حاوی کل محتوای keywords.json است
+>>>>>>> 80b6e0fbf644d44f4576259ce2a8e0a0d617b228
 
     protocol_patterns_for_matching = {
         cat: patterns for cat, patterns in categories_data.items() if cat in PROTOCOL_CATEGORIES
@@ -280,6 +358,20 @@ async def main():
                 text_keywords_for_country = []
                 if isinstance(keywords_for_country_list, list):
                     for kw in keywords_for_country_list:
+<<<<<<< HEAD
+                        if isinstance(kw, str):
+                            # این بخش برای پیدا کردن کانفیگ‌هاست، نه نمایش نام در ریدمی
+                            # پس ایموجی و نام فارسی را نباید به عنوان کلیدواژه جستجو استفاده کرد اگر هدف فقط تطبیق نام انگلیسی یا کد است
+                            # با این حال، منطق فعلی شما ممکن است روی نام فارسی هم تطبیق دهد اگر در اسم کانفیگ باشد
+                            # فعلا این بخش را بدون تغییر زیاد رها می‌کنیم، تمرکز روی نمایش در ریدمی است
+                            is_potential_emoji_or_short_code = (1 <= len(kw) <= 7)
+                            is_alphanumeric = kw.isalnum()
+                            if not (is_potential_emoji_or_short_code and not is_alphanumeric): # اگر ایموجی نیست
+                                if not is_persian_like(kw): # اگر فارسی هم نیست
+                                     text_keywords_for_country.append(kw)
+                                elif kw.lower() == country_name_key.lower(): # اگر نام فارسی با کلید اصلی یکی است (بعید)
+                                    text_keywords_for_country.append(kw)
+=======
                         # اینجا فرض می‌کنیم که اگر آیتم کوتاه باشد و فقط شامل حروف و اعداد نباشد، ممکن است ایموجی باشد و نباید در جستجوی متنی استفاده شود.
                         # اگر آیتم طولانی‌تر باشد یا فقط شامل حروف و اعداد باشد، به عنوان کلیدواژه متنی در نظر گرفته می‌شود.
                         if isinstance(kw, str):
@@ -290,6 +382,7 @@ async def main():
                             # هدف این است که کدهای دوحرفی و نام‌های کامل کشور را نگه داریم ولی ایموجی‌ها را برای جستجوی متن حذف کنیم.
                             if not (is_potential_emoji_or_short_code and not is_alphanumeric): # اگر ایموجی نیست، اضافه کن
                                 text_keywords_for_country.append(kw)
+>>>>>>> 80b6e0fbf644d44f4576259ce2a8e0a0d617b228
 
 
                 for keyword in text_keywords_for_country:
@@ -326,8 +419,13 @@ async def main():
         if saved: country_counts[category] = count
     
     generate_simple_readme(protocol_counts, country_counts, categories_data, 
+<<<<<<< HEAD
+                           github_repo_path="10ium/ScrapeAndCategorize",
+                           github_branch="main")
+=======
                            github_repo_path="10ium/ScrapeAndCategorize", # مسیر ریپازیتوری خودتان
                            github_branch="main") # نام برنچ اصلی شما
+>>>>>>> 80b6e0fbf644d44f4576259ce2a8e0a0d617b228
 
     logging.info("--- Script Finished ---")
 
