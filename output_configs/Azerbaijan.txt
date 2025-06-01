@@ -1,0 +1,4 @@
+ss://150ae8c6-6867-4803-991b-95c9954b7400@5.10.245.102:443?encryption=none&security=tls&sni=lapth.lzj520hxw.dpdns.org&type=ws&host=lapth.lzj520hxw.dpdns.org&path=%2Fargox-vl%3Fed%3D2048#%F0%9F%87%A6%F0%9F%87%BF_%E9%98%BF%E5%A1%9E%E6%8B%9C%E7%96%86
+ss://ba902158-fce5-4b33-8cb0-ef32bf6d05f3@5.10.246.73:443?encryption=none&security=tls&sni=mc1.777999.lol&type=ws&host=mc1.777999.lol&path=%2F%3Fed%3D2560#%F0%9F%87%A6%F0%9F%87%BF_%E9%98%BF%E5%A1%9E%E6%8B%9C%E7%96%86
+vless://150ae8c6-6867-4803-991b-95c9954b7400@5.10.245.102:443?encryption=none&security=tls&sni=lapth.lzj520hxw.dpdns.org&type=ws&host=lapth.lzj520hxw.dpdns.org&path=%2Fargox-vl%3Fed%3D2048#%F0%9F%87%A6%F0%9F%87%BF_%E9%98%BF%E5%A1%9E%E6%8B%9C%E7%96%86
+vless://ba902158-fce5-4b33-8cb0-ef32bf6d05f3@5.10.246.73:443?encryption=none&security=tls&sni=mc1.777999.lol&type=ws&host=mc1.777999.lol&path=%2F%3Fed%3D2560#%F0%9F%87%A6%F0%9F%87%BF_%E9%98%BF%E5%A1%9E%E6%8B%9C%E7%96%86
