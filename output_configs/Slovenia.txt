@@ -1,3 +1,7 @@
+ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@92.53.188.20:8880?encryption=none&security=tls&sni=reedfree8mahsang2.redorg.ir&type=ws&host=reedfree8mahsang2.redorg.ir&path=%2F#%F0%9F%87%B8%F0%9F%87%AE_%E6%96%AF%E6%B4%9B%E6%96%87%E5%B0%BC%E4%BA%9A
+ss://53fa8faf-ba4b-4322-9c69-a3e5b1555049@92.53.191.20:8880?encryption=none&security=tls&sni=reedfree8mahsang2.redorg.ir&type=ws&host=reedfree8mahsang2.redorg.ir&path=%2F%3Fed%3D2560#%F0%9F%87%B8%F0%9F%87%AE_%E6%96%AF%E6%B4%9B%E6%96%87%E5%B0%BC%E4%BA%9A
 ss://YWVzLTI1Ni1jZmI6ZjhmN2FDemNQS2JzRjhwMw@192.71.244.150:989#premium-si%20(1)
-trojan://Aimer@92.53.190.161:2087?allowInsecure=0&sni=epme.ambercc.filegear-sg.me&type=ws&host=epme.ambercc.filegear-sg.me&path=/?ed=2560#%E6%96%AF%E6%B4%9B%E6%96%87%E5%B0%BC%E4%BA%9A+V2CROSS.COM
-trojan://Aimer@92.53.190.161:2087?security=tls&sni=epms.ambercc.filegear-sg.me&type=tcp&headerType=none#%F0%9F%87%B8%F0%9F%87%AE_%E6%96%AF%E6%B4%9B%E6%96%87%E5%B0%BC%E4%BA%9A
+ss://fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf@92.53.190.29:8880?encryption=none&security=tls&sni=hk.laoyoutiao.link&type=ws&host=hk.laoyoutiao.link&path=%2F#%F0%9F%87%B8%F0%9F%87%AE_%E6%96%AF%E6%B4%9B%E6%96%87%E5%B0%BC%E4%BA%9A
+vless://53fa8faf-ba4b-4322-9c69-a3e5b1555049@92.53.188.20:8880?encryption=none&security=tls&sni=reedfree8mahsang2.redorg.ir&type=ws&host=reedfree8mahsang2.redorg.ir&path=%2F#%F0%9F%87%B8%F0%9F%87%AE_%E6%96%AF%E6%B4%9B%E6%96%87%E5%B0%BC%E4%BA%9A
+vless://53fa8faf-ba4b-4322-9c69-a3e5b1555049@92.53.191.20:8880?encryption=none&security=tls&sni=reedfree8mahsang2.redorg.ir&type=ws&host=reedfree8mahsang2.redorg.ir&path=%2F%3Fed%3D2560#%F0%9F%87%B8%F0%9F%87%AE_%E6%96%AF%E6%B4%9B%E6%96%87%E5%B0%BC%E4%BA%9A
+vless://fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf@92.53.190.29:8880?encryption=none&security=tls&sni=hk.laoyoutiao.link&type=ws&host=hk.laoyoutiao.link&path=%2F#%F0%9F%87%B8%F0%9F%87%AE_%E6%96%AF%E6%B4%9B%E6%96%87%E5%B0%BC%E4%BA%9A
