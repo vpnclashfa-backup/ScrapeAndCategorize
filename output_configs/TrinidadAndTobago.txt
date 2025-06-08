@@ -1,2 +1,1 @@
-ss://06e4425e-a8cb-4b63-929f-2105604ab0a9@172.67.79.211:443?encryption=none&security=tls&sni=vz.ylks0033.dpdns.org&type=ws&host=vz.ylks0033.dpdns.org&path=%2F%3Fed%3D2560#%E5%85%8D%E8%B4%B9VPN%EF%BC%9Ahttps%3A%2F%2Ftt.vg%2FgwaAy
-vless://06e4425e-a8cb-4b63-929f-2105604ab0a9@172.67.79.211:443?encryption=none&security=tls&sni=vz.ylks0033.dpdns.org&type=ws&host=vz.ylks0033.dpdns.org&path=%2F%3Fed%3D2560#%E5%85%8D%E8%B4%B9VPN%EF%BC%9Ahttps%3A%2F%2Ftt.vg%2FgwaAy
+trojan://607d365e-7ea1-11ee-95e9-f23c913c8d2b@c5d812aa-sx4v40-sx7hbg-1mmbp.cu.plebai.net:15229?security=tls&sni=c5d812aa-sx4v40-sx7hbg-1mmbp.cu.plebai.net&type=tcp&headerType=none#%E5%85%8D%E8%B4%B9VPN%EF%BC%9Ahttps%3A%2F%2Ftt.vg%2FgwaAy
