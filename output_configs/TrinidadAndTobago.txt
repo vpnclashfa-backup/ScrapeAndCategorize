@@ -1,1 +1,2 @@
-trojan://607d365e-7ea1-11ee-95e9-f23c913c8d2b@c5d812aa-sx4v40-sx7hbg-1mmbp.cu.plebai.net:15229?security=tls&sni=c5d812aa-sx4v40-sx7hbg-1mmbp.cu.plebai.net&type=tcp&headerType=none#%E5%85%8D%E8%B4%B9VPN%EF%BC%9Ahttps%3A%2F%2Ftt.vg%2FgwaAy
+ss://55520747-311e-4015-83ce-be46e2060ce3@59.149.204.218:54321?encryption=none&security=tls&sni=cx.bgm2024.dpdns.org&type=ws&host=cx.bgm2024.dpdns.org&path=%2F%3Fed%3D2560#%E5%85%8D%E8%B4%B9VPN%EF%BC%9Ahttps%3A%2F%2Ftt.vg%2FgwaAy
+vless://55520747-311e-4015-83ce-be46e2060ce3@59.149.204.218:54321?encryption=none&security=tls&sni=cx.bgm2024.dpdns.org&type=ws&host=cx.bgm2024.dpdns.org&path=%2F%3Fed%3D2560#%E5%85%8D%E8%B4%B9VPN%EF%BC%9Ahttps%3A%2F%2Ftt.vg%2FgwaAy

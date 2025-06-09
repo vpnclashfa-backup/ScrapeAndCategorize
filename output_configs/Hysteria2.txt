@@ -55,6 +55,7 @@ hy2://53bdfd4a-7f38-4cb6-b07e-49974de1a800@51.79.141.63:25022?insecure=1&sni=www
 hy2://5421ad38-6952-437f-a8ce-d6d3e9afd05f@43.199.206.200:30000?insecure=1&sni=www.teslamotors.com#🔒
 hy2://569dda85-bc76-4f8b-ae03-609d97f9e76c@143.198.48.33:5750?insecure=1&sni=www.bing.com#%F0%9F%87%BA%F0%9F%87%B8%20United%20States%20-%20Santa%20Clara%20%F0%9F%8C%8E%20HY2-UDP-TLS%204%E2%83%A3
 hy2://569dda85-bc76-4f8b-ae03-609d97f9e76c@143.198.48.33:5750?insecure=1&sni=www.bing.com#🔒
+hy2://5CBqBh6MeDq6GajcilBiDg%3D%3D@192.227.152.86:61001?insecure=1&sni=192-227-152-86.nip.io#🔒
 hy2://5CBqBh6MeDq6GajcilBiDg==@192.227.152.86:61001?insecure=1&sni=192-227-152-86.nip.io#%F0%9F%87%BA%F0%9F%87%B8%20United%20States%20-%20Buffalo%20%F0%9F%8C%8E%20HY2-UDP-TLS%204%E2%83%A3
 hy2://5CBqBh6MeDq6GajcilBiDg==@192.227.152.86:61001?insecure=1&sni=192-227-152-86.nip.io#🔒
 hy2://5Cp8lmFEQN41CDIWuJhpPzH1U@143.14.221.98:9641?insecure=1&sni=bing.com#🔒
@@ -87,7 +88,8 @@ hy2://95929244-454A-46A2-A9BF-6B7E90ACEA70@3.112.28.125:1659?sni=jp1.dexlos.com#
 hy2://95929244-454A-46A2-A9BF-6B7E90ACEA70@54.178.220.201:1659?sni=jp1.dexlos.com#🔒
 hy2://95929244-454A-46A2-A9BF-6B7E90ACEA70@54.95.138.110:1659?sni=jp1.dexlos.com#🔒
 hy2://96e027fb-ec4b-4d49-b861-346dfd5ebee7@209.141.35.56:50000?insecure=1&sni=mg02.hssl8088.icu#🔒
-hy2://9b80524b-f3c5-4221-8851-59cd409d99ef@89.168.23.31:10000/?insecure=1&sni=yidali.959555.xyz#Channel
+hy2://9FmazX8AAPpM8TQcNyI2zvBDF5o@92.112.23.216:28264/?insecure=1#Channel
+hy2://9FmazX8AAPpM8TQcNyI2zvBDF5o@92.112.23.216:28264?insecure=1#🔒
 hy2://9b80524b-f3c5-4221-8851-59cd409d99ef@89.168.23.31:10000?insecure=1&sni=yidali.959555.xyz#🔒
 hy2://9bb452b106ffc217@207.148.22.93:443?obfs=salamander&obfs-password=cd29099d&insecure=1#🔒
 hy2://9f73c619627d6a5d@66.245.192.15:443?insecure=1&sni=www.apple.com&obfs=salamander&obfs-password=bd7f765e#🔒
@@ -142,14 +144,12 @@ hy2://b8bd42a9-551f-419d-b70d-4aefdd2cb074@208.87.242.189:443?mport=20000-55000&
 hy2://b8bd42a9-551f-419d-b70d-4aefdd2cb074@208.87.242.215:443?mport=20000-55000&insecure=1&sni=www.bing.com#🔒
 hy2://b8bd42a9-551f-419d-b70d-4aefdd2cb074@208.87.242.79:443?mport=20000-55000&insecure=1&sni=www.bing.com#🔒
 hy2://bc65e87d-f3a7-46cc-b76c-da7ec1f0228b@195.58.49.84:31000?insecure=1&obfs=salamander&obfs-password=NDhhNmY5YTY0MGYzOTgxYQ%3D%3D#🔒
-hy2://bc97f674-c578-4940-3548-0a1da46041b9@37.27.65.125:21160/?insecure=1&sni=www.bing.com#Channel
 hy2://bc97f674-c578-4940-3548-0a1da46041b9@37.27.65.125:21160?insecure=1&sni=www.bing.com#🔒
 hy2://bde0cf51-5bce-473a-8c7d-68949e7e5cfd@209.135.168.230:8080?sni=us4.youxuan.wiki#🔒
 hy2://bde0cf51-5bce-473a-8c7d-68949e7e5cfd@45.12.134.112:33251?sni=jp3.youxuan.wiki#🔒
 hy2://bde0cf51-5bce-473a-8c7d-68949e7e5cfd@77.90.50.171:11401?sni=nl.youxuan.wiki#🔒
 hy2://c5e6f43c-6f0e-4112-bb97-ed0dba4582d7@1.162.131.195:30001?sni=tw.akebi.cc#🔒
 hy2://c5e6f43c-6f0e-4112-bb97-ed0dba4582d7@1.162.136.28:30001?insecure=1&sni=tw1-vds14.anyhk.co#🔒
-hy2://cdb63ff9-1767-4a35-97e5-900048e4feb2@104.192.92.99:443/?insecure=1&sni=tms.dingtalk.com#Channel
 hy2://cdb63ff9-1767-4a35-97e5-900048e4feb2@104.192.92.99:443?insecure=1&sni=tms.dingtalk.com#🔒
 hy2://cfe032e4-1bc3-454f-9d09-301b0aea08ff@192.18.145.7:45979?insecure=1&sni=www.bing.com#🔒
 hy2://cfe032e4-1bc3-454f-9d09-301b0aea08ff@40.233.70.163:45979/?insecure=1&sni=www.bing.com#Channel
@@ -161,7 +161,6 @@ hy2://d62993f2-f2b7-410d-b56d-2cef2e971038@193.123.250.219:35000?insecure=1&sni=
 hy2://d9fe1f5e-8f0f-41b6-95f6-d90aa0404924@75.127.13.83:45551/?insecure=1&sni=www.bing.com#Channel
 hy2://d9fe1f5e-8f0f-41b6-95f6-d90aa0404924@75.127.13.83:45551?insecure=1&sni=www.bing.com#%F0%9F%87%BA%F0%9F%87%B8%20United%20States%20-%20Seattle%20%F0%9F%8C%8E%20HY2-UDP-TLS%204%E2%83%A3
 hy2://d9fe1f5e-8f0f-41b6-95f6-d90aa0404924@75.127.13.83:45551?insecure=1&sni=www.bing.com#🔒
-hy2://dongtaiwang.com@108.181.5.130:57773/?insecure=1&sni=apple.com#Channel
 hy2://dongtaiwang.com@108.181.5.130:57773?insecure=1&sni=apple.com#🔒
 hy2://dongtaiwang.com@108.181.5.130:65232?insecure=1&sni=apple.com#🔒
 hy2://dongtaiwang.com@195.154.33.70:23587?insecure=1&sni=www.bing.com#🔒
@@ -187,9 +186,10 @@ hy2://dongtaiwang.com@51.159.111.32:31180?insecure=1&sni=apple.com#🔒
 hy2://dongtaiwang.com@51.159.226.1:44464?insecure=1&sni=www.bing.com#%F0%9F%87%AB%F0%9F%87%B7%20France%20-%20Paris%20%F0%9F%8C%8D%20HY2-UDP-TLS%204%E2%83%A3
 hy2://dongtaiwang.com@51.159.226.1:44464?insecure=1&sni=www.bing.com#🔒
 hy2://dongtaiwang.com@51.159.226.1:61770?insecure=1&sni=www.bing.com#🔒
+hy2://e3f67f43-9097-4e56-96e2-681910b92150@107.175.145.72:22647/?insecure=1&sni=www.apple.com&obfs=salamander&obfs-password=fWQ4LCfAYiKaEVRe#Channel
+hy2://e3f67f43-9097-4e56-96e2-681910b92150@107.175.145.72:22647?insecure=1&sni=www.apple.com&obfs=salamander&obfs-password=fWQ4LCfAYiKaEVRe#🔒
 hy2://e3f67f43-9097-4e56-96e2-681910b92150@172.245.106.236:35091/?insecure=1&sni=www.apple.com&obfs=salamander&obfs-password=fWQ4LCfAYiKaEVRe#Channel
 hy2://e3f67f43-9097-4e56-96e2-681910b92150@172.245.106.236:35091?insecure=1&sni=www.apple.com&obfs=salamander&obfs-password=fWQ4LCfAYiKaEVRe#🔒
-hy2://f05d047d-39e1-47d7-baa6-ab53592c77f3@45.147.201.231:33076/?insecure=1&obfs=salamander&obfs-password=NDhhNmY5YTY0MGYzOTgxYQ==#Channel
 hy2://f05d047d-39e1-47d7-baa6-ab53592c77f3@45.147.201.231:33076?insecure=1&obfs=salamander&obfs-password=NDhhNmY5YTY0MGYzOTgxYQ%3D%3D#🔒
 hy2://f67554a9-b51f-438c-83b5-b1bbf1da45fa@139.162.17.136:443?mport=20000-50000&insecure=1&sni=www.bing.com#🔒
 hy2://f6e4b19a3110d19d@66.135.28.59:443?insecure=1&sni=www.apple.com&obfs=salamander&obfs-password=8c3ce17b#🔒
