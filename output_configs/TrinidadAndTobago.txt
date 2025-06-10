@@ -1,2 +1,1 @@
-ss://55520747-311e-4015-83ce-be46e2060ce3@59.149.204.218:54321?encryption=none&security=tls&sni=cx.bgm2024.dpdns.org&type=ws&host=cx.bgm2024.dpdns.org&path=%2F%3Fed%3D2560#%E5%85%8D%E8%B4%B9VPN%EF%BC%9Ahttps%3A%2F%2Ftt.vg%2FgwaAy
-vless://55520747-311e-4015-83ce-be46e2060ce3@59.149.204.218:54321?encryption=none&security=tls&sni=cx.bgm2024.dpdns.org&type=ws&host=cx.bgm2024.dpdns.org&path=%2F%3Fed%3D2560#%E5%85%8D%E8%B4%B9VPN%EF%BC%9Ahttps%3A%2F%2Ftt.vg%2FgwaAy
+trojan://2b1ed981-6547-4094-998b-06a3323d6f6c@120.233.44.201:21102?security=tls&sni=k28.tudou211.com&type=tcp&headerType=none#%E5%85%8D%E8%B4%B9VPN%EF%BC%9Ahttps%3A%2F%2Ftt.vg%2FgwaAy
