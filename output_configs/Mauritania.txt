@@ -1,0 +1,2 @@
+ss://ac9398c3-392f-4ae4-8fdd-ddb8c02adc17@ir.demo313.top:4002?type=tcp&security=none#Mr.Gholami-Testvip
+vless://ac9398c3-392f-4ae4-8fdd-ddb8c02adc17@ir.demo313.top:4002?type=tcp&security=none#Mr.Gholami-Testvip
