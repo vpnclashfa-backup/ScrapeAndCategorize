@@ -1,4 +1,2 @@
-ss://0067ad9a-7dc8-215c-4af9-62648743c931@sk.foldandflyhigh.com:443/?type=ws&encryption=none&host=sk.foldandflyhigh.com&path=%2F&security=tls&sni=sk.foldandflyhigh.com#%F0%9F%87%B8%F0%9F%87%B0Slovakia%40oneclickvpnkeys
-ss://YWVzLTI1Ni1jZmI6ZjhmN2FDemNQS2JzRjhwMw==@156.146.40.194:989#%F0%9F%87%B8%F0%9F%87%B0SK-156.146.40.194-0358
-ss://YWVzLTI1Ni1jZmI6ZjhmN2FDemNQS2JzRjhwMw==@156.146.40.194:989#3%7C%F0%9F%8C%803-SK%20%7C%20%205.0MB/s%7C0%25%7CYoutube%7COp...
-vless://0067ad9a-7dc8-215c-4af9-62648743c931@sk.foldandflyhigh.com:443/?type=ws&encryption=none&host=sk.foldandflyhigh.com&path=%2F&security=tls&sni=sk.foldandflyhigh.com#%F0%9F%87%B8%F0%9F%87%B0Slovakia%40oneclickvpnkeys
+ss://YWVzLTI1Ni1jZmI6ZjhmN2FDemNQS2JzRjhwMw==@156.146.40.194:989#%F0%9F%87%B8%F0%9F%87%B0SK-156.146.40.194-0299
+ss://YWVzLTI1Ni1jZmI6ZjhmN2FDemNQS2JzRjhwMw==@156.146.40.194:989#1%7C%F0%9F%8C%803-SK%20%7C%20%205.0MB/s%7C0%25%7CYoutube%7COp...
