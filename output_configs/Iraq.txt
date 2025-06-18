@@ -1,2 +1,0 @@
-ss://14d42c17-9cc5-43c6-be0a-85309fc927c0@83.147.18.200:2087?security=tls&sni=zula.ir&allowInsecure=1&fp=chrome&type=ws&path=/vless&host=83.147.18.200&encryption=none#Rayan%20-%20CBT%20-%20WSDR-104%20-%20IQ%20-%20I%20-%20%E2%9A%AB%EF%B8%8F%20t.me/Rayan_Config
-vless://14d42c17-9cc5-43c6-be0a-85309fc927c0@83.147.18.200:2087?security=tls&sni=zula.ir&allowInsecure=1&fp=chrome&type=ws&path=/vless&host=83.147.18.200&encryption=none#Rayan%20-%20CBT%20-%20WSDR-104%20-%20IQ%20-%20I%20-%20%E2%9A%AB%EF%B8%8F%20t.me/Rayan_Config
