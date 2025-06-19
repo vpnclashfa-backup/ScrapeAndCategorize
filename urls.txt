@@ -3,4 +3,4 @@ https://raw.githubusercontent.com/10ium/V2Hub3/main/merged
 https://raw.githubusercontent.com/10ium/V2RayAggregator/refs/heads/master/Eternity.txt
 https://raw.githubusercontent.com/10ium/V2rayCollector/main/mixed_iran.txt
 https://raw.githubusercontent.com/10ium/V2ray-Config/main/All_Configs_Sub.txt
-https://raw.githubusercontent.com/10ium/HiN-VPN/main/subscription/base64/mix
+https://raw.githubusercontent.com/10ium/HiN-VPN/main/subscription/normal/mix
