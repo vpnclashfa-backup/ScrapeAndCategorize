@@ -38,7 +38,6 @@ hy2://25a7be37-eca8-4d9e-a8ae-63722bf9ec2e@35.74.66.28:7001?insecure=1&sni=d1--c
 hy2://25a7be37-eca8-4d9e-a8ae-63722bf9ec2e@35.74.79.114:7001?insecure=1&sni=d1--cn-gotcha204-3.bilivideo.com#🔒
 hy2://25a7be37-eca8-4d9e-a8ae-63722bf9ec2e@43.207.208.50:7001?insecure=1&sni=d1--cn-gotcha204-3.bilivideo.com#🔒
 hy2://262e7386-f8a9-11ef-ba82-f23c913c8d2b@107.167.18.102:8443?insecure=1&sni=3b58370e-sv8cg0-tbhsus-1tgfe.hy2.gotochinatown.net#%F0%9F%87%BA%F0%9F%87%B8%20United%20States%20-%20Los%20Angeles%20%F0%9F%8C%8E%20HY2-UDP-TLS%204%E2%83%A3
-hy2://262e7386-f8a9-11ef-ba82-f23c913c8d2b@107.167.18.102:8443?insecure=1&sni=3b58370e-sv8cg0-tbhsus-1tgfe.hy2.gotochinatown.net#🔒
 hy2://27de93f4-144d-4a34-a823-9e30965964ce@45.147.201.231:33062?insecure=1&obfs=salamander&obfs-password=NDhhNmY5YTY0MGYzOTgxYQ%3D%3D#🔒
 hy2://2af14ba2-1a50-4e86-9eb9-b9c78f3507dc@147.182.255.75:30001?insecure=1#🔒
 hy2://2af14ba2-1a50-4e86-9eb9-b9c78f3507dc@18.162.213.220:60007?insecure=1#🔒
@@ -57,6 +56,7 @@ hy2://4de5bc14-2c4d-4321-8d95-e6ff3bf0f91a@1.170.215.211:16666?insecure=1#🔒
 hy2://4de5bc14-2c4d-4321-8d95-e6ff3bf0f91a@1.170.228.14:16666?insecure=1#🔒
 hy2://4e9ee29b39a28277@66.135.11.68:443?obfs=salamander&obfs-password=13f7ba5f&insecure=1&sni=wrmelmwxlf.gktevlrqznwqqqozy6hgvqxwfmfs%20vgvs6c7kjnrubuh.cc#🔒
 hy2://4e9ee29b39a28277@[2001:19f0:1000:20d0:5400:5ff:fe19:3ba9]:443?insecure=1&sni=[2001:19f0:1000:20d0:5400:5ff:fe19:3ba9]&obfs=salamander&obfs-password=13f7ba5f#🔒
+hy2://4eedcde6-d16a-11ef-973a-f23c913c8d2b@107.167.18.102:8443?insecure=1&sni=57cda03f-sxc9s0-sxgw5w-1j0a4.hy2.gotochinatown.net#🔒
 hy2://50a88b3f@38.207.130.91:2308?insecure=1&sni=www.bing.com#🔒
 hy2://53bdfd4a-7f38-4cb6-b07e-49974de1a800@152.53.225.161:25560?insecure=1&sni=www.bing.com#🔒
 hy2://53bdfd4a-7f38-4cb6-b07e-49974de1a800@160.22.156.7:22106?insecure=1&sni=www.bing.com#🔒
@@ -144,7 +144,6 @@ hy2://b5c516c0-80cf-4ecf-9f57-283deb8c247f@91.229.132.116:34512?insecure=1&sni=a
 hy2://b6ffadff-b7ad-497e-87c4-a2b315db85ea@107.172.99.78:43224?insecure=1#🔒
 hy2://b72ba5d5-2d5e-45b7-93b5-236d343baa7c@164.152.19.229:47262?insecure=1&sni=www.bing.com#🔒
 hy2://b72ba5d5-2d5e-45b7-93b5-236d343baa7c@64.181.204.186:47262?insecure=1&sni=www.bing.com#🔒
-hy2://b72ba5d5-2d5e-45b7-93b5-236d343baa7c@64.181.207.162:47262/?insecure=1&sni=www.bing.com#Channel%20id%3A%20%40ShadowProxy66%F0%9F%87%BA%F0%9F%87%B8hysteria://208.87.243.151:17549/?insecure=1&peer=www.bing.com&auth=dongtaiwang.com&upmbps=10&downmbps=50&alpn=h3#Channel%20id%3A%20%40ShadowProxy66%F0%9F%87%BA%F0%9F%87%B8hy2://dongtaiwang.com@108.181.5.130:57773/?insecure=1&sni=apple.com#Channel%20id%3A%20%40ShadowProxy66%F0%9F%87%BA%F0%9F%87%B8hy2://14bdcd31-8a9f-4cf1-8fcc-60045900357d@107.175.34.118:3002/?sni=us.10101251.xyz#Channel%20id%3A%20%40ShadowProxy66%F0%9F%87%BA%F0%9F%87%B8hy2://65a43b6e-19c5-4fab-b960-d110a07d66a4@209.141.47.127:3234/?insecure=1#Channel%20id%3A%20%40ShadowProxy66%F0%9F%87%BA%F0%9F%87%B8hy2://cfe032e4-1bc3-454f-9d09-301b0aea08ff@40.233.70.163:45979/?insecure=1&sni=www.bing.com#Channel%20id%3A%20%40ShadowProxy66%F0%9F%87%A8%F0%9F%87%A6hy2://d9fe1f5e-8f0f-41b6-95f6-d90aa0404924@75.127.13.83:45551/?insecure=1&sni=www.bing.com#Channel%20id%3A%20%40ShadowProxy66%F0%9F%87%BA%F0%9F%87%B8hy2://e3f67f43-9097-4e56-96e2-681910b92150@172.245.106.236:35091/?insecure=1&sni=www.apple.com&obfs=salamander&obfs-password=fWQ4LCfAYiKaEVRe#Channel%20id%3A%20%40ShadowProxy66%F0%9F%87%BA%F0%9F%87%B8hy2://bc97f674-c578-4940-3548-0a1da46041b9@37.27.65.125:21160/?insecure=1&sni=www.bing.com#Channel%20id%3A%20%40ShadowProxy66%F0%9F%87%AB%F0%9F%87%AE9
 hy2://b72ba5d5-2d5e-45b7-93b5-236d343baa7c@64.181.207.162:47262?insecure=1&sni=www.bing.com#%F0%9F%87%BA%F0%9F%87%B8%20United%20States%20-%20Chicago%20%F0%9F%8C%8E%20HY2-UDP-TLS%204%E2%83%A3
 hy2://b72ba5d5-2d5e-45b7-93b5-236d343baa7c@64.181.207.162:47262?insecure=1&sni=www.bing.com#🔒
 hy2://b72e0a66-c660-4a26-9acc-8f106cee0ab9@170.64.222.252:52111?insecure=1&sni=www.bing.com#🔒
@@ -178,6 +177,8 @@ hy2://d62993f2-f2b7-410d-b56d-2cef2e971038@152.69.225.196:35000?insecure=1&sni=w
 hy2://d62993f2-f2b7-410d-b56d-2cef2e971038@193.123.250.219:35000?insecure=1&sni=www.apple.com#🔒
 hy2://d9fe1f5e-8f0f-41b6-95f6-d90aa0404924@75.127.13.83:45551?insecure=1&sni=www.bing.com#%F0%9F%87%BA%F0%9F%87%B8%20United%20States%20-%20Seattle%20%F0%9F%8C%8E%20HY2-UDP-TLS%204%E2%83%A3
 hy2://d9fe1f5e-8f0f-41b6-95f6-d90aa0404924@75.127.13.83:45551?insecure=1&sni=www.bing.com#🔒
+hy2://dec336f6-e5da-40f4-a4de-986c7b34d587@202.61.241.142:2056?insecure=1&sni=de2.eyucdn.xyz#🔒
+hy2://dongtaiwang.com@108.181.5.130:4710?insecure=1&sni=apple.com#🔒
 hy2://dongtaiwang.com@108.181.5.130:57773?insecure=1&sni=apple.com#🔒
 hy2://dongtaiwang.com@108.181.5.130:65232?insecure=1&sni=apple.com#🔒
 hy2://dongtaiwang.com@195.154.33.70:23587?insecure=1&sni=www.bing.com#🔒

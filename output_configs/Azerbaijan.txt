@@ -1,2 +1,0 @@
-ss://fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf@5.10.244.213:8880?encryption=none&security=tls&sni=jp.laoyoutiao.link&type=ws&host=jp.laoyoutiao.link&path=%2F#%F0%9F%87%A6%F0%9F%87%BF_%E9%98%BF%E5%A1%9E%E6%8B%9C%E7%96%86
-vless://fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf@5.10.244.213:8880?encryption=none&security=tls&sni=jp.laoyoutiao.link&type=ws&host=jp.laoyoutiao.link&path=%2F#%F0%9F%87%A6%F0%9F%87%BF_%E9%98%BF%E5%A1%9E%E6%8B%9C%E7%96%86

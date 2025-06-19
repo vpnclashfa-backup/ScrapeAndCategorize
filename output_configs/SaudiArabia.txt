@@ -1,11 +1,4 @@
-ss://9daa611d-cd8c-4b18-b0e8-e3905ee8d2e2@arabia.arcanpayer.com:12871?security=reality&sni=canva.com&fp=chrome&pbk=0HG2YEhE36GUu3wqRBLEvGfINpzBXJkJ2NwZeAl4BUY&sid=a2029f7a&spx=/&type=tcp&encryption=none#SA%20%5C%20@NITtw
-ss://f5a45265362049ff98b9a862d5f3a09dOg==@arabia.arcanpayer.com:36729#SA%F0%9F%87%B8%F0%9F%87%A6+%7C+arabia.arcanpayer.com-36729+%7C+200.18ms
-ss://fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf@91.209.253.213:8880?encryption=none&security=tls&sni=jp.laoyoutiao.link&type=ws&host=jp.laoyoutiao.link&path=%2F#%F0%9F%87%B8%F0%9F%87%A6_%E6%B2%99%E7%89%B9%E9%98%BF%E6%8B%89%E4%BC%AF
-ss://fab7bf9cddb945638a04fb01ce6c0fbfOg==@91.209.253.29:8880#SA%F0%9F%87%B8%F0%9F%87%A6+%7C+91.209.253.29-8880+%7C+5.66ms
-ss://fab7bf9cddb945638a04fb01ce6c0fbfOg==@91.209.253.29:8880#SA%F0%9F%87%B8%F0%9F%87%A6+%7C+91.209.253.29-8880+%7C+5.74ms
-trojan://71698fa1-5dbc-4a7d-a1f0-6f9f098b0829@ss.hkglink.xyz:12014?sni=sg4.yuanul.com#%F0%9F%87%B8%F0%9F%87%A6SA%E6%B2%99%E7%89%B9%E9%98%BF%E6%8B%89%E4%BC%AF3
-trojan://71698fa1-5dbc-4a7d-a1f0-6f9f098b0829@ss.usalink.xyz:13201?sni=133.yuanul.com#%F0%9F%87%B8%F0%9F%87%A6SA%E6%B2%99%E7%89%B9%E9%98%BF%E6%8B%89%E4%BC%AF4
-trojan://71698fa1-5dbc-4a7d-a1f0-6f9f098b0829@tr.node1link.xyz:23000?sni=73.yuanul.com#%F0%9F%87%B8%F0%9F%87%A6SA%E6%B2%99%E7%89%B9%E9%98%BF%E6%8B%89%E4%BC%AF2
-trojan://71698fa1-5dbc-4a7d-a1f0-6f9f098b0829@tr.node1link.xyz:23012?sni=97.yuanul.com#%F0%9F%87%B8%F0%9F%87%A6SA%E6%B2%99%E7%89%B9%E9%98%BF%E6%8B%89%E4%BC%AF
-vless://9daa611d-cd8c-4b18-b0e8-e3905ee8d2e2@arabia.arcanpayer.com:12871?security=reality&sni=canva.com&fp=chrome&pbk=0HG2YEhE36GUu3wqRBLEvGfINpzBXJkJ2NwZeAl4BUY&sid=a2029f7a&spx=/&type=tcp&encryption=none#SA%20%5C%20@NITtw
-vless://fab7bf9c-ddb9-4563-8a04-fb01ce6c0fbf@91.209.253.213:8880?encryption=none&security=tls&sni=jp.laoyoutiao.link&type=ws&host=jp.laoyoutiao.link&path=%2F#%F0%9F%87%B8%F0%9F%87%A6_%E6%B2%99%E7%89%B9%E9%98%BF%E6%8B%89%E4%BC%AF
+ss://f5a45265362049ff98b9a862d5f3a09dOg==@arabia.arcanpayer.com:36729#SA%F0%9F%87%B8%F0%9F%87%A6+%7C+arabia.arcanpayer.com-36729+%7C+308.74ms
+ss://f5a45265362049ff98b9a862d5f3a09dOg==@arabia.arcanpayer.com:36729#SA%F0%9F%87%B8%F0%9F%87%A6+%7C+arabia.arcanpayer.com-36729+%7C+310.99ms
+ss://fab7bf9cddb945638a04fb01ce6c0fbfOg==@91.209.253.29:8880#SA%F0%9F%87%B8%F0%9F%87%A6+%7C+91.209.253.29-8880+%7C+1.87ms
+ss://fab7bf9cddb945638a04fb01ce6c0fbfOg==@91.209.253.29:8880#SA%F0%9F%87%B8%F0%9F%87%A6+%7C+91.209.253.29-8880+%7C+13.7ms
