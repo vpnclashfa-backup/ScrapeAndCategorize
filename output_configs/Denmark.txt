@@ -1,3 +1,1 @@
-ss://6337837a-2b47-4e0d-a695-75c5a4a8ad51@2.59.183.233:444?encryption=none&security=tls&sni=hax-eu1.lzjnb.shop&type=ws&host=hax-eu1.lzjnb.shop&path=%2Ft.me%2Flzjjjjjjjjjjj#%F0%9F%87%A9%F0%9F%87%B0_%E4%B8%B9%E9%BA%A6
-ss://YWVzLTI1Ni1jZmI6ZjhmN2FDemNQS2JzRjhwMw==@192.36.27.94:989#%F0%9F%87%A9%F0%9F%87%B0DK-192.36.27.94-0375
-vless://6337837a-2b47-4e0d-a695-75c5a4a8ad51@2.59.183.233:444?encryption=none&security=tls&sni=hax-eu1.lzjnb.shop&type=ws&host=hax-eu1.lzjnb.shop&path=%2Ft.me%2Flzjjjjjjjjjjj#%F0%9F%87%A9%F0%9F%87%B0_%E4%B8%B9%E9%BA%A6
+ss://YWVzLTI1Ni1jZmI6ZjhmN2FDemNQS2JzRjhwMw==@192.36.27.94:989#%F0%9F%87%A9%F0%9F%87%B0DK-192.36.27.94-4200

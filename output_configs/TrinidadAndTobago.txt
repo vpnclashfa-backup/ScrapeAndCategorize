@@ -1,0 +1,1 @@
+trojan://ttfang@138.2.74.219:28616?security=tls&sni=ttfang.fange.me&type=tcp&headerType=none#%E5%85%8D%E8%B4%B9VPN%EF%BC%9Ahttps%3A%2F%2Ftt.vg%2FgwaAy
