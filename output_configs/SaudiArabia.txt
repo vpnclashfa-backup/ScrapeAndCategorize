@@ -1,3 +1,3 @@
-ss://f5a45265362049ff98b9a862d5f3a09dOg==@arabia.arcanpayer.com:36729#SA%F0%9F%87%B8%F0%9F%87%A6+%7C+arabia.arcanpayer.com-36729+%7C+300.67ms
+ss://f5a45265362049ff98b9a862d5f3a09dOg==@arabia.arcanpayer.com:36729#SA%F0%9F%87%B8%F0%9F%87%A6+%7C+arabia.arcanpayer.com-36729+%7C+323.35ms
 ss://fab7bf9cddb945638a04fb01ce6c0fbfOg==@91.209.253.29:8880#SA%F0%9F%87%B8%F0%9F%87%A6+%7C+91.209.253.29-8880+%7C+2.12ms
-ss://fab7bf9cddb945638a04fb01ce6c0fbfOg==@91.209.253.29:8880#SA%F0%9F%87%B8%F0%9F%87%A6+%7C+91.209.253.29-8880+%7C+5.6ms
+ss://fab7bf9cddb945638a04fb01ce6c0fbfOg==@91.209.253.29:8880#SA%F0%9F%87%B8%F0%9F%87%A6+%7C+91.209.253.29-8880+%7C+8.78ms

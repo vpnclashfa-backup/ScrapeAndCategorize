@@ -1,4 +1,4 @@
-ss://YWVzLTI1Ni1jZmI6ZjhmN2FDemNQS2JzRjhwMw==@185.213.23.226:989#%F0%9F%87%B3%F0%9F%87%B4NO-185.213.23.226-0285
+ss://YWVzLTI1Ni1jZmI6ZjhmN2FDemNQS2JzRjhwMw==@185.213.23.226:989#%F0%9F%87%B3%F0%9F%87%B4NO-185.213.23.226-0299
 ss://YWVzLTI1Ni1jZmI6ZjhmN2FDemNQS2JzRjhwMw@185.213.23.226:989#premium-no
 ss://a0069975-5ad0-4f1c-8800-cd55a381b3b9@node-no-1-v4.soundlesss.com:6000?security=reality&type=tcp&headerType=none&path=&host=&sni=www.unpkg.com&fp=firefox&pbk=ioE61VC3V30U7IdRmQ3bjhOq2ij9tPhVIgAD4JZ4YRY&sid=0b5922be64fc5713#Norway%20%F0%9F%87%B3%F0%9F%87%B4
 vless://a0069975-5ad0-4f1c-8800-cd55a381b3b9@node-no-1-v4.soundlesss.com:6000?security=reality&type=tcp&headerType=none&path=&host=&sni=www.unpkg.com&fp=firefox&pbk=ioE61VC3V30U7IdRmQ3bjhOq2ij9tPhVIgAD4JZ4YRY&sid=0b5922be64fc5713#Norway%20%F0%9F%87%B3%F0%9F%87%B4
