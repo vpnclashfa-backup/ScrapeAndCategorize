@@ -1,0 +1,2 @@
+ss://d12cd1ff-6073-4c5c-92bc-bd0e8f6c063a@193hmale.bazichiserver.top:443?path=%2Fuplod.ir&security=none&alpn=null&encryption=none&type=ws#Mr.bazichi-31938
+vless://d12cd1ff-6073-4c5c-92bc-bd0e8f6c063a@193hmale.bazichiserver.top:443?path=%2Fuplod.ir&security=none&alpn=null&encryption=none&type=ws#Mr.bazichi-31938

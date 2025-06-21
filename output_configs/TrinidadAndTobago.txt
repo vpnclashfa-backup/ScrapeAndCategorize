@@ -1,1 +1,2 @@
-trojan://ttfang@138.2.74.219:28616?security=tls&sni=ttfang.fange.me&type=tcp&headerType=none#%E5%85%8D%E8%B4%B9VPN%EF%BC%9Ahttps%3A%2F%2Ftt.vg%2FgwaAy
+ss://d8dd94fd-540e-461d-b5d4-acebef02c22a@160.250.65.149:34045?encryption=none&security=none&sni=visit-this-invitation-link-to-join-tg-enkelte-notif.ekt.me&type=tcp&headerType=none#%E5%85%8D%E8%B4%B9VPN%EF%BC%9Ahttps%3A%2F%2Ftt.vg%2FgwaAy
+vless://d8dd94fd-540e-461d-b5d4-acebef02c22a@160.250.65.149:34045?encryption=none&security=none&sni=visit-this-invitation-link-to-join-tg-enkelte-notif.ekt.me&type=tcp&headerType=none#%E5%85%8D%E8%B4%B9VPN%EF%BC%9Ahttps%3A%2F%2Ftt.vg%2FgwaAy
