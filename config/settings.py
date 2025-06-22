@@ -31,6 +31,13 @@ PROTOCOL_CATEGORIES = [
     "Tuic", "Hysteria2", "WireGuard"
 ]
 
+
+
+# --- Output Customization ---
+# لیستی از کشورهایی که می‌خواهیم خروجی Base64 هم برایشان ساخته شود
+COUNTRIES_TO_ENCODE = ["Iran"]
+
+
 # --- GitHub Repo Configuration for README ---
 # اطلاعات مخزن گیت‌هاب شما برای ساخت لینک‌های دانلود در فایل README
 GITHUB_REPO_PATH = "PacketEscape/ScrapeAndCategorize"
