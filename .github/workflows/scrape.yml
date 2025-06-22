@@ -1,52 +1,44 @@
-name: Daily Scrape and Update Repo
+# مسیر: .github/workflows/main.yml
+
+name: Scrape And Categorize V2Ray Configs
 
 on:
-  workflow_dispatch:
-  schedule:
-    - cron: '0 1 * * *'
-
-permissions:
-  contents: write
+  push:
+    branches:
+      - main  # یا هر شاخه‌ای که می‌خواهید
+  workflow_dispatch: # اجازه اجرای دستی
 
 jobs:
-  scrape-and-commit:
+  build-and-commit:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 📥 Check out repository
+      # مرحله ۱: دریافت کد از مخزن گیت‌هاب
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: 🐍 Set up Python
-        uses: actions/setup-python@v5
+      # مرحله ۲: تنظیم نسخه پایتون
+      - name: Set up Python
+        uses: actions/setup-python@v4
         with:
-          python-version: '3.11'
-          cache: 'pip'
+          python-version: '3.10' # نسخه‌ای که با آن کار می‌کنید
 
-      - name: ⚙️ Install dependencies
+      # مرحله ۳: نصب وابستگی‌ها از فایل نیازمندی‌ها
+      - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt # <-- pytz هم نصب می‌شود
+          pip install -r requirements.txt
 
-      - name: 🕸️ Run scraping script
-        # اسکریپت را اجرا می‌کند تا پوشه و README ایجاد شود
-        run: python scraper.py
+      # مرحله ۴: اجرای اسکریپت اصلی پایتون
+      - name: Run the main script
+        run: python main.py
 
-      - name: 🔧 Configure Git
+      # مرحله ۵: کامیت کردن فایل‌های خروجی جدید
+      - name: Commit and push changes
         run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-
-      - name: ⬆️ Commit and Push Changes
-        run: |
-          # پوشه خروجی و فایل README.md را اضافه می‌کند
-          git add output_configs/ README.md # <--- تغییر: README.md اضافه شد
-
-          # بررسی می‌کند که آیا تغییری برای کامیت وجود دارد یا نه
-          if git diff --staged --quiet; then
-            echo "No changes detected. Skipping commit."
-          else
-            echo "Changes detected. Committing and pushing..."
-            # پیام کامیت را کمی تغییر می‌دهیم
-            git commit -m "docs: Update README and config files 🤖 [skip ci]"
-            git push
-          fi
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add -A .  # افزودن تمام فایل‌های جدید یا تغییر کرده (شامل خروجی‌ها و لاگ)
+          # فقط در صورتی کامیت کن که تغییری وجود داشته باشد
+          git diff-index --quiet HEAD || git commit -m "📊 Update configs and logs"
+          git push
