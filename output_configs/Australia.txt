@@ -1,2 +1,0 @@
-ss://f11b459a-b505-4530-a883-59d5b8c51b64@alfa.subscrib.sbs:4242?security=none&encryption=none&host=p30afzar.com&headerType=http&type=tcp#🆔soskeynet%20🔓%20VL-TCP-N/A%20🇦🇺%20AU%20down
-vless://f11b459a-b505-4530-a883-59d5b8c51b64@alfa.subscrib.sbs:4242?security=none&encryption=none&host=p30afzar.com&headerType=http&type=tcp#🆔soskeynet%20🔓%20VL-TCP-N/A%20🇦🇺%20AU%20down

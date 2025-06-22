@@ -35,7 +35,6 @@ trojan://2YDH6ktJOt@104.21.15.33:8443?security=tls&sni=support.sabapardaziran.ir
 trojan://2ad5f69a-0d8f-4e33-af04-6b82d0acc672@62.220.127.60:8080?security=tls&sni=node5.servernode.store&type=tcp#🔒
 trojan://2ad5f69a-0d8f-4e33-af04-6b82d0acc672@node11.starnode.online:8080?security=tls&headerType=none&type=tcp&sni=node5.servernode.store#%5B%F0%9F%87%AE%F0%9F%87%B7%5D
 trojan://2ad5f69a-0d8f-4e33-af04-6b82d0acc672@node11.starnode.online:8080?security=tls&headerType=none&type=tcp&sni=node5.servernode.store#@meli_proxyy
-trojan://2ad5f69a-0d8f-4e33-af04-6b82d0acc672@node11.starnode.online:8080?security=tls&headerType=none&type=tcp&sni=node5.servernode.store#🆔conectvpn10%20🔒%20TR-TCP-N/A%20🇮🇷%20IR%20down
 trojan://2bfa08e0-ae1e-11ed-a3a0-1239d0255272@5.254.17.52:443?security=tls&sni=telewebion.com&type=ws&path=/trojanws#🔒
 trojan://2e3562a819634de686ade78e434c0963@104.17.147.5:443?security=tls&sni=jobscareertoday.com&type=ws&host=jobscareertoday.com&path=/6b777a91#🔒
 trojan://2fec7227-9abe-46f2-af18-78302b836c45@104.21.30.167:443?allowInsecure=0&sni=3y.2032.pp.ua#🦀PF462889
@@ -87,16 +86,9 @@ trojan://6884d714-d3c4-4b49-aa20-767ea92837d6@172.67.209.127:443?security=tls&sn
 trojan://6884d714-d3c4-4b49-aa20-767ea92837d6@172.67.30.171:443?security=tls&sni=icecream.955850.xyz&type=ws&host=icecream.955850.xyz&path=%2Fproxyip%3D45.67.215.153%3A443&alpn=h3#🔒
 trojan://6884d714-d3c4-4b49-aa20-767ea92837d6@172.67.5.78:443?security=tls&sni=icecream.955850.xyz&type=ws&host=icecream.955850.xyz#🔒
 trojan://6884d714-d3c4-4b49-aa20-767ea92837d6@185.133.35.243:443?sni=icecream.955850.xyz&type=ws&host=icecream.955850.xyz#🔒
-trojan://Aimer@154.197.64.248:8443?allowInsecure=0&sni=agepj.ambercc.filegear-sg.me#🆔soskeynet%20🔓%20TR--N/A%20🇺🇸%20US%205ms
-trojan://Aimer@188.164.159.174:2053?allowInsecure=0&sni=agepj.ambercc.filegear-sg.me#🆔soskeynet%20🔓%20TR--N/A%20🇨🇿%20CZ%206ms
 trojan://aacbbca-baac-bcaa-badc-abbbcacabcca@127.0.0.1:1080?security=tls&type=tcp#🔄
 trojan://baaccab-acab-caba-dbac-acbbacbbacac@127.0.0.1:2080?security=tls&type=tcp#🤖
 trojan://bcbaaac-baac-caab-dabc-bbaacbabcacc@127.0.0.1:3080?security=tls&type=tcp#🛡
 trojan://cacbaab-baca-bcaa-cdab-aabcabbcaccb@127.0.0.1:8080?security=tls&type=tcp#👨🏻‍💻
 trojan://pYvkMQEdWp@95.38.102.138:54057?security=tls&sni=berno30.freedaom.top&type=tcp#🔒
-trojan://telegram-id-directvpn@15.236.173.146:22223?security=tls&alpn=http%2F1.1&headerType=none&type=tcp&sni=trojan.burgerip.co.uk#🆔soskeynet%20🔒%20TR-TCP-N/A%20🇫🇷%20FR%20down
-trojan://telegram-id-directvpn@51.44.50.180:22223?security=tls&alpn=http%2F1.1&headerType=none&type=tcp&sni=trojan.burgerip.co.uk#🆔soskeynet%20🔒%20TR-TCP-N/A%20🇫🇷%20FR%20down
-trojan://telegram-id-directvpn@63.177.165.127:22223?security=tls&alpn=http%2F1.1&headerType=none&type=tcp&sni=trojan.burgerip.co.uk#🆔soskeynet%20🔒%20TR-TCP-N/A%20🇩🇪%20DE%20131ms
-trojan://telegram-id-privatevpns@15.236.173.146:22222?security=tls&alpn=http%2F1.1&headerType=none&type=tcp&sni=trojan.burgerip.co.uk#🆔soskeynet%20🔒%20TR-TCP-N/A%20🇫🇷%20FR%20down
-trojan://telegram-id-privatevpns@51.44.50.180:22222?security=tls&alpn=http%2F1.1&headerType=none&type=tcp&sni=trojan.burgerip.co.uk#🆔soskeynet%20🔒%20TR-TCP-N/A%20🇫🇷%20FR%20down
-trojan://telegram-id-privatevpns@63.177.165.127:22222?security=tls&alpn=http%2F1.1&headerType=none&type=tcp&sni=trojan.burgerip.co.uk#🆔soskeynet%20🔒%20TR-TCP-N/A%20🇩🇪%20DE%20144ms
+trojan://ttfang@128.199.237.143:443?type=ws&host=ttfang.fange.me&path=%2F&security=tls&sni=ttfang.fange.me#🆔soskeynet%20🔒%20TR-WS-N/A%20🇸🇬%20SG%20206ms

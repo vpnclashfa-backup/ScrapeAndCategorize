@@ -1,4 +1,6 @@
 ss://13bc58c3-a9e9-40ad-be26-0335e72b890c@193.151.132.16:8543?type=tcp&security=none#%40GrizzlyVPN@GrizzlyVPN
+ss://737d83d2-368e-430b-8292-7a7f1d38d783@power.dlmoviz.ir:2023?mode=gun&security=none&encryption=none&type=grpc&serviceName=2023vless#🆔vpn_solve%20🔓%20VL-GRPC-N/A%20🇦🇪%20AE%20133ms
 trojan://-EleP1yiGc6SD72p-m8Brw@78.39.9.168:6161?mode=gun&security=tls&alpn=h2&authority=&fp=chrome&type=grpc&serviceName=gg&sni=speedtest.net#%F0%9F%94%92+TR-GRPC-TLS+%F0%9F%87%AE%F0%9F%87%B7+IR-78.39.9.168%3A6161
 vless://13bc58c3-a9e9-40ad-be26-0335e72b890c@193.151.132.16:8543?type=tcp&security=none#%40GrizzlyVPN@GrizzlyVPN
+vless://737d83d2-368e-430b-8292-7a7f1d38d783@power.dlmoviz.ir:2023?mode=gun&security=none&encryption=none&type=grpc&serviceName=2023vless#🆔vpn_solve%20🔓%20VL-GRPC-N/A%20🇦🇪%20AE%20133ms
 vmess://eyJhZGQiOiAiMTkzLjI0LjEwNS42MCIsICJhaWQiOiAiMCIsICJhbHBuIjogIiIsICJmcCI6ICIiLCAiaG9zdCI6ICIiLCAiaWQiOiAiMTg3OWUwMGQtNmJkYi00MmY4LTk3Y2UtMGRjMGJmNTk3MGVmIiwgIm5ldCI6ICJncnBjIiwgInBhdGgiOiAiIiwgInBvcnQiOiAiMzI0NSIsICJwcyI6ICJcdWQ4M2RcdWRkMTIgVk0tR1JQQy1OT05FIFx1ZDgzY1x1ZGRlZVx1ZDgzY1x1ZGRmNyBJUi0xOTMuMjQuMTA1LjYwOjMyNDUiLCAic2N5IjogImF1dG8iLCAic25pIjogIiIsICJ0bHMiOiAibm9uZSIsICJ0eXBlIjogIm11bHRpIiwgInYiOiAiMiJ9
