@@ -1,4 +1,3 @@
-ss://01b8c498-d50c-453b-9cd8-bc5fd9496362@isbt1.2vipvip2.top:2281?security=&encryption=none&host=www.speedtest.net&headerType=http&type=tcp#%40sunflowerplato%F0%9F%8C%BB89
 ss://aaacbbc-cbaa-aabc-dacb-acbacbbcaacb@127.0.0.1:1080?security=tls&type=tcp#🔄%20LATEST-UPDATE%20📅%20Sun-01-TIR-1404
-vless://01b8c498-d50c-453b-9cd8-bc5fd9496362@isbt1.2vipvip2.top:2281?security=&encryption=none&host=www.speedtest.net&headerType=http&type=tcp#%40sunflowerplato%F0%9F%8C%BB89
 vless://aaacbbc-cbaa-aabc-dacb-acbacbbcaacb@127.0.0.1:1080?security=tls&type=tcp#🔄%20LATEST-UPDATE%20📅%20Sun-01-TIR-1404
+vmess://eyJhZGQiOiAiMTI3LjAuMC4xIiwgImFpZCI6ICIwIiwgImhvc3QiOiAiIiwgImlkIjogImFiYWNiY2EtYWFiYy1hYWNiLWFjYmQtY2FiY2JjYWJhYWJjIiwgIm5ldCI6ICJ0Y3AiLCAicGF0aCI6ICIiLCAicG9ydCI6IDEwODAsICJwcyI6ICJcdWQ4M2RcdWRkMDQgTEFURVNULVVQREFURSBcdWQ4M2RcdWRjYzUgU1VOLTAxLVRJUi0xNDA0IFx1ZDgzZFx1ZGQ1MSAwMjoxMiIsICJzY3kiOiAiYXV0byIsICJzbmkiOiAiIiwgInRscyI6ICIiLCAidHlwZSI6ICIiLCAidiI6ICIyIn0=
