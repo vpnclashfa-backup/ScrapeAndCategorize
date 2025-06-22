@@ -31,5 +31,12 @@ PROTOCOL_CATEGORIES = [
 GITHUB_REPO_PATH = "vpnclashfa-backup/ScrapeAndCategorize"
 GITHUB_BRANCH = "main"
 
+
+# --- Output Link Files ---
+# فایل‌هایی برای ذخیره لینک‌های خام تولید شده
+NORMAL_LINKS_FILE = 'output_normal_links.txt'
+BASE64_LINKS_FILE = 'output_base64_links.txt'
+
+
 # --- متغیر COUNTRIES_TO_ENCODE حذف شد ---
 # چون برای تمام کشورها خروجی Base64 ساخته می‌شود، دیگر به این متغیر نیازی نیست.
