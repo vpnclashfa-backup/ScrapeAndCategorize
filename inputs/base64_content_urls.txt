@@ -1,1 +1,2 @@
-.
+https://raw.githubusercontent.com/10ium/HiN-VPN/main/subscription/base64/mix
+https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/countries/ir/mixed
