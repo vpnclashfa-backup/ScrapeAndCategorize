@@ -48,24 +48,27 @@ def encode_and_save_base64(directory: str, filename: str, configs: set, logger: 
     except IOError as e:
         logger.error(f"خطا در نوشتن فایل Base64 در {file_path}: {e}")
 
+
 def generate_readme(protocol_counts: dict, country_counts: dict, all_keywords: dict, logger: Logger):
-    """فایل README.md را با آمار و لینک‌ها تولید می‌کند."""
+    """فایل README.md و فایل‌های متنی حاوی لینک‌ها را تولید می‌کند."""
     tz = pytz.timezone('Asia/Tehran')
     now = datetime.now(tz)
     timestamp = now.strftime("%Y-%m-%d %H:%M:%S %Z")
     
-    # *** اصلاح کلیدی: افزودن بخش 'refs/heads' به آدرس پایه ***
     base_url = f"https://raw.githubusercontent.com/{settings.GITHUB_REPO_PATH}/refs/heads/{settings.GITHUB_BRANCH}"
-    
     normal_configs_url = f"{base_url}/{settings.OUTPUT_DIR}"
     base64_configs_url = f"{base_url}/{settings.BASE64_OUTPUT_DIR}"
     
+    # *** تغییر ۱: ایجاد دو لیست خالی برای جمع‌آوری لینک‌ها ***
+    all_normal_links = []
+    all_base64_links = []
+
     md_content = f"# Configs (آخرین به‌روزرسانی: {timestamp})\n\n"
     md_content += "## دسته‌بندی بر اساس پروتکل\n\n"
     md_content += "| پروتکل | تعداد | لینک دانلود |\n|---|---|---|\n"
     for category, count in sorted(protocol_counts.items()):
-        # این لینک اکنون به درستی ساخته می‌شود
         file_link = f"{normal_configs_url}/{category}.txt"
+        all_normal_links.append(file_link) # *** افزودن لینک به لیست ***
         md_content += f"| {category} | {count} | [`{category}.txt`]({file_link}) |\n"
     
     md_content += "\n## دسته‌بندی بر اساس کشور\n\n"
@@ -78,16 +81,34 @@ def generate_readme(protocol_counts: dict, country_counts: dict, all_keywords: d
         flag_md = f'<img src="https://flagcdn.com/w20/{iso_code}.png" width="20">' if iso_code else ""
         country_display = f"{flag_md} {country} ({persian_name})" if persian_name else f"{flag_md} {country}"
         
-        # این لینک‌ها هم اکنون به درستی ساخته می‌شوند
-        normal_link = f"[`{country}.txt`]({normal_configs_url}/{country}.txt)"
-        base64_link = f"[`{country}.txt`]({base64_configs_url}/{country}.txt)"
+        normal_link_url = f"{normal_configs_url}/{country}.txt"
+        base64_link_url = f"{base64_configs_url}/{country}.txt"
         
-        md_content += f"| {country_display.strip()} | {count} | {normal_link} | {base64_link} |\n"
+        all_normal_links.append(normal_link_url) # *** افزودن لینک به لیست ***
+        all_base64_links.append(base64_link_url) # *** افزودن لینک به لیست ***
+        
+        normal_link_md = f"[`{country}.txt`]({normal_link_url})"
+        base64_link_md = f"[`{country}.txt`]({base64_link_url})"
+        
+        md_content += f"| {country_display.strip()} | {count} | {normal_link_md} | {base64_link_md} |\n"
 
+    # نوشتن فایل README.md
     try:
         with open(settings.README_FILE, 'w', encoding='utf-8') as f:
             f.write(md_content)
         logger.info(f"فایل {settings.README_FILE} با موفقیت تولید شد.")
     except IOError as e:
         logger.error(f"خطا در نوشتن فایل {settings.README_FILE}: {e}")
+        
+    # *** تغییر ۲: ذخیره کردن لینک‌های جمع‌آوری شده در فایل‌های متنی ***
+    try:
+        with open(settings.NORMAL_LINKS_FILE, 'w', encoding='utf-8') as f:
+            # استفاده از set برای حذف موارد تکراری و سپس مرتب‌سازی
+            f.write("\n".join(sorted(list(set(all_normal_links)))))
+        logger.info(f"فایل لینک‌های نرمال در {settings.NORMAL_LINKS_FILE} ذخیره شد.")
 
+        with open(settings.BASE64_LINKS_FILE, 'w', encoding='utf-8') as f:
+            f.write("\n".join(sorted(list(set(all_base64_links)))))
+        logger.info(f"فایل لینک‌های Base64 در {settings.BASE64_LINKS_FILE} ذخیره شد.")
+    except IOError as e:
+        logger.error(f"خطا در نوشتن فایل‌های لینک: {e}")
