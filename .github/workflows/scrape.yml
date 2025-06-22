@@ -5,7 +5,7 @@ name: Scrape And Categorize V2Ray Configs
 on:
   push:
     branches:
-      - test  # یا هر شاخه‌ای که می‌خواهید
+      - Test  # یا هر شاخه‌ای که می‌خواهید
   workflow_dispatch: # اجازه اجرای دستی
 
 jobs:
