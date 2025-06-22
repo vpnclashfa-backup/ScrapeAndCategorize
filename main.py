@@ -15,7 +15,7 @@ async def main():
     logger.info("اسکریپت جمع‌آوری و دسته‌بندی کانفیگ‌ها شروع به کار کرد")
     logger.info("="*50)
 
-    # ۱. خواندن فایل‌های ورودی
+    # ... (بخش ۱ و ۲ بدون تغییر) ...
     keywords = load_keywords(settings.KEYWORDS_FILE)
     if not keywords:
         logger.error("فایل keywords.json یافت نشد یا خالی است. برنامه متوقف می‌شود.")
@@ -27,14 +27,13 @@ async def main():
         logger.error("هیچ URL ای در فایل‌های ورودی یافت نشد. برنامه متوقف می‌شود.")
         return
 
-    # ۲. واکشی محتوا از لینک‌ها
     tasks = []
     async with aiohttp.ClientSession() as session:
         for url in plain_urls: tasks.append(fetch_and_normalize_content(session, url, False, logger))
         for url in base64_urls: tasks.append(fetch_and_normalize_content(session, url, True, logger))
         results = await asyncio.gather(*tasks)
 
-    # ۳. تحلیل و تجمیع نتایج
+    # ... (بخش ۳ تحلیل و تجمیع نتایج بدون تغییر) ...
     logger.info("--- شروع تحلیل و تجمیع نتایج ---")
     country_names = [k for k in keywords if k not in settings.PROTOCOL_CATEGORIES]
     final_protocol_configs = {p: set() for p in settings.PROTOCOL_CATEGORIES}
@@ -46,20 +45,19 @@ async def main():
         analysis_result = analyze_content(content, keywords)
         stats = analysis_result['stats']
         
-        # لاگ کردن آمار هر لینک
         if stats['total'] > 0:
             protocol_stats_str = ", ".join([f"{p}: {c}" for p, c in stats['protocols'].items()])
             logger.info(f"📊 آمار برای {url} -> کل: {stats['total']}, ایران: {stats['iran_count']}, [{protocol_stats_str}]")
         
-        # تجمیع نتایج
         for protocol, configs in analysis_result['protocol_configs'].items():
             final_protocol_configs[protocol].update(configs)
         for country, configs in analysis_result['country_configs'].items():
             final_country_configs[country].update(configs)
 
-    # ۴. ذخیره‌سازی فایل‌ها
+    # ۴. ذخیره‌سازی فایل‌ها (با منطق جدید)
     logger.info("--- شروع ذخیره‌سازی فایل‌ها ---")
-    prepare_output_dirs([settings.OUTPUT_DIR, settings.BASE64_IRAN_DIR], logger)
+    # هر دو پوشه خروجی را آماده‌سازی می‌کند
+    prepare_output_dirs([settings.OUTPUT_DIR, settings.BASE64_OUTPUT_DIR], logger)
     
     protocol_counts = {}
     for protocol, configs in final_protocol_configs.items():
@@ -70,11 +68,10 @@ async def main():
     for country, configs in final_country_configs.items():
         count = save_configs_to_file(settings.OUTPUT_DIR, country, configs, logger)
         if count > 0: country_counts[country] = count
+        
+        # *** تغییر کلیدی: ساخت فایل Base64 برای تمام کشورهایی که کانفیگ دارند ***
+        encode_and_save_base64(settings.BASE64_OUTPUT_DIR, country, configs, logger)
 
-    # ذخیره نسخه Base64 برای کشورهای مشخص شده
-    for country in settings.COUNTRIES_TO_ENCODE:
-        if country in final_country_configs:
-            encode_and_save_base64(settings.BASE64_IRAN_DIR, country, final_country_configs[country], logger)
 
     # ۵. تولید فایل README.md
     logger.info("--- تولید گزارش نهایی ---")
