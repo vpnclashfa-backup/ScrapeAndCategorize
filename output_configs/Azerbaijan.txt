@@ -1,2 +1,0 @@
-ss://646a88c5-f4db-4095-bfed-227e488e0ffe@ir3.czkyc.ir:7008?security=&encryption=none&host=fast.com&headerType=http&type=tcp#%F0%9F%87%A6%F0%9F%87%BF%20Azerbaijan%20Baku%20%F0%9F%87%AE%F0%9F%87%B7
-vless://646a88c5-f4db-4095-bfed-227e488e0ffe@ir3.czkyc.ir:7008?security=&encryption=none&host=fast.com&headerType=http&type=tcp#%F0%9F%87%A6%F0%9F%87%BF%20Azerbaijan%20Baku%20%F0%9F%87%AE%F0%9F%87%B7
