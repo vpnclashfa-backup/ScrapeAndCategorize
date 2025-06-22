@@ -1,0 +1,1 @@
+trojan://1b4c16925f934c57b954a9f0f23dea33@42.240.152.238:8842?allowInsecure=1&sni=brwx.spvpv.com#15%7CCN_speednode_0001
