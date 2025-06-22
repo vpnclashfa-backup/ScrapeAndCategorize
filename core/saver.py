@@ -10,10 +10,8 @@ from config import settings
 from utils.text_helpers import is_persian_like
 
 # توابع prepare_output_dirs, save_configs_to_file, encode_and_save_base64
-# بدون تغییر باقی می‌مانند. فقط تابع generate_readme تغییر می‌کند.
-
+# بدون تغییر باقی می‌مانند.
 def prepare_output_dirs(dirs_to_clean: list, logger: Logger):
-    """پوشه‌های خروجی را پاکسازی و دوباره ایجاد می‌کند."""
     for directory in dirs_to_clean:
         try:
             if os.path.exists(directory):
@@ -25,9 +23,7 @@ def prepare_output_dirs(dirs_to_clean: list, logger: Logger):
             logger.error(f"خطا در مدیریت پوشه {directory}: {e}")
 
 def save_configs_to_file(directory: str, filename: str, configs: set, logger: Logger) -> int:
-    """مجموعه‌ای از کانفیگ‌ها را در یک فایل ذخیره می‌کند."""
-    if not configs:
-        return 0
+    if not configs: return 0
     count = len(configs)
     file_path = os.path.join(directory, f"{filename}.txt")
     try:
@@ -41,9 +37,7 @@ def save_configs_to_file(directory: str, filename: str, configs: set, logger: Lo
         return 0
 
 def encode_and_save_base64(directory: str, filename: str, configs: set, logger: Logger):
-    """کانفیگ‌ها را به صورت یکپارچه به Base64 تبدیل و ذخیره می‌کند."""
-    if not configs:
-        return
+    if not configs: return
     full_content = "\n".join(sorted(list(configs)))
     encoded_content = base64.b64encode(full_content.encode('utf-8')).decode('utf-8')
     file_path = os.path.join(directory, f"{filename}.txt")
@@ -60,8 +54,9 @@ def generate_readme(protocol_counts: dict, country_counts: dict, all_keywords: d
     now = datetime.now(tz)
     timestamp = now.strftime("%Y-%m-%d %H:%M:%S %Z")
     
-    # *** تغییر کلیدی: تعریف دو آدرس پایه مجزا برای لینک‌ها ***
-    base_url = f"https://raw.githubusercontent.com/{settings.GITHUB_REPO_PATH}/{settings.GITHUB_BRANCH}"
+    # *** اصلاح کلیدی: افزودن بخش 'refs/heads' به آدرس پایه ***
+    base_url = f"https://raw.githubusercontent.com/{settings.GITHUB_REPO_PATH}/refs/heads/{settings.GITHUB_BRANCH}"
+    
     normal_configs_url = f"{base_url}/{settings.OUTPUT_DIR}"
     base64_configs_url = f"{base_url}/{settings.BASE64_OUTPUT_DIR}"
     
@@ -69,11 +64,11 @@ def generate_readme(protocol_counts: dict, country_counts: dict, all_keywords: d
     md_content += "## دسته‌بندی بر اساس پروتکل\n\n"
     md_content += "| پروتکل | تعداد | لینک دانلود |\n|---|---|---|\n"
     for category, count in sorted(protocol_counts.items()):
+        # این لینک اکنون به درستی ساخته می‌شود
         file_link = f"{normal_configs_url}/{category}.txt"
         md_content += f"| {category} | {count} | [`{category}.txt`]({file_link}) |\n"
     
     md_content += "\n## دسته‌بندی بر اساس کشور\n\n"
-    # *** تغییر کلیدی: تغییر سرتیتر جدول ***
     md_content += "| کشور | تعداد | لینک نرمال | لینک بیس۶۴ |\n|---|---|---|---|\n"
     for country, count in sorted(country_counts.items()):
         keywords_list = all_keywords.get(country, [])
@@ -83,7 +78,7 @@ def generate_readme(protocol_counts: dict, country_counts: dict, all_keywords: d
         flag_md = f'<img src="https://flagcdn.com/w20/{iso_code}.png" width="20">' if iso_code else ""
         country_display = f"{flag_md} {country} ({persian_name})" if persian_name else f"{flag_md} {country}"
         
-        # *** تغییر کلیدی: ساخت دو لینک مجزا ***
+        # این لینک‌ها هم اکنون به درستی ساخته می‌شوند
         normal_link = f"[`{country}.txt`]({normal_configs_url}/{country}.txt)"
         base64_link = f"[`{country}.txt`]({base64_configs_url}/{country}.txt)"
         
@@ -95,3 +90,4 @@ def generate_readme(protocol_counts: dict, country_counts: dict, all_keywords: d
         logger.info(f"فایل {settings.README_FILE} با موفقیت تولید شد.")
     except IOError as e:
         logger.error(f"خطا در نوشتن فایل {settings.README_FILE}: {e}")
+
