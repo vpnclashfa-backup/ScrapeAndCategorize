@@ -1,0 +1,2 @@
+ss://6a99725d-2af8-d27c-cef5-302fbbe54c07@81.12.92.135:18755?security=none&encryption=none&headerType=http&type=tcp#%F0%9F%87%AE%F0%9F%87%B7%20IR%20%7C%20%F0%9F%94%B4%20%7C%20vless%20%7C%20%40iran_mehr_vpn%20%7C%2014
+vless://6a99725d-2af8-d27c-cef5-302fbbe54c07@81.12.92.135:18755?security=none&encryption=none&headerType=http&type=tcp#%F0%9F%87%AE%F0%9F%87%B7%20IR%20%7C%20%F0%9F%94%B4%20%7C%20vless%20%7C%20%40iran_mehr_vpn%20%7C%2014

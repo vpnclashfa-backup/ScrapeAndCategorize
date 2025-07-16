@@ -1,0 +1,2 @@
+ss://9359969a-f79b-47fd-9d79-c7397d10af3d@213.176.121.239:57257?security=none&encryption=none&host=speedtest.net&headerType=http&type=tcp#🆔vpnbaz%20🔓%20VL-TCP-N/A%20🇮🇷%20IR%20down
+vless://9359969a-f79b-47fd-9d79-c7397d10af3d@213.176.121.239:57257?security=none&encryption=none&host=speedtest.net&headerType=http&type=tcp#🆔vpnbaz%20🔓%20VL-TCP-N/A%20🇮🇷%20IR%20down
